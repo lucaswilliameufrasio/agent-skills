@@ -1,4 +1,4 @@
-# Lucas's Agent Skills
+# Eufrasio's Agent Skills
 
 A curated collection of reusable agent skills maintained in public.
 
