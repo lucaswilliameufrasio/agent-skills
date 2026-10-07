@@ -3,8 +3,8 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Merge PRs #28 and #29 in that order. Both are green, but rebase the remaining branch after the first merge and use normal merge commits.",
-      "expected_output": "Checks both heads, merges #28 normally, rebases and pushes #29 on the new base, waits for its checks, then merges #29 normally.",
+      "prompt": "Merge two requested PRs in order. Both are green, but rebase the remaining branch after the first merge and use normal merge commits.",
+      "expected_output": "Checks both heads, merges the first normally, rebases and pushes the second on the new base, waits for its checks, then merges it normally.",
       "files": []
     },
     {
