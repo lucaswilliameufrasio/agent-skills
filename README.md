@@ -11,6 +11,7 @@ A curated collection of reusable agent skills maintained in public.
 | [`explicit-code-style`](skills/explicit-code-style/SKILL.md) | Prefer multiline conditionals, explicit loops, and clear absence values. |
 | [`conventional-commits`](skills/conventional-commits/SKILL.md) | Draft and review Conventional Commit messages without committing without authorization. |
 | [`semantic-versioning`](skills/semantic-versioning/SKILL.md) | Choose and validate version changes against SemVer 2.0.0 and project release rules. |
+| [`http-error-contracts`](skills/http-error-contracts/SKILL.md) | Standardize HTTP error bodies, status semantics, stable codes, and validation details. |
 
 Each first-party skill lives in its own directory and contains a `SKILL.md` with frontmatter. Install skills from this repository with the [Skills CLI](https://github.com/vercel-labs/skills):
 
@@ -20,7 +21,8 @@ npx skills add lucaswilliameufrasio/agent-skills \
   --skill single-state-enum \
   --skill explicit-code-style \
   --skill conventional-commits \
-  --skill semantic-versioning
+  --skill semantic-versioning \
+  --skill http-error-contracts
 ```
 
 Add `-g` for a global installation, or install an individual skill with one `--skill <name>` option. Skills are installed into the agent directories selected by the CLI.

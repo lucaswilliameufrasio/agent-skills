@@ -1,0 +1,100 @@
+---
+name: http-error-contracts
+description: >-
+  Design, implement, or review consistent HTTP/JSON API errors. Use when adding
+  API handlers, request validation, authentication/authorization failures,
+  business conflicts, upstream integrations, or error response builders. Enforce
+  a stable error body, precise status semantics, no absent values encoded as null,
+  and no internal detail leakage.
+---
+
+# HTTP error contracts
+
+Use one predictable error contract across an API. Clients use stable machine
+codes for behavior and human-readable messages for display; handlers should not
+invent their own response shape or status mapping.
+
+## Error body
+
+Every API error response uses this shape:
+
+```json
+{
+  "message": "Mensagem legível para pessoas",
+  "error_code": "STABLE_UPPER_SNAKE_CASE",
+  "extra": {
+    "context_key": "context value"
+  }
+}
+```
+
+`extra` is optional. Omit it when there is no useful context. Do not encode
+missing or optional values as JSON `null` in any API request or response body;
+omit an optional key instead. A required value must be valid or produce a
+validation error.
+
+- `message` is for people, not client-side branching. Use the API's required
+  human language; for the house convention, use PT-BR.
+- `error_code` is a stable, documented identifier. Clients branch or translate
+  by this code, never by parsing `message`.
+- Do not rename a shipped code without a compatibility plan with API consumers.
+- `extra` may carry safe context useful to a UI or operator, such as validation
+  details, a resource identifier, retryability, or a limit. Never put secrets,
+  stack traces, raw internal errors, or sensitive payloads there.
+
+## Status semantics
+
+| Situation | HTTP | `error_code` | `extra` |
+| --- | ---: | --- | --- |
+| Missing/invalid authentication | 401 | `UNAUTHORIZED` or a stable auth code | Omit unless safe context is needed |
+| Authenticated but not allowed | 403 | `PERMISSION_DENIED` | Omit unless safe context is needed |
+| Resource does not exist | 404 | `<RESOURCE>_NOT_FOUND` | Omit unless safe context is needed |
+| State conflict (already exists/decided) | 409 | A stable conflict-specific code | Omit unless safe context is needed |
+| Business precondition not satisfied | 412 | A stable precondition-specific code | Current safe state, when useful |
+| Syntactically valid payload violates validation/business rules | 422 | `INVALID_PARAMS` | **Required:** `validation_errors` array |
+| Malformed request (invalid JSON/encoding/corrupt body) | 400 | `MALFORMED_REQUEST` | Omit unless safe context is needed |
+| Upstream dependency rejects/fails an operation | 502 | Our stable integration code | Safe upstream code/context, if useful |
+| Unexpected or unmapped server error | 500 | `UNEXPECTED_ERROR` | Never expose stack or internal details |
+| Derived resource generation fails | 500 | A stable operation-specific code | Safe limits/context, if useful |
+| Request body exceeds configured size limit | 413 | `PAYLOAD_TOO_LARGE` | Omit unless safe context is needed |
+
+Keep the distinctions precise:
+
+- **400** means the request cannot be parsed or is malformed.
+- **422** means parsing succeeded but the data violates validation or a business
+  rule. Every 422 response includes `extra.validation_errors`, an array of
+  `{ "field": "...", "message": "..." }` entries.
+- **409** means the current resource state conflicts with the requested action.
+- **412** means a prerequisite for the action has not been satisfied.
+- **404** means the addressed resource does not exist.
+
+## Upstream errors
+
+Do not expose an upstream provider's code as this API's `error_code`. Classify
+the outcome (for example, retryable vs. definitive), return a stable code owned
+by this API, and place a safe upstream code in `extra` only when useful. Keep
+internal endpoints, credentials, raw payloads, and sensitive provider details
+out of responses.
+
+## Centralize translation
+
+Domain errors should carry a human message and stable error code. Translate
+them to `{ statusCode, body }` in one shared builder/adapter rather than
+scattering HTTP status selection and response-envelope construction across
+routes. Map schema-validation failures into the standard validation error
+representation. The fallback for an unknown exception is a generic HTTP 500
+response; log details through the server's protected logging path, never in the
+response body.
+
+## Review checklist
+
+- Does every error use the shared body shape and stable code?
+- Does the status reflect the semantics, especially malformed 400 vs. invalid
+  422 and conflict 409 vs. precondition 412?
+- Does every 422 include `extra.validation_errors[]`?
+- Are absent values omitted, with no JSON `null` in API request/response bodies?
+- Do clients make decisions from `error_code`, not `message`?
+- Are upstream codes kept separate from this API's codes?
+- Are stack traces, internal messages, secrets, and sensitive payloads excluded
+  from all public responses?
+- Does one central translator/builder handle domain and framework errors?

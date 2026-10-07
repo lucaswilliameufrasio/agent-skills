@@ -1,25 +1,26 @@
 ---
 name: explicit-code-style
 description: >-
-  Apply Lucas's cross-project readability rules when writing or reviewing code:
-  use multiline braced conditionals, avoid callback-based forEach loops, and
-  avoid null as an absence value in TypeScript/JavaScript. Use whenever editing,
-  reviewing, or refactoring application code; respect stricter repository rules
-  and language-specific constraints.
+  Apply explicit, safe coding conventions when writing or reviewing code: use
+  multiline braced conditionals, explicit loops, no null in API JSON request or
+  response bodies, and strict TypeScript value handling. Use when editing,
+  reviewing, or refactoring application code; respect repository contracts and
+  language-specific constraints.
 ---
 
 # Explicit code style
 
-Prefer code whose control flow and absence semantics are visible at a glance.
-Apply these conventions across projects, while treating the current repository's
-`AGENTS.md`, language rules, public API contracts, and tool-enforced standards as
-the final authority when they add constraints or define a necessary exception.
+Prefer code whose control flow, errors, types, and absence semantics are visible
+at a glance. Apply these conventions without exposing implementation details or
+changing contracts. Follow the current repository's `AGENTS.md` and tool-enforced
+rules when they add stricter constraints; never use that as a reason to weaken
+the API JSON rule below.
 
-## Multiline conditionals
+## Multiline control flow
 
-Write `if` statements with braces and a multiline body. Avoid single-line
-conditionals, even when the body is short. This keeps future edits safe and makes
-branches easy to scan.
+Write `if`, `for`, and `while` statements with braces and a multiline body where
+the language supports them. Avoid single-line control-flow bodies, even when
+they are short. This keeps future edits safe and makes branches easy to scan.
 
 ```ts
 if (!user) {
@@ -39,9 +40,9 @@ the TypeScript example.
 
 ## Explicit iteration
 
-Avoid callback-style `.forEach(...)` and iterator `.for_each(...)` for control
-flow. Prefer an explicit `for`, `for...of`, or language-equivalent loop so that
-`break`, `continue`, `return`, and error propagation have clear semantics.
+Avoid callback-style `.forEach(...)` and iterator `.for_each(...)`. Prefer an
+explicit `for`, `for...of`, or language-equivalent loop so that `break`,
+`continue`, `return`, and error propagation have clear semantics.
 
 ```ts
 for (const item of items) {
@@ -53,13 +54,24 @@ Use transformations such as `map`, `filter`, or `reduce` when they express a
 value transformation clearly; this rule is about callback iteration, not a ban
 on functional operations generally.
 
+## API JSON has no null values
+
+Never put a `null` value in an HTTP API JSON request or response body. For an
+optional value, omit the key; for a required value, provide a valid value or
+return a validation error. Do not serialize absent fields as `null` and do not
+use `null` to signal an optional response value.
+
+When an upstream API or database uses `null`, normalize it at the integration
+or persistence boundary. Preserve the external wire contract when acting as a
+client, but do not relay `null` into this API's JSON contract; map it to an
+explicit domain value or omit an optional field.
+
 ## Absence values in TypeScript and JavaScript
 
-In TypeScript/JavaScript codebases using the no-`null` convention, represent an
-absent optional value with `undefined` or an optional field rather than `null`.
-Convert database `NULL` at the persistence boundary. Keep external API and
-library contracts accurate: normalize `null` at the adapter boundary when
-needed instead of lying about the wire format or silently changing semantics.
+In TypeScript/JavaScript, represent an absent optional value with `undefined`
+or an optional field rather than `null`. Convert database `NULL` at the
+persistence boundary. Do not claim an external API or library omits `null` if
+it does not; normalize the value at the adapter boundary.
 
 ```ts
 let timeout: ReturnType<typeof setTimeout> | undefined;
@@ -67,14 +79,30 @@ type Profile = { nickname?: string };
 ```
 
 Do not apply JavaScript's `undefined` rule literally to other languages. Use
-their explicit optional-value type or idiom (for example, `Option<T>` in Rust),
-and follow the repository's declared policy for nullable values.
+their explicit optional-value type or idiom (for example, `Option<T>` in Rust).
+
+## TypeScript safety conventions
+
+When editing TypeScript, avoid `any`, type assertions (including non-null
+assertions), and unused variables. Prefer explicit types, validated parsers,
+type guards, and removing dead declarations. At external-data boundaries,
+receive untrusted data as `unknown` and validate it before it crosses into
+business logic.
+
+Handle errors deliberately: do not swallow exceptions or leave empty catch
+handlers. Add context, map to a safe domain error, or report through the
+project's established mechanism. In async codebases that standardize on
+`try`/`await`, use that convention rather than detached promise rejection
+handlers.
 
 ## Review checklist
 
-- Are conditionals braced and multiline?
+- Are conditionals and loop bodies braced and multiline?
 - Is callback-style `forEach` used where an explicit loop would clarify control
   flow?
-- In a no-`null` TypeScript/JavaScript codebase, is absence represented with
-  `undefined`/optional fields and normalized at boundaries?
+- Do HTTP API JSON request/response bodies omit absent values instead of
+  encoding them as `null`?
+- In TypeScript, are `any`, unsafe assertions, unused variables, and swallowed
+  errors avoided?
+- Is external data validated before entering business logic?
 - Did the change preserve language, API, and repository-specific contracts?
