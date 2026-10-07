@@ -1,17 +1,68 @@
 ---
 name: system-module-architecture
 description: >-
-  Design or review modular architecture across web, mobile, API, and operations.
-  Use before creating or refactoring modules, routes, screens, workflows, or
-  service boundaries. Define capability ownership, contracts, state, permissions,
-  and failure behavior instead of organizing a system only by framework files.
+  Plan and build complete systems across web, mobile, APIs, and internal
+  backoffices. Use before starting a system, feature area, workflow, or major
+  expansion—not only for architecture reviews. Start from users, jobs, and
+  end-to-end journeys; derive screens, modules, contracts, and implementation
+  slices from them. Prevent all-in-one screens and page-first architecture.
 ---
 
-# System module architecture
+# Build systems from journeys and capabilities
 
-Organize systems around coherent capabilities and user/operator journeys, not
-only around pages, route folders, components, or service names. Respect existing
-domain language and architecture decisions; this skill does not replace them.
+Build the system around what each user or operator needs to accomplish, not a
+list of screens or a collection of CRUD endpoints. Do the product and workflow
+structure before implementing the UI. Respect existing domain language, API
+contracts, and architecture decisions; do not silently replace them.
+
+## Before implementation: map the system
+
+For a new system, major feature area, or cross-module workflow, first produce a
+concise plan covering:
+
+1. **Users and responsibilities** — who uses the system, what each role may do,
+   and which goals belong to each role.
+2. **Jobs and journeys** — each important task from its entry point through
+   completion, including decisions, alternate paths, failures, and recovery.
+3. **States and lifecycle** — the meaningful domain states, allowed transitions,
+   who can cause them, and what must be recorded.
+4. **Capability/module map** — the cohesive domain responsibilities and their
+   ownership, lifecycle, dependencies, and failure modes.
+5. **Information architecture** — navigation, routes, screens, and primary
+   action for each journey. A screen should serve a clear job; do not make one
+   page responsible for unrelated monitoring, search, configuration, editing,
+   destructive maintenance, and audit tasks.
+6. **Contracts and data ownership** — commands, queries, APIs, persistence,
+   authorization, validation, integrations, and side effects.
+7. **Implementation slices** — a vertical, testable build order that delivers
+   complete user journeys instead of disconnected UI shells.
+
+Read existing product/domain documentation and decisions first. If a material
+choice is unresolved, show the alternatives and ask the user before locking the
+architecture. Do not block routine implementation on questions whose answer is
+already documented or can safely follow established conventions.
+
+## Design journeys before screens
+
+For each important journey, identify:
+
+- the actor, goal, permissions, and starting context;
+- the steps and decisions the actor takes;
+- data viewed or changed and the source of truth;
+- success, empty, loading, validation, permission-denied, and failure states;
+- long-running, retry, cancellation, and recovery behavior where relevant;
+- completion evidence, audit needs, and the next useful action.
+
+Then choose the screen/route structure. Split journeys when intent, risk,
+permission, frequency, lifecycle, or completion state differs. Related steps may
+share a screen when that makes the task clearer; do not force every step into a
+separate page either. Avoid defaulting to a giant dashboard or a CRUD table as
+the whole system design.
+
+When asked to build an oversized “one screen for everything,” do not implement
+that layout literally. Explain the competing jobs, propose a journey-based
+navigation/screen map, and proceed with the smallest coherent set of flows. Ask
+for confirmation only when the split changes a meaningful product decision.
 
 ## Module boundaries
 
@@ -25,10 +76,10 @@ discoverable:
 - dependencies and external contracts;
 - failure modes, retries, and side effects.
 
-A module may have multiple screens or endpoints when they serve the same
-capability. Each route, screen, or operation should still have one primary
-intent. Do not treat a folder or a large component as a domain boundary by
-itself.
+A capability may span multiple screens or endpoints. Keep UI composition,
+workflow coordination, domain rules, persistence, and integration adapters
+separate where their responsibilities and change lifecycles differ. Do not
+treat a folder, tab, or large component as a domain boundary by itself.
 
 ## Separate journeys by intent and risk
 
@@ -43,8 +94,10 @@ state differs. Typical examples include:
 - operational activity versus audit, diagnostics, and support.
 
 Do not place destructive maintenance beside routine actions or bury important
-configuration inside an unrelated operational screen. Do not solve a wrong
-journey topology merely by extracting more components.
+configuration inside an unrelated operational screen. Do not solve wrong
+journey topology merely by extracting more components, adding tabs, or splitting
+one oversized page into smaller components that still share the same unclear
+responsibility.
 
 ## Contracts and integrations
 
@@ -63,6 +116,13 @@ journey topology merely by extracting more components.
 
 ## Review checklist
 
+- Were user roles, jobs, end-to-end journeys, and lifecycle states mapped before
+  screen implementation?
+- Does navigation reflect distinct goals instead of exposing one page that does
+  everything?
+- Does each flow cover empty, loading, validation, permission, success, and
+  failure states as applicable?
+- Is the implementation sequenced as complete, testable journeys?
 - Can each module be described as one coherent capability?
 - Is ownership of state, permissions, and failure behavior clear?
 - Does every route or screen have one primary intent?
