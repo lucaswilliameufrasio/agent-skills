@@ -1,0 +1,17 @@
+{
+  "skill_name": "system-module-architecture",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "A single admin screen now contains monitoring, credential setup, destructive cleanup, and an audit history. Suggest a module and journey decomposition before refactoring components.",
+      "expected_output": "Separates journeys based on intent/risk and identifies domain ownership/contracts before suggesting component extraction.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "We need a new integration. The easiest option is a generic proxy that forwards arbitrary URL, headers, and body from the UI. Review this boundary.",
+      "expected_output": "Rejects the arbitrary proxy pattern and recommends a named client with explicit operations, typed/validated contracts, authorization, timeout, and safe errors.",
+      "files": []
+    }
+  ]
+}

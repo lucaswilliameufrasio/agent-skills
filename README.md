@@ -11,7 +11,12 @@ A curated collection of reusable agent skills maintained in public.
 | [`explicit-code-style`](skills/explicit-code-style/SKILL.md) | Prefer multiline conditionals, explicit loops, and clear absence values. |
 | [`conventional-commits`](skills/conventional-commits/SKILL.md) | Draft and review Conventional Commit messages without committing without authorization. |
 | [`semantic-versioning`](skills/semantic-versioning/SKILL.md) | Choose and validate version changes against SemVer 2.0.0 and project release rules. |
-| [`http-error-contracts`](skills/http-error-contracts/SKILL.md) | Standardize HTTP error bodies, status semantics, stable codes, and validation details. |
+| [`http-api-conventions`](skills/http-api-conventions/SKILL.md) | Standardize JSON contracts, error bodies/statuses, pagination, and safe API boundaries. |
+| [`git-delivery`](skills/git-delivery/SKILL.md) | Coordinate branch, commit, PR, CI, and release handoff using each repository's rules. |
+| [`document-decisions`](skills/document-decisions/SKILL.md) | Record durable decisions in the repository's existing documentation structure. |
+| [`testing-quality-gate`](skills/testing-quality-gate/SKILL.md) | Choose real unit/integration test boundaries and verify the full project quality gate. |
+| [`secrets-safety`](skills/secrets-safety/SKILL.md) | Protect credentials during development, infrastructure changes, and incident response. |
+| [`system-module-architecture`](skills/system-module-architecture/SKILL.md) | Design capability-based modules, journeys, and explicit integration boundaries. |
 
 Each first-party skill lives in its own directory and contains a `SKILL.md` with frontmatter. Install skills from this repository with the [Skills CLI](https://github.com/vercel-labs/skills):
 
@@ -22,7 +27,12 @@ npx skills add lucaswilliameufrasio/agent-skills \
   --skill explicit-code-style \
   --skill conventional-commits \
   --skill semantic-versioning \
-  --skill http-error-contracts
+  --skill http-api-conventions \
+  --skill git-delivery \
+  --skill document-decisions \
+  --skill testing-quality-gate \
+  --skill secrets-safety \
+  --skill system-module-architecture
 ```
 
 Add `-g` for a global installation, or install an individual skill with one `--skill <name>` option. Skills are installed into the agent directories selected by the CLI.

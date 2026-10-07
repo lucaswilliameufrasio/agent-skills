@@ -2,10 +2,9 @@
 name: explicit-code-style
 description: >-
   Apply explicit, safe coding conventions when writing or reviewing code: use
-  multiline braced conditionals, explicit loops, no null in API JSON request or
-  response bodies, and strict TypeScript value handling. Use when editing,
-  reviewing, or refactoring application code; respect repository contracts and
-  language-specific constraints.
+  multiline braced control flow, explicit loops, and strict TypeScript value
+  handling. Use when editing, reviewing, or refactoring application code;
+  respect API contracts and language-specific constraints.
 ---
 
 # Explicit code style
@@ -54,18 +53,6 @@ Use transformations such as `map`, `filter`, or `reduce` when they express a
 value transformation clearly; this rule is about callback iteration, not a ban
 on functional operations generally.
 
-## API JSON has no null values
-
-Never put a `null` value in an HTTP API JSON request or response body. For an
-optional value, omit the key; for a required value, provide a valid value or
-return a validation error. Do not serialize absent fields as `null` and do not
-use `null` to signal an optional response value.
-
-When an upstream API or database uses `null`, normalize it at the integration
-or persistence boundary. Preserve the external wire contract when acting as a
-client, but do not relay `null` into this API's JSON contract; map it to an
-explicit domain value or omit an optional field.
-
 ## Absence values in TypeScript and JavaScript
 
 In TypeScript/JavaScript, represent an absent optional value with `undefined`
@@ -100,8 +87,6 @@ handlers.
 - Are conditionals and loop bodies braced and multiline?
 - Is callback-style `forEach` used where an explicit loop would clarify control
   flow?
-- Do HTTP API JSON request/response bodies omit absent values instead of
-  encoding them as `null`?
 - In TypeScript, are `any`, unsafe assertions, unused variables, and swallowed
   errors avoided?
 - Is external data validated before entering business logic?

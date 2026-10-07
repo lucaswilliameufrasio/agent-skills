@@ -1,18 +1,38 @@
 ---
-name: http-error-contracts
+name: http-api-conventions
 description: >-
-  Design, implement, or review consistent HTTP/JSON API errors. Use when adding
-  API handlers, request validation, authentication/authorization failures,
-  business conflicts, upstream integrations, or error response builders. Enforce
-  a stable error body, precise status semantics, no absent values encoded as null,
-  and no internal detail leakage.
+  Design, implement, or review HTTP/JSON APIs. Use for request/response
+  contracts, validation, error handling, pagination, authentication, or caching.
+  Enforce consistent wire formats, omit absent values instead of encoding null,
+  stable error codes, precise status semantics, and safe boundaries.
 ---
 
-# HTTP error contracts
+# HTTP API conventions
 
-Use one predictable error contract across an API. Clients use stable machine
-codes for behavior and human-readable messages for display; handlers should not
-invent their own response shape or status mapping.
+Use predictable, explicit wire contracts. Keep naming, validation, errors,
+pagination, and caching consistent across endpoints. Read the repository's API
+specification first; this skill supplies reusable defaults, not permission to
+break an established client contract.
+
+## Request and response conventions
+
+- Use `snake_case` for JSON body keys, including nested objects, and for query
+  and path parameters unless the published API contract requires another form.
+- Never encode an absent optional field as JSON `null` in API requests or
+  responses. Omit the key. If a field is required, supply a valid value or
+  return a validation error. At integration boundaries, parse the upstream
+  representation and map it to this API's contract rather than relaying
+  upstream absence conventions blindly.
+- Use stable IDs (UUIDs where appropriate) and UTC ISO-8601 timestamps. Document
+  exceptions in the API contract.
+- Authenticate with the repository's established mechanism; browser session
+  cookies must use appropriate `HttpOnly`, `Secure`, and `SameSite` settings.
+- Cursor-paginate collections that can grow without bound. Use a consistent
+  collection response with `data`, `next_cursor`, and `has_more`. Small,
+  explicitly bounded collections may be returned without pagination.
+- Return a single-resource domain object directly unless the API contract
+  requires an envelope. Do not add a wrapper solely for symmetry with paginated
+  collections.
 
 ## Error body
 
@@ -28,10 +48,8 @@ Every API error response uses this shape:
 }
 ```
 
-`extra` is optional. Omit it when there is no useful context. Do not encode
-missing or optional values as JSON `null` in any API request or response body;
-omit an optional key instead. A required value must be valid or produce a
-validation error.
+`extra` is optional. Omit it when there is no useful context. A missing value
+must not be represented by a JSON `null`; omit an optional key instead.
 
 - `message` is for people, not client-side branching. Use the API's required
   human language; for the house convention, use PT-BR.
@@ -86,6 +104,15 @@ representation. The fallback for an unknown exception is a generic HTTP 500
 response; log details through the server's protected logging path, never in the
 response body.
 
+## Cache boundary
+
+Keep caching outside domain/business logic. Wrap a repository or query
+interface with a cache decorator so callers do not need cache-specific branches.
+Every write that changes a cached representation must invalidate or version the
+corresponding entry at a centralized boundary; do not rely on TTL alone for
+correctness. Use generation keys only when cache-key cardinality makes targeted
+invalidation impractical, and store the generation outside an evicting cache.
+
 ## Review checklist
 
 - Does every error use the shared body shape and stable code?
@@ -98,3 +125,4 @@ response body.
 - Are stack traces, internal messages, secrets, and sensitive payloads excluded
   from all public responses?
 - Does one central translator/builder handle domain and framework errors?
+- Are unbounded lists cursor-paginated and cache invalidation tied to writes?
