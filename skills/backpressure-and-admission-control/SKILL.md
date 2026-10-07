@@ -2,10 +2,11 @@
 name: backpressure-and-admission-control
 description: >-
   Design, implement, or review overload protection in APIs, workers, queues,
-  streams, and downstream calls. Use when a system needs bounded work, early
-  rejection, rate limits, concurrency limits, bulkheads, tenant fairness, or
-  protection from slow dependencies. Inspect the actual runtime and workload;
-  do not treat an in-memory queue as durable processing.
+  streams, and downstream calls. Use whenever queues grow, memory rises during
+  bursts, work backs up, a dependency is slow, or the user asks about bounded
+  work, early rejection, 429/503 behavior, rate/concurrency limits, bulkheads,
+  or tenant fairness—even if they do not say “backpressure.” Inspect the actual
+  runtime and workload; do not treat an in-memory queue as durable processing.
 ---
 
 # Backpressure and admission control

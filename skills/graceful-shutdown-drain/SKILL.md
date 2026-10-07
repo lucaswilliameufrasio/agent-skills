@@ -2,10 +2,11 @@
 name: graceful-shutdown-drain
 description: >-
   Implement, review, or test graceful shutdown for HTTP servers, worker pools,
-  consumers, streaming services, or scheduled jobs. Use when deployments,
-  restarts, signals, or scaling events must stop new work and drain in-flight
-  work safely. Determine the framework lifecycle and durability guarantees; do
-  not promise that volatile queued work survives forced termination.
+  consumers, streaming services, or scheduled jobs. Use whenever the user
+  mentions SIGTERM, shutdown, restart, scale-in, draining a queue, or jobs being
+  lost during deploy—even if they ask directly for a code change. Determine the
+  framework lifecycle and durability guarantees; do not promise that volatile
+  queued work survives forced termination.
 ---
 
 # Graceful shutdown and drain

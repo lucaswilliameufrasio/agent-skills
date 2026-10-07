@@ -2,10 +2,11 @@
 name: performance-optimization
 description: >-
   Diagnose and improve application performance or resource efficiency using
-  measured evidence. Use when a user reports a bottleneck, wants higher
-  throughput/lower latency/lower CPU or memory/cost, or asks to optimize a
-  service. Reproduce the workload, locate the bottleneck, change one cause at a
-  time, and verify the result under comparable conditions instead of guessing.
+  measured evidence. Always use when the user says an app/API is slow, reports a
+  performance regression or bottleneck, asks to optimize/tune code, or wants
+  higher throughput or lower latency, CPU, memory, or cost—even if they request
+  a specific code change before providing a profile. Reproduce the workload,
+  locate the bottleneck, change one cause at a time, and verify comparable runs.
 ---
 
 # Evidence-driven performance optimization
