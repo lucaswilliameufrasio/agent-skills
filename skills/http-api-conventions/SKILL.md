@@ -16,6 +16,9 @@ break an established client contract.
 
 ## Request and response conventions
 
+- Version application routes under `/v1` by default. Introduce a new version
+  deliberately for incompatible contract changes; keep health/readiness probes
+  outside the versioned API path when required by platform conventions.
 - Use `snake_case` for JSON body keys, including nested objects, and for query
   and path parameters unless the published API contract requires another form.
 - Never encode an absent optional field as JSON `null` in API requests or
@@ -94,6 +97,15 @@ by this API, and place a safe upstream code in `extra` only when useful. Keep
 internal endpoints, credentials, raw payloads, and sensitive provider details
 out of responses.
 
+## Signed webhook requests
+
+Signed webhooks are protocol-defined request exceptions. Verify signatures
+against the exact request bytes and canonicalization rules required by the
+upstream protocol. Do not parse and reserialize, normalize field names, change
+encoding, or otherwise transform the body before signature verification. After
+verification succeeds, parse the payload and map it into internal domain types
+and naming conventions. Keep secrets and full sensitive payloads out of logs.
+
 ## Centralize translation
 
 Domain errors should carry a human message and stable error code. Translate
@@ -122,6 +134,9 @@ invalidation impractical, and store the generation outside an evicting cache.
 - Are absent values omitted, with no JSON `null` in API request/response bodies?
 - Do clients make decisions from `error_code`, not `message`?
 - Are upstream codes kept separate from this API's codes?
+- Are application routes versioned, with only required platform probes outside
+  the versioned path?
+- Are signed webhook bodies verified before parsing or normalization?
 - Are stack traces, internal messages, secrets, and sensitive payloads excluded
   from all public responses?
 - Does one central translator/builder handle domain and framework errors?

@@ -18,6 +18,18 @@
       "prompt": "An upstream service returns a vendor-specific rejection code and internal diagnostic text. What should our API expose?",
       "expected_output": "Returns 502 with an API-owned stable integration code, optionally includes only a safe upstream code in extra, and never exposes internal diagnostics or stack traces.",
       "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "A signed webhook fails verification if we parse and reserialize its JSON first. What should the handler do?",
+      "expected_output": "Verifies the signature against the exact protocol-defined request bytes before parsing, normalization, or mapping; only then converts into internal types.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Our application API is unversioned and the load balancer expects a health probe. How should route versioning apply?",
+      "expected_output": "Recommends application routes under /v1 by default while allowing platform health/readiness probes outside the versioned API path when required.",
+      "files": []
     }
   ]
 }
