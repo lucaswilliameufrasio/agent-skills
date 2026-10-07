@@ -13,6 +13,7 @@ A curated collection of reusable agent skills maintained in public.
 | [`semantic-versioning`](skills/semantic-versioning/SKILL.md) | Choose and validate version changes against SemVer 2.0.0 and project release rules. |
 | [`http-api-conventions`](skills/http-api-conventions/SKILL.md) | Standardize JSON contracts, error bodies/statuses, pagination, and safe API boundaries. |
 | [`git-delivery`](skills/git-delivery/SKILL.md) | Coordinate branch, commit, PR, CI, and release handoff using each repository's rules. |
+| [`jira-issue-writing`](skills/jira-issue-writing/SKILL.md) | Create complete, privacy-safe Jira issues with duplicate checks, end-to-end scope, repository-specific technical solutions, and verifiable acceptance criteria. |
 | [`document-decisions`](skills/document-decisions/SKILL.md) | Record durable decisions in the repository's existing documentation structure. |
 | [`testing-quality-gate`](skills/testing-quality-gate/SKILL.md) | Choose real unit/integration test boundaries and verify the full project quality gate. |
 | [`secrets-safety`](skills/secrets-safety/SKILL.md) | Protect credentials during development, infrastructure changes, and incident response. |
@@ -37,6 +38,7 @@ npx skills add lucaswilliameufrasio/agent-skills \
   --skill semantic-versioning \
   --skill http-api-conventions \
   --skill git-delivery \
+  --skill jira-issue-writing \
   --skill document-decisions \
   --skill testing-quality-gate \
   --skill secrets-safety \
