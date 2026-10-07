@@ -59,7 +59,7 @@ These are upstream skills discovered in the public Skills ecosystem. They are **
 | [huntabyte/shadcn-svelte](https://github.com/huntabyte/shadcn-svelte) | `shadcn-svelte` | `npx skills add huntabyte/shadcn-svelte --skill shadcn-svelte` |
 | [onmax/nuxt-skills](https://github.com/onmax/nuxt-skills) | Vue, Nuxt, Vite, Vitest, VueUse, TresJS, and pnpm skills | `npx skills add onmax/nuxt-skills --skill <name>` |
 | [github/awesome-copilot](https://github.com/github/awesome-copilot) | PostgreSQL and SQL review/optimization skills | `npx skills add github/awesome-copilot --skill <name>` |
-| [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | `ui-ux-pro-max` | `npx skills add nextlevelbuilder/ui-ux-pro-max-skill --skill ui-ux-pro-max` |
+| [`ui-ux-pro-max`](https://www.skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ui-ux-pro-max) ([upstream](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)) | `ui-ux-pro-max` | `npx skills add nextlevelbuilder/ui-ux-pro-max-skill --skill ui-ux-pro-max` |
 | [Stripe's official skills](https://docs.stripe.com/skills) | Stripe integration guidance | `npx skills add https://docs.stripe.com` |
 
 Use `npx skills add <owner/repo> --list` to check the upstream repository's current skill names before installing. Third-party skills remain maintained by their authors; review their content and permissions before use.
