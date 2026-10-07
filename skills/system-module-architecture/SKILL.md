@@ -1,37 +1,39 @@
 ---
 name: system-module-architecture
 description: >-
-  Plan and build complete systems across web, mobile, APIs, and internal
-  backoffices. Use before starting a system, feature area, workflow, or major
-  expansion—not only for architecture reviews. Start from users, jobs, and
-  end-to-end journeys; derive screens, modules, contracts, and implementation
-  slices from them. Prevent all-in-one screens and page-first architecture.
+  Plan and build complete software systems in any domain or context, including
+  customer-facing products, internal tools, web, mobile, and APIs. Use before
+  starting a system, feature area, workflow, or major expansion—not only for
+  architecture reviews. Start from users, jobs, and end-to-end journeys; derive
+  screens, modules, contracts, and implementation slices from them. Prevent
+  all-in-one screens and page-first architecture.
 ---
 
 # Build systems from journeys and capabilities
 
-Build the system around what each user or operator needs to accomplish, not a
-list of screens or a collection of CRUD endpoints. Do the product and workflow
-structure before implementing the UI. Respect existing domain language, API
-contracts, and architecture decisions; do not silently replace them.
+This applies to complete products and systems of any size: customer-facing apps,
+internal tools, APIs, mobile apps, and systems without a graphical interface.
+Build around what each user or system actor needs to accomplish, not a list of
+screens or a collection of CRUD endpoints. Do the product and workflow
+structure before implementing. Respect existing domain language, API contracts,
+and architecture decisions; do not silently replace them.
 
 ## Before implementation: map the system
 
 For a new system, major feature area, or cross-module workflow, first produce a
 concise plan covering:
 
-1. **Users and responsibilities** — who uses the system, what each role may do,
-   and which goals belong to each role.
+1. **Actors and responsibilities** — who or what interacts with the system,
+   what each actor may do, and which goals belong to each actor.
 2. **Jobs and journeys** — each important task from its entry point through
    completion, including decisions, alternate paths, failures, and recovery.
 3. **States and lifecycle** — the meaningful domain states, allowed transitions,
    who can cause them, and what must be recorded.
 4. **Capability/module map** — the cohesive domain responsibilities and their
    ownership, lifecycle, dependencies, and failure modes.
-5. **Information architecture** — navigation, routes, screens, and primary
-   action for each journey. A screen should serve a clear job; do not make one
-   page responsible for unrelated monitoring, search, configuration, editing,
-   destructive maintenance, and audit tasks.
+5. **Interaction and information architecture** — navigation, routes, screens,
+   API operations, or other interfaces, with a clear primary intent for each.
+   When there is a UI, do not make one page responsible for unrelated jobs.
 6. **Contracts and data ownership** — commands, queries, APIs, persistence,
    authorization, validation, integrations, and side effects.
 7. **Implementation slices** — a vertical, testable build order that delivers
@@ -44,25 +46,27 @@ already documented or can safely follow established conventions.
 
 ## Design journeys before screens
 
-For each important journey, identify:
+For each important user or system journey, identify:
 
-- the actor, goal, permissions, and starting context;
+- the actor, goal, permissions or authorization, and starting context;
 - the steps and decisions the actor takes;
 - data viewed or changed and the source of truth;
-- success, empty, loading, validation, permission-denied, and failure states;
+- success, empty/loading where applicable, validation, authorization-denied,
+  and failure states;
 - long-running, retry, cancellation, and recovery behavior where relevant;
 - completion evidence, audit needs, and the next useful action.
 
-Then choose the screen/route structure. Split journeys when intent, risk,
-permission, frequency, lifecycle, or completion state differs. Related steps may
-share a screen when that makes the task clearer; do not force every step into a
-separate page either. Avoid defaulting to a giant dashboard or a CRUD table as
-the whole system design.
+Then choose the interface and route structure appropriate to the system. Split
+journeys when intent, risk, permission, frequency, lifecycle, or completion
+state differs. Related steps may share an interface when that makes the task
+clearer; do not force every step into a separate page either. Avoid defaulting
+to a giant dashboard or a CRUD table as the whole system design.
 
-When asked to build an oversized “one screen for everything,” do not implement
-that layout literally. Explain the competing jobs, propose a journey-based
-navigation/screen map, and proceed with the smallest coherent set of flows. Ask
-for confirmation only when the split changes a meaningful product decision.
+When asked to build an oversized “one screen for everything” or an equivalent
+catch-all interface, do not implement it literally. Explain the competing jobs,
+propose a journey-based structure, and proceed with the smallest coherent set of
+flows. Ask for confirmation only when the split changes a meaningful product
+decision.
 
 ## Module boundaries
 

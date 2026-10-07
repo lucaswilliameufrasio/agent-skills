@@ -3,14 +3,14 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "I'm building a new internal operations system. Start implementation with a dashboard that combines monitoring, searching records, configuration, destructive cleanup, and audit history on one page.",
-      "expected_output": "Does not jump straight into the all-in-one screen. First maps actors/jobs/journeys/states, proposes a clear route/screen and module map, identifies API/data/permission boundaries, and asks only about unresolved product decisions before implementation.",
+      "prompt": "I'm building a new customer-facing product. Start implementation with one page that combines onboarding, account settings, search, billing, and support history.",
+      "expected_output": "Applies the skill to a customer-facing product, not only internal tools. Does not jump straight into the all-in-one screen; first maps actors/jobs/journeys/states, proposes clear interfaces and modules, identifies API/data/authorization boundaries, and asks only about unresolved product decisions before implementation.",
       "files": []
     },
     {
       "id": 2,
-      "prompt": "I'm adding a multi-step admin workflow to an existing system. The spec mentions approvals, retries, and a final audit trail. What should we design before creating components and routes?",
-      "expected_output": "Maps roles, journey steps, state transitions, alternate/failure/retry paths, permissions, and audit effects first; derives routes/modules/API boundaries and a vertical implementation order before component details.",
+      "prompt": "I'm adding a multi-step workflow to an existing system. The spec mentions approvals, retries, and a final audit trail. What should we design before implementing it?",
+      "expected_output": "Maps actors, journey steps, state transitions, alternate/failure/retry paths, authorization, and audit effects first; derives appropriate interfaces/modules/API boundaries and a vertical implementation order before implementation details.",
       "files": []
     },
     {
