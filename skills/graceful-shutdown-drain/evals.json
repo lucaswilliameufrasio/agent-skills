@@ -1,0 +1,17 @@
+{
+  "skill_name": "graceful-shutdown-drain",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Our deploy sends SIGTERM to a service with an in-memory job queue. Implement graceful shutdown so accepted jobs finish, but the container has a 30-second termination grace period.",
+      "expected_output": "Inspects framework/lifecycle, stops admission and readiness before draining, bounds the drain below the hard timeout, closes workers/clients in order, and explicitly states remaining volatile work may be lost if the deadline expires.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The HTTP server shuts down cleanly but messages still arrive while the worker process exits. What should the shutdown flow do?",
+      "expected_output": "Separates HTTP listener lifecycle from consumer intake; pauses/stops broker consumption, drains owned in-flight work, handles leases/acks safely, and tests signal-time races and timeout recovery.",
+      "files": []
+    }
+  ]
+}

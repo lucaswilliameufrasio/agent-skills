@@ -1,0 +1,17 @@
+{
+  "skill_name": "resilient-async-workflows",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "A webhook handler returns 200 after putting the event into an in-memory queue. Add retries because our downstream sometimes times out.",
+      "expected_output": "Challenges the durability/acknowledgement boundary before adding retries; proposes persist-before-ack if survival is required, idempotency for duplicate delivery, end-to-end deadlines/cancellation, bounded jittered retries, and terminal failure handling.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The worker, HTTP client, and queue consumer each retry three times. During an outage load exploded. How should we redesign this?",
+      "expected_output": "Identifies multiplicative retries and retry-storm risk; assigns a bounded retry policy/budget, classifies retryable errors, applies jitter/deadlines and downstream protection, and tests outage/exhaustion behavior.",
+      "files": []
+    }
+  ]
+}

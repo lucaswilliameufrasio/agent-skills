@@ -1,0 +1,23 @@
+{
+  "skill_name": "vps-blue-green-prepare",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Tenho um serviço Go compilado como binário, roda numa VPS com systemd e Nginx. Quero deploy blue-green com script repetível e DEPLOY.md. Inspecione o projeto antes de escolher detalhes.",
+      "expected_output": "Inspeciona o modelo do projeto; considera slots systemd e troca no proxy sem impor Docker; pergunta ou explicita informações não encontradas; propõe script idempotente e documentação; não conecta nem executa deploy.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Crie um deploy blue-green para minha aplicação. Só sei que está numa VPS e tem banco PostgreSQL; não sei como o processo atual funciona.",
+      "expected_output": "Inspeciona o repositório e evita inventar host, portas, caminhos ou mecanismo de proxy; pergunta por dados essenciais não disponíveis; aborda migrações compatíveis e separa rollback de aplicação e dados.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "A aplicação gerencia o Nginx da VPS e também executa um worker que não pode rodar duplicado. Gere um deploy blue-green genérico em duas portas.",
+      "expected_output": "Não aplica cegamente duas instâncias/portas; identifica conflito potencial com gestão do Nginx e worker singleton; explica limite da estratégia e pede contexto ou oferece alternativa segura antes de gerar configuração arriscada.",
+      "files": []
+    }
+  ]
+}

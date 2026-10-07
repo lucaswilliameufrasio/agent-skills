@@ -17,6 +17,14 @@ A curated collection of reusable agent skills maintained in public.
 | [`testing-quality-gate`](skills/testing-quality-gate/SKILL.md) | Choose real unit/integration test boundaries and verify the full project quality gate. |
 | [`secrets-safety`](skills/secrets-safety/SKILL.md) | Protect credentials during development, infrastructure changes, and incident response. |
 | [`system-module-architecture`](skills/system-module-architecture/SKILL.md) | Plan and build journey-first systems, backoffices, modules, screens, and integration boundaries. |
+| [`vps-blue-green-prepare`](skills/vps-blue-green-prepare/SKILL.md) | Prepare project-specific blue-green VPS deployment scripts and runbooks without executing a deployment. |
+| [`vps-deploy-executor`](skills/vps-deploy-executor/SKILL.md) | Safely execute an approved VPS deployment after inspecting shared-host services and protecting unrelated applications. |
+| [`backpressure-and-admission-control`](skills/backpressure-and-admission-control/SKILL.md) | Bound accepted work and protect services with explicit overload, rate, concurrency, and fairness policies. |
+| [`resilient-async-workflows`](skills/resilient-async-workflows/SKILL.md) | Make asynchronous work recoverable with deadlines, bounded retries, idempotency, and durable acceptance. |
+| [`graceful-shutdown-drain`](skills/graceful-shutdown-drain/SKILL.md) | Stop intake and safely drain in-flight work during shutdown within an explicit deadline. |
+| [`performance-optimization`](skills/performance-optimization/SKILL.md) | Find and remove measured bottlenecks, then verify gains and guardrails under comparable conditions. |
+| [`performance-benchmarking-and-load-testing`](skills/performance-benchmarking-and-load-testing/SKILL.md) | Build repeatable benchmarks and load tests for performance, saturation, and capacity. |
+| [`performance-profiling-ebpf`](skills/performance-profiling-ebpf/SKILL.md) | Profile measured bottlenecks with runtime tools and optional, safely scoped eBPF/perf diagnostics. |
 
 Each first-party skill lives in its own directory and contains a `SKILL.md` with frontmatter. Install skills from this repository with the [Skills CLI](https://github.com/vercel-labs/skills):
 
@@ -32,7 +40,15 @@ npx skills add lucaswilliameufrasio/agent-skills \
   --skill document-decisions \
   --skill testing-quality-gate \
   --skill secrets-safety \
-  --skill system-module-architecture
+  --skill system-module-architecture \
+  --skill vps-blue-green-prepare \
+  --skill vps-deploy-executor \
+  --skill backpressure-and-admission-control \
+  --skill resilient-async-workflows \
+  --skill graceful-shutdown-drain \
+  --skill performance-optimization \
+  --skill performance-benchmarking-and-load-testing \
+  --skill performance-profiling-ebpf
 ```
 
 Add `-g` for a global installation, or install an individual skill with one `--skill <name>` option. Skills are installed into the agent directories selected by the CLI.
