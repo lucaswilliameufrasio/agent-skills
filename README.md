@@ -16,6 +16,7 @@ A curated collection of reusable agent skills maintained in public.
 | [`jira-issue-writing`](skills/jira-issue-writing/SKILL.md) | Create complete, privacy-safe Jira issues with duplicate checks, end-to-end scope, repository-specific technical solutions, and verifiable acceptance criteria. |
 | [`document-decisions`](skills/document-decisions/SKILL.md) | Record durable decisions in the repository's existing documentation structure. |
 | [`testing-quality-gate`](skills/testing-quality-gate/SKILL.md) | Choose real unit/integration test boundaries and verify the full project quality gate. |
+| [`testing-standard`](skills/testing-standard/SKILL.md) | Apply repository testing policy for unit, integration, regression, safe execution, coverage, and full quality-gate verification. |
 | [`secrets-safety`](skills/secrets-safety/SKILL.md) | Protect credentials during development, infrastructure changes, and incident response. |
 | [`system-module-architecture`](skills/system-module-architecture/SKILL.md) | Plan and build journey-first systems, backoffices, modules, screens, and integration boundaries. |
 | [`vps-blue-green-prepare`](skills/vps-blue-green-prepare/SKILL.md) | Prepare project-specific blue-green VPS deployment scripts and runbooks without executing a deployment. |
@@ -41,6 +42,7 @@ npx skills add lucaswilliameufrasio/agent-skills \
   --skill jira-issue-writing \
   --skill document-decisions \
   --skill testing-quality-gate \
+  --skill testing-standard \
   --skill secrets-safety \
   --skill system-module-architecture \
   --skill vps-blue-green-prepare \
@@ -62,6 +64,7 @@ These are upstream skills discovered in the public Skills ecosystem. They are **
 | Upstream | Recommended skills | Install |
 | --- | --- | --- |
 | [anthropics/skills](https://github.com/anthropics/skills) | `frontend-design` | `npx skills add anthropics/skills --skill frontend-design` |
+| [majidmanzarpour/threejs-game-skills](https://github.com/majidmanzarpour/threejs-game-skills) | `threejs-gameplay-systems` | `npx skills add https://github.com/majidmanzarpour/threejs-game-skills --skill threejs-gameplay-systems` |
 | [mattpocock/skills](https://github.com/mattpocock/skills) | `code-review`, `diagnosing-bugs`, `grill-me`, `grill-with-docs`, `improve-codebase-architecture`, `tdd` | `npx skills add mattpocock/skills --skill <name>` |
 | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | `web-design-guidelines` | `npx skills add vercel-labs/agent-skills --skill web-design-guidelines` |
 | [vercel-labs/skills](https://github.com/vercel-labs/skills) | `find-skills` | `npx skills add vercel-labs/skills --skill find-skills` |
