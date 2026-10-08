@@ -1,0 +1,23 @@
+{
+  "skill_name": "cross-repo-standard-sync",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Our team preference document and several repo copies disagree. Find the canonical source, identify which differences are local commands versus stale shared rules, and propose a safe sync plan without editing anything yet.",
+      "expected_output": "The response classifies ownership, does not select a canonical copy based only on recency or matching hashes, preserves verified repository facts, and gives a read-only per-target plan.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Make my preferred testing workflow apply across all my repositories. The team policy and a couple of repo-specific test commands differ. What should be canonical and what should stay local?",
+      "expected_output": "The response separates personal defaults, team policy, and repository facts; team/security constraints are not weakened, repo commands stay local, and ambiguous ownership is clarified before writes.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Sync this approved standard to the selected repositories. One target file has unrelated local edits and another has an undocumented exception.",
+      "expected_output": "The response avoids overwriting the dirty file, pauses on the unresolved exception, scopes writes to approved targets, and reports the blockers instead of claiming full sync.",
+      "files": []
+    }
+  ]
+}
