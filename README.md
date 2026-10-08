@@ -19,6 +19,7 @@ A curated collection of reusable agent skills maintained in public.
 | [`testing-standard`](skills/testing-standard/SKILL.md) | Apply repository testing policy for unit, integration, regression, safe execution, coverage, and full quality-gate verification. |
 | [`cross-repo-standard-sync`](skills/cross-repo-standard-sync/SKILL.md) | Define canonical ownership and safely audit or sync shared standards while preserving repo-specific facts. |
 | [`privacy-safe-skill-extraction`](skills/privacy-safe-skill-extraction/SKILL.md) | Generalize internal workflows into reusable skills and screen all artifacts for private information before sharing. |
+| [`shell-docker-preflight`](skills/shell-docker-preflight/SKILL.md) | Verify the login and execution shells, detect Docker daemon mode, and prefer rootless access without silent escalation. |
 | [`secrets-safety`](skills/secrets-safety/SKILL.md) | Protect credentials during development, infrastructure changes, and incident response. |
 | [`system-module-architecture`](skills/system-module-architecture/SKILL.md) | Plan and build journey-first systems, backoffices, modules, screens, and integration boundaries. |
 | [`vps-blue-green-prepare`](skills/vps-blue-green-prepare/SKILL.md) | Prepare project-specific blue-green VPS deployment scripts and runbooks without executing a deployment. |
@@ -47,6 +48,7 @@ npx skills add lucaswilliameufrasio/agent-skills \
   --skill testing-standard \
   --skill cross-repo-standard-sync \
   --skill privacy-safe-skill-extraction \
+  --skill shell-docker-preflight \
   --skill secrets-safety \
   --skill system-module-architecture \
   --skill vps-blue-green-prepare \
