@@ -1,0 +1,41 @@
+{
+  "skill_name": "rust-cross-platform-builds",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Our Rust API's Docker release build takes about 35 minutes on an x86_64 machine because Buildx targets linux/arm64 and runs cargo build inside the target container. Propose a safe migration to Zig/cargo-zigbuild and a fair way to measure the result. Don't deploy anything.",
+      "expected_output": "A repository-aware migration outline that moves Rust compilation to the host/CI runner, leaves Buildx for image packaging, specifies target/runtime ABI checks, and compares equivalent cache and resource conditions without deploying.",
+      "files": [],
+      "expectations": [
+        "Separates host-side cargo-zigbuild compilation from Buildx image packaging.",
+        "Calls out target triple, libc baseline, and native dependency/sysroot requirements.",
+        "Requires comparable cache states and reports compile time separately from total image time.",
+        "Does not deploy or recommend compiling on a production server."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "A Rust service uses openssl-sys and must keep its current OpenSSL TLS behavior, but an amd64 CI runner needs to produce a Debian ARM64 image. Is adding the Rust target enough? Give the cross-build setup and checks you'd require before shipping.",
+      "expected_output": "An explanation that a Rust target alone does not provide target OpenSSL headers/libraries; describe a target-matched sysroot and pkg-config environment, preserve TLS behavior, and verify ELF architecture, ABI, shared libraries, and runtime smoke behavior.",
+      "files": [],
+      "expectations": [
+        "Explains why host OpenSSL development files cannot be used for an ARM64 link.",
+        "Specifies target-aware sysroot and pkg-config configuration.",
+        "Does not silently switch TLS implementations or claim the target triple alone solves native dependencies.",
+        "Includes binary and runtime compatibility validation."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "A cold ARM64 Docker build took about 42 minutes, while a cached cargo zigbuild run took 0.7 seconds. My workstation is already under heavy load. Can I tell the team we got a 1000x speedup and run a full no-cache Buildx build now to confirm?",
+      "expected_output": "Rejects the unqualified speedup claim because cold and cached measurements are incomparable; avoids launching another resource-heavy build on an already-loaded workstation and proposes a staged, one-at-a-time comparison with isolated caches and bounded resource use.",
+      "files": [],
+      "expectations": [
+        "States that cached and cold timings cannot support the requested speedup claim.",
+        "Does not initiate or urge an immediate heavy build while the workstation is loaded.",
+        "Proposes a controlled comparison and distinguishes Rust compilation from end-to-end packaging.",
+        "Records cache state, target, versions, flags, and resource limits."
+      ]
+    }
+  ]
+}

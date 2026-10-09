@@ -30,6 +30,7 @@ A curated collection of reusable agent skills maintained in public.
 | [`performance-optimization`](skills/performance-optimization/SKILL.md) | Find and remove measured bottlenecks, then verify gains and guardrails under comparable conditions. |
 | [`performance-benchmarking-and-load-testing`](skills/performance-benchmarking-and-load-testing/SKILL.md) | Build repeatable benchmarks and load tests for performance, saturation, and capacity. |
 | [`performance-profiling-ebpf`](skills/performance-profiling-ebpf/SKILL.md) | Profile measured bottlenecks with runtime tools and optional, safely scoped eBPF/perf diagnostics. |
+| [`rust-cross-platform-builds`](skills/rust-cross-platform-builds/SKILL.md) | Accelerate and validate Rust cross-platform release builds with Zig/cargo-zigbuild and controlled benchmarks. |
 
 Each first-party skill lives in its own directory and contains a `SKILL.md` with frontmatter. Install skills from this repository with the [Skills CLI](https://github.com/vercel-labs/skills):
 
@@ -58,7 +59,8 @@ npx skills add lucaswilliameufrasio/agent-skills \
   --skill graceful-shutdown-drain \
   --skill performance-optimization \
   --skill performance-benchmarking-and-load-testing \
-  --skill performance-profiling-ebpf
+  --skill performance-profiling-ebpf \
+  --skill rust-cross-platform-builds
 ```
 
 Add `-g` for a global installation, or install an individual skill with one `--skill <name>` option. Skills are installed into the agent directories selected by the CLI.
