@@ -22,6 +22,7 @@ A curated collection of reusable agent skills maintained in public.
 | [`shell-docker-preflight`](skills/shell-docker-preflight/SKILL.md) | Verify the login and execution shells, detect Docker daemon mode, and prefer rootless access without silent escalation. |
 | [`secrets-safety`](skills/secrets-safety/SKILL.md) | Protect credentials during development, infrastructure changes, and incident response. |
 | [`system-module-architecture`](skills/system-module-architecture/SKILL.md) | Plan and build journey-first systems, backoffices, modules, screens, and integration boundaries. |
+| [`web-capability-architecture`](skills/web-capability-architecture/SKILL.md) | Structure web features, data sources, and validated API boundaries around domain capabilities. |
 | [`vps-blue-green-prepare`](skills/vps-blue-green-prepare/SKILL.md) | Prepare project-specific blue-green VPS deployment scripts and runbooks without executing a deployment. |
 | [`vps-deploy-executor`](skills/vps-deploy-executor/SKILL.md) | Safely execute an approved VPS deployment after inspecting shared-host services and protecting unrelated applications. |
 | [`backpressure-and-admission-control`](skills/backpressure-and-admission-control/SKILL.md) | Bound accepted work and protect services with explicit overload, rate, concurrency, and fairness policies. |
@@ -52,6 +53,7 @@ npx skills add lucaswilliameufrasio/agent-skills \
   --skill shell-docker-preflight \
   --skill secrets-safety \
   --skill system-module-architecture \
+  --skill web-capability-architecture \
   --skill vps-blue-green-prepare \
   --skill vps-deploy-executor \
   --skill backpressure-and-admission-control \
