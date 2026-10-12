@@ -4,68 +4,45 @@ A curated collection of reusable agent skills maintained in public.
 
 ## Skills
 
-| Skill | Description |
-| --- | --- |
-| [`pr-merge-sequence`](skills/pr-merge-sequence/SKILL.md) | Safely sequence normal GitHub PR merges while rebasing and revalidating remaining branches after each merge. |
-| [`single-state-enum`](skills/single-state-enum/SKILL.md) | Model mutually-exclusive UI overlays and modes with one discriminated-union state. |
-| [`explicit-code-style`](skills/explicit-code-style/SKILL.md) | Prefer multiline conditionals, explicit loops, and clear absence values. |
-| [`conventional-commits`](skills/conventional-commits/SKILL.md) | Draft and review Conventional Commit messages without committing without authorization. |
-| [`semantic-versioning`](skills/semantic-versioning/SKILL.md) | Choose and validate version changes against SemVer 2.0.0 and project release rules. |
-| [`http-api-conventions`](skills/http-api-conventions/SKILL.md) | Standardize JSON contracts, error bodies/statuses, pagination, and safe API boundaries. |
-| [`git-delivery`](skills/git-delivery/SKILL.md) | Coordinate branch, commit, PR, CI, and release handoff using each repository's rules. |
-| [`jira-issue-writing`](skills/jira-issue-writing/SKILL.md) | Create complete, privacy-safe Jira issues with duplicate checks, end-to-end scope, repository-specific technical solutions, and verifiable acceptance criteria. |
-| [`document-decisions`](skills/document-decisions/SKILL.md) | Record durable decisions in the repository's existing documentation structure. |
-| [`testing-quality-gate`](skills/testing-quality-gate/SKILL.md) | Choose real unit/integration test boundaries and verify the full project quality gate. |
-| [`testing-standard`](skills/testing-standard/SKILL.md) | Apply repository testing policy for unit, integration, regression, safe execution, coverage, and full quality-gate verification. |
-| [`cross-repo-standard-sync`](skills/cross-repo-standard-sync/SKILL.md) | Define canonical ownership and safely audit or sync shared standards while preserving repo-specific facts. |
-| [`privacy-safe-skill-extraction`](skills/privacy-safe-skill-extraction/SKILL.md) | Generalize internal workflows into reusable skills and screen all artifacts for private information before sharing. |
-| [`shell-docker-preflight`](skills/shell-docker-preflight/SKILL.md) | Verify the login and execution shells, detect Docker daemon mode, and prefer rootless access without silent escalation. |
-| [`secrets-safety`](skills/secrets-safety/SKILL.md) | Protect credentials during development, infrastructure changes, and incident response. |
-| [`system-module-architecture`](skills/system-module-architecture/SKILL.md) | Plan and build journey-first systems, backoffices, modules, screens, and integration boundaries. |
-| [`web-capability-architecture`](skills/web-capability-architecture/SKILL.md) | Structure web features, data sources, and validated API boundaries around domain capabilities. |
-| [`vps-blue-green-prepare`](skills/vps-blue-green-prepare/SKILL.md) | Prepare project-specific blue-green VPS deployment scripts and runbooks without executing a deployment. |
-| [`vps-deploy-executor`](skills/vps-deploy-executor/SKILL.md) | Safely execute an approved VPS deployment after inspecting shared-host services and protecting unrelated applications. |
-| [`backpressure-and-admission-control`](skills/backpressure-and-admission-control/SKILL.md) | Bound accepted work and protect services with explicit overload, rate, concurrency, and fairness policies. |
-| [`resilient-async-workflows`](skills/resilient-async-workflows/SKILL.md) | Make asynchronous work recoverable with deadlines, bounded retries, idempotency, and durable acceptance. |
-| [`graceful-shutdown-drain`](skills/graceful-shutdown-drain/SKILL.md) | Stop intake and safely drain in-flight work during shutdown within an explicit deadline. |
-| [`performance-optimization`](skills/performance-optimization/SKILL.md) | Find and remove measured bottlenecks, then verify gains and guardrails under comparable conditions. |
-| [`performance-benchmarking-and-load-testing`](skills/performance-benchmarking-and-load-testing/SKILL.md) | Build repeatable benchmarks and load tests for performance, saturation, and capacity. |
-| [`performance-profiling-ebpf`](skills/performance-profiling-ebpf/SKILL.md) | Profile measured bottlenecks with runtime tools and optional, safely scoped eBPF/perf diagnostics. |
-| [`rust-cross-platform-builds`](skills/rust-cross-platform-builds/SKILL.md) | Accelerate and validate Rust cross-platform release builds with Zig/cargo-zigbuild and controlled benchmarks. |
-
-Each first-party skill lives in its own directory and contains a `SKILL.md` with frontmatter. Install skills from this repository with the [Skills CLI](https://github.com/vercel-labs/skills):
+Install all first-party skills globally:
 
 ```sh
-npx skills add lucaswilliameufrasio/agent-skills \
-  --skill pr-merge-sequence \
-  --skill single-state-enum \
-  --skill explicit-code-style \
-  --skill conventional-commits \
-  --skill semantic-versioning \
-  --skill http-api-conventions \
-  --skill git-delivery \
-  --skill jira-issue-writing \
-  --skill document-decisions \
-  --skill testing-quality-gate \
-  --skill testing-standard \
-  --skill cross-repo-standard-sync \
-  --skill privacy-safe-skill-extraction \
-  --skill shell-docker-preflight \
-  --skill secrets-safety \
-  --skill system-module-architecture \
-  --skill web-capability-architecture \
-  --skill vps-blue-green-prepare \
-  --skill vps-deploy-executor \
-  --skill backpressure-and-admission-control \
-  --skill resilient-async-workflows \
-  --skill graceful-shutdown-drain \
-  --skill performance-optimization \
-  --skill performance-benchmarking-and-load-testing \
-  --skill performance-profiling-ebpf \
-  --skill rust-cross-platform-builds
+npx skills add lucaswilliameufrasio/agent-skills --skill '*' --global
 ```
 
-Add `-g` for a global installation, or install an individual skill with one `--skill <name>` option. Skills are installed into the agent directories selected by the CLI.
+Each row also has the command to install just that skill globally.
+
+| Skill | Description | Install individually |
+| --- | --- | --- |
+| [`pr-merge-sequence`](skills/pr-merge-sequence/SKILL.md) | Safely sequence normal GitHub PR merges while rebasing and revalidating remaining branches after each merge. | `npx skills add lucaswilliameufrasio/agent-skills --skill pr-merge-sequence --global` |
+| [`single-state-enum`](skills/single-state-enum/SKILL.md) | Model mutually-exclusive UI overlays and modes with one discriminated-union state. | `npx skills add lucaswilliameufrasio/agent-skills --skill single-state-enum --global` |
+| [`explicit-code-style`](skills/explicit-code-style/SKILL.md) | Prefer multiline conditionals, explicit loops, and clear absence values. | `npx skills add lucaswilliameufrasio/agent-skills --skill explicit-code-style --global` |
+| [`conventional-commits`](skills/conventional-commits/SKILL.md) | Draft and review Conventional Commit messages without committing without authorization. | `npx skills add lucaswilliameufrasio/agent-skills --skill conventional-commits --global` |
+| [`semantic-versioning`](skills/semantic-versioning/SKILL.md) | Choose and validate version changes against SemVer 2.0.0 and project release rules. | `npx skills add lucaswilliameufrasio/agent-skills --skill semantic-versioning --global` |
+| [`http-api-conventions`](skills/http-api-conventions/SKILL.md) | Standardize JSON contracts, error bodies/statuses, pagination, and safe API boundaries. | `npx skills add lucaswilliameufrasio/agent-skills --skill http-api-conventions --global` |
+| [`opencode-session-inventory`](skills/opencode-session-inventory/SKILL.md) | Inventory active OpenCode processes and sessions, then map verified relationships to Herdr workspace and tab labels. | `npx skills add lucaswilliameufrasio/agent-skills --skill opencode-session-inventory --global` |
+| [`git-delivery`](skills/git-delivery/SKILL.md) | Coordinate branch, commit, PR, CI, and release handoff using each repository's rules. | `npx skills add lucaswilliameufrasio/agent-skills --skill git-delivery --global` |
+| [`jira-issue-writing`](skills/jira-issue-writing/SKILL.md) | Create complete, privacy-safe Jira issues with duplicate checks, end-to-end scope, repository-specific technical solutions, and verifiable acceptance criteria. | `npx skills add lucaswilliameufrasio/agent-skills --skill jira-issue-writing --global` |
+| [`document-decisions`](skills/document-decisions/SKILL.md) | Record durable decisions in the repository's existing documentation structure. | `npx skills add lucaswilliameufrasio/agent-skills --skill document-decisions --global` |
+| [`testing-quality-gate`](skills/testing-quality-gate/SKILL.md) | Choose real unit/integration test boundaries and verify the full project quality gate. | `npx skills add lucaswilliameufrasio/agent-skills --skill testing-quality-gate --global` |
+| [`testing-standard`](skills/testing-standard/SKILL.md) | Apply repository testing policy for unit, integration, regression, safe execution, coverage, and full quality-gate verification. | `npx skills add lucaswilliameufrasio/agent-skills --skill testing-standard --global` |
+| [`cross-repo-standard-sync`](skills/cross-repo-standard-sync/SKILL.md) | Define canonical ownership and safely audit or sync shared standards while preserving repo-specific facts. | `npx skills add lucaswilliameufrasio/agent-skills --skill cross-repo-standard-sync --global` |
+| [`privacy-safe-skill-extraction`](skills/privacy-safe-skill-extraction/SKILL.md) | Generalize internal workflows into reusable skills and screen all artifacts for private information before sharing. | `npx skills add lucaswilliameufrasio/agent-skills --skill privacy-safe-skill-extraction --global` |
+| [`shell-docker-preflight`](skills/shell-docker-preflight/SKILL.md) | Verify the login and execution shells, detect Docker daemon mode, and prefer rootless access without silent escalation. | `npx skills add lucaswilliameufrasio/agent-skills --skill shell-docker-preflight --global` |
+| [`secrets-safety`](skills/secrets-safety/SKILL.md) | Protect credentials during development, infrastructure changes, and incident response. | `npx skills add lucaswilliameufrasio/agent-skills --skill secrets-safety --global` |
+| [`system-module-architecture`](skills/system-module-architecture/SKILL.md) | Plan and build journey-first systems, backoffices, modules, screens, and integration boundaries. | `npx skills add lucaswilliameufrasio/agent-skills --skill system-module-architecture --global` |
+| [`web-capability-architecture`](skills/web-capability-architecture/SKILL.md) | Structure web features, data sources, and validated API boundaries around domain capabilities. | `npx skills add lucaswilliameufrasio/agent-skills --skill web-capability-architecture --global` |
+| [`vps-blue-green-prepare`](skills/vps-blue-green-prepare/SKILL.md) | Prepare project-specific blue-green VPS deployment scripts and runbooks without executing a deployment. | `npx skills add lucaswilliameufrasio/agent-skills --skill vps-blue-green-prepare --global` |
+| [`vps-deploy-executor`](skills/vps-deploy-executor/SKILL.md) | Safely execute an approved VPS deployment after inspecting shared-host services and protecting unrelated applications. | `npx skills add lucaswilliameufrasio/agent-skills --skill vps-deploy-executor --global` |
+| [`backpressure-and-admission-control`](skills/backpressure-and-admission-control/SKILL.md) | Bound accepted work and protect services with explicit overload, rate, concurrency, and fairness policies. | `npx skills add lucaswilliameufrasio/agent-skills --skill backpressure-and-admission-control --global` |
+| [`resilient-async-workflows`](skills/resilient-async-workflows/SKILL.md) | Make asynchronous work recoverable with deadlines, bounded retries, idempotency, and durable acceptance. | `npx skills add lucaswilliameufrasio/agent-skills --skill resilient-async-workflows --global` |
+| [`graceful-shutdown-drain`](skills/graceful-shutdown-drain/SKILL.md) | Stop intake and safely drain in-flight work during shutdown within an explicit deadline. | `npx skills add lucaswilliameufrasio/agent-skills --skill graceful-shutdown-drain --global` |
+| [`performance-optimization`](skills/performance-optimization/SKILL.md) | Find and remove measured bottlenecks, then verify gains and guardrails under comparable conditions. | `npx skills add lucaswilliameufrasio/agent-skills --skill performance-optimization --global` |
+| [`performance-benchmarking-and-load-testing`](skills/performance-benchmarking-and-load-testing/SKILL.md) | Build repeatable benchmarks and load tests for performance, saturation, and capacity. | `npx skills add lucaswilliameufrasio/agent-skills --skill performance-benchmarking-and-load-testing --global` |
+| [`performance-profiling-ebpf`](skills/performance-profiling-ebpf/SKILL.md) | Profile measured bottlenecks with runtime tools and optional, safely scoped eBPF/perf diagnostics. | `npx skills add lucaswilliameufrasio/agent-skills --skill performance-profiling-ebpf --global` |
+| [`rust-cross-platform-builds`](skills/rust-cross-platform-builds/SKILL.md) | Accelerate and validate Rust cross-platform release builds with Zig/cargo-zigbuild and controlled benchmarks. | `npx skills add lucaswilliameufrasio/agent-skills --skill rust-cross-platform-builds --global` |
+
+Each first-party skill lives in its own directory and contains a `SKILL.md` with frontmatter. The [Skills CLI](https://github.com/vercel-labs/skills) installs selected skills into the agent directories it manages.
 
 ## Third-party skill recommendations
 
