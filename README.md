@@ -69,6 +69,7 @@ These are upstream skills discovered in the public Skills ecosystem. They are **
 | [onmax/nuxt-skills](https://github.com/onmax/nuxt-skills) | Vue, Nuxt, Vite, Vitest, VueUse, TresJS, and pnpm skills | `npx skills add onmax/nuxt-skills --skill <name>` |
 | [github/awesome-copilot](https://github.com/github/awesome-copilot) | PostgreSQL and SQL review/optimization skills | `npx skills add github/awesome-copilot --skill <name>` |
 | [`ui-ux-pro-max`](https://www.skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ui-ux-pro-max) ([upstream](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)) | `ui-ux-pro-max` | `npx skills add nextlevelbuilder/ui-ux-pro-max-skill --skill ui-ux-pro-max` |
+| [heliocosta-dev/revenue-centric-design](https://github.com/heliocosta-dev/revenue-centric-design) | `revenue-centric-design` — SaaS product design for conversion, onboarding, pricing, retention, and monetization; not for gambling, betting, or casino products. | `npx skills add heliocosta-dev/revenue-centric-design` |
 | [Stripe's official skills](https://docs.stripe.com/skills) | Stripe integration guidance | `npx skills add https://docs.stripe.com` |
 
 Use `npx skills add <owner/repo> --list` to check the upstream repository's current skill names before installing. Third-party skills remain maintained by their authors; review their content and permissions before use.
