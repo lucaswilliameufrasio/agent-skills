@@ -1,0 +1,23 @@
+{
+  "skill_name": "persistent-worktrees",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need an isolated checkout to review a branch. Suggest the exact destination and git command, but don't create it.",
+      "expected_output": "Defaults to a persistent path under ~/git-worktrees, avoids /tmp and other ephemeral filesystems, and recommends verifying that the destination is persistent and has capacity.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Use the OpenCode worktree tool to make a workspace for this task. Its destination isn't shown and it has no destination override. Tell me what you would do; do not run tools.",
+      "expected_output": "Does not call the creator and does not rely on inspecting its returned path after creation; instead uses an explicit persistent path such as ~/git-worktrees/<repo>/<purpose> with git worktree add, or asks the user.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Write a small one-off command log to $TMPDIR. This is not a checkout, dependency tree, or build workspace. Is that allowed?",
+      "expected_output": "Does not over-apply the no-worktrees rule to a small disposable file; permits it only if the scratch location is approved and safe, while keeping full workspaces off temporary storage.",
+      "files": []
+    }
+  ]
+}
