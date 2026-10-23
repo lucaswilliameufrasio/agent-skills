@@ -14,6 +14,7 @@ Each row also has the command to install just that skill globally.
 
 | Skill | Description | Install individually |
 | --- | --- | --- |
+| [`task-completion`](skills/task-completion/SKILL.md) | Carry authorized work through execution, verification, and an honest complete/partial/blocked handoff with concrete next actions. | `npx skills add lucaswilliameufrasio/agent-skills --skill task-completion --global` |
 | [`pr-merge-sequence`](skills/pr-merge-sequence/SKILL.md) | Safely sequence normal GitHub PR merges while rebasing and revalidating remaining branches after each merge. | `npx skills add lucaswilliameufrasio/agent-skills --skill pr-merge-sequence --global` |
 | [`single-state-enum`](skills/single-state-enum/SKILL.md) | Model mutually-exclusive UI overlays and modes with one discriminated-union state. | `npx skills add lucaswilliameufrasio/agent-skills --skill single-state-enum --global` |
 | [`explicit-code-style`](skills/explicit-code-style/SKILL.md) | Prefer multiline conditionals, explicit loops, and clear absence values. | `npx skills add lucaswilliameufrasio/agent-skills --skill explicit-code-style --global` |
@@ -26,7 +27,7 @@ Each row also has the command to install just that skill globally.
 | [`github-gitea-actions`](skills/github-gitea-actions/SKILL.md) | Create and audit GitHub/Gitea Actions workflows with freshly verified, current, and securely pinned action dependencies. | `npx skills add lucaswilliameufrasio/agent-skills --skill github-gitea-actions --global` |
 | [`jira-issue-writing`](skills/jira-issue-writing/SKILL.md) | Create complete, privacy-safe Jira issues with duplicate checks, end-to-end scope, repository-specific technical solutions, and verifiable acceptance criteria. | `npx skills add lucaswilliameufrasio/agent-skills --skill jira-issue-writing --global` |
 | [`document-decisions`](skills/document-decisions/SKILL.md) | Record durable decisions in the repository's existing documentation structure. | `npx skills add lucaswilliameufrasio/agent-skills --skill document-decisions --global` |
-| [`testing-quality-gate`](skills/testing-quality-gate/SKILL.md) | Choose real unit/integration test boundaries and verify the full project quality gate. | `npx skills add lucaswilliameufrasio/agent-skills --skill testing-quality-gate --global` |
+| [`testing-quality-gate`](skills/testing-quality-gate/SKILL.md) | Compatibility entry point that delegates testing policy to `testing-standard`. | `npx skills add lucaswilliameufrasio/agent-skills --skill testing-quality-gate --global` |
 | [`testing-standard`](skills/testing-standard/SKILL.md) | Apply repository testing policy for unit, integration, regression, safe execution, coverage, and full quality-gate verification. | `npx skills add lucaswilliameufrasio/agent-skills --skill testing-standard --global` |
 | [`cross-repo-standard-sync`](skills/cross-repo-standard-sync/SKILL.md) | Define canonical ownership and safely audit or sync shared standards while preserving repo-specific facts. | `npx skills add lucaswilliameufrasio/agent-skills --skill cross-repo-standard-sync --global` |
 | [`privacy-safe-skill-extraction`](skills/privacy-safe-skill-extraction/SKILL.md) | Generalize internal workflows into reusable skills and screen all artifacts for private information before sharing. | `npx skills add lucaswilliameufrasio/agent-skills --skill privacy-safe-skill-extraction --global` |
@@ -45,6 +46,27 @@ Each row also has the command to install just that skill globally.
 | [`rust-cross-platform-builds`](skills/rust-cross-platform-builds/SKILL.md) | Accelerate and validate Rust cross-platform release builds with Zig/cargo-zigbuild and controlled benchmarks. | `npx skills add lucaswilliameufrasio/agent-skills --skill rust-cross-platform-builds --global` |
 
 Each first-party skill lives in its own directory and contains a `SKILL.md` with frontmatter. The [Skills CLI](https://github.com/vercel-labs/skills) installs selected skills into the agent directories it manages.
+
+## Completion and testing policy
+
+`task-completion` owns the portable execution and handoff workflow;
+`testing-standard` is the canonical testing policy in this collection.
+`testing-quality-gate` remains a compatibility entry point, not a second policy.
+If installing that entry point individually, also install `testing-standard`;
+the entry point does not automatically install its policy dependency.
+Repository-specific commands, mandatory checks, and approved exceptions remain
+owned by each target repository.
+
+Installing a skill makes it available to the selected harness; it does not
+guarantee activation or enforce a runtime stop condition. This collection does
+not require a global harness configuration or plugin.
+
+Existing installations may still contain separately maintained `quality-gate`,
+`test-strategy`, or `git-workflow` skills. They are not maintained by this
+repository. Before replacing them, review local rules and migrate any intended
+exceptions. In particular, resolve whether unrelated failures may be repaired
+and which delivery actions require authorization. Do not automatically delete
+installed skills or copy private preferences into this public collection.
 
 ## Third-party skill recommendations
 

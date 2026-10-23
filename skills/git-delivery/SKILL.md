@@ -31,7 +31,7 @@ the user's explicit authorization as the source of truth.
 - Keep changes focused. Inspect the final diff and stage only intended files.
 - Follow the `conventional-commits` skill for commit messages. Do not commit,
   amend, force-push, or push unless explicitly authorized.
-- Before a commit or delivery claim, run the `testing-quality-gate` skill for
+- Before a commit or delivery claim, run the `testing-standard` skill for
   every repository changed.
 
 ## Pull requests
