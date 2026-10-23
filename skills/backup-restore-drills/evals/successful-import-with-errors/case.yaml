@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: successful-import-with-errors
+expected_outcome: |
+  Rejects a successful-exit/integrity-only recovery claim, verifies SQL error
+  propagation plus application/object state, and plans bounded synthetic restores
+  into new isolated destinations without overwriting or touching live data.

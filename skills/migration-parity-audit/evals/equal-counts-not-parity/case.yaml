@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: equal-counts-not-parity
+expected_outcome: |
+  Refuses count/test-based completion; uses current-source capability evidence,
+  explicit legacy-fallback states and worker ownership/coexistence checks, while
+  keeping deployment and cutover separately authorized.

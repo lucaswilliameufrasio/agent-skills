@@ -14,6 +14,7 @@ Each row also has the command to install just that skill globally.
 
 | Skill | Description | Install individually |
 | --- | --- | --- |
+| [`context-checkpoint`](skills/context-checkpoint/SKILL.md) | Persist scoped plans in a user-approved active-task store; recover available context from providers such as ai-memory without treating durable wiki pages as transient checkpoints. | `npx skills add lucaswilliameufrasio/agent-skills --skill context-checkpoint --global` |
 | [`task-completion`](skills/task-completion/SKILL.md) | Carry authorized work through execution, verification, and an honest complete/partial/blocked handoff with concrete next actions. | `npx skills add lucaswilliameufrasio/agent-skills --skill task-completion --global` |
 | [`quality-gate`](skills/quality-gate/SKILL.md) | Compatibility entry point for the canonical `testing-standard` and `task-completion` policies. | `npx skills add lucaswilliameufrasio/agent-skills --skill quality-gate --global` |
 | [`test-strategy`](skills/test-strategy/SKILL.md) | Compatibility entry point for test boundaries and coverage in `testing-standard`. | `npx skills add lucaswilliameufrasio/agent-skills --skill test-strategy --global` |
@@ -36,6 +37,11 @@ Each row also has the command to install just that skill globally.
 | [`privacy-safe-skill-extraction`](skills/privacy-safe-skill-extraction/SKILL.md) | Generalize internal workflows into reusable skills and screen all artifacts for private information before sharing. | `npx skills add lucaswilliameufrasio/agent-skills --skill privacy-safe-skill-extraction --global` |
 | [`shell-docker-preflight`](skills/shell-docker-preflight/SKILL.md) | Verify the login and execution shells, detect Docker daemon mode, and prefer rootless access without silent escalation. | `npx skills add lucaswilliameufrasio/agent-skills --skill shell-docker-preflight --global` |
 | [`secrets-safety`](skills/secrets-safety/SKILL.md) | Protect credentials during development, infrastructure changes, and incident response. | `npx skills add lucaswilliameufrasio/agent-skills --skill secrets-safety --global` |
+| [`credential-lifecycle-and-rotation`](skills/credential-lifecycle-and-rotation/SKILL.md) | Design enrollment, secure custody, recoverable renewal, rotation, revocation, and actual consumer adoption. | `npx skills add lucaswilliameufrasio/agent-skills --skill credential-lifecycle-and-rotation --global` |
+| [`runtime-configuration-and-policy`](skills/runtime-configuration-and-policy/SKILL.md) | Separate typed settings/policy authoring, versioned publication, runtime adoption, and operational activation. | `npx skills add lucaswilliameufrasio/agent-skills --skill runtime-configuration-and-policy --global` |
+| [`migration-parity-audit`](skills/migration-parity-audit/SKILL.md) | Audit behavioral parity across APIs, workers, data, and clients; separate evidence-backed replacement from approved cutover. | `npx skills add lucaswilliameufrasio/agent-skills --skill migration-parity-audit --global` |
+| [`backup-restore-drills`](skills/backup-restore-drills/SKILL.md) | Prove scoped recoverability with consistent recovery sets, isolated restores, integrity checks, and bounded failure drills. | `npx skills add lucaswilliameufrasio/agent-skills --skill backup-restore-drills --global` |
+| [`isolated-worker-execution`](skills/isolated-worker-execution/SKILL.md) | Build enforceable execution boundaries, bounded process trees, safe cancellation, and privacy-preserving evidence promotion. | `npx skills add lucaswilliameufrasio/agent-skills --skill isolated-worker-execution --global` |
 | [`system-module-architecture`](skills/system-module-architecture/SKILL.md) | Plan and build journey-first systems, backoffices, modules, screens, and integration boundaries. | `npx skills add lucaswilliameufrasio/agent-skills --skill system-module-architecture --global` |
 | [`web-capability-architecture`](skills/web-capability-architecture/SKILL.md) | Structure web features, data sources, and validated API boundaries around domain capabilities. | `npx skills add lucaswilliameufrasio/agent-skills --skill web-capability-architecture --global` |
 | [`vps-blue-green-prepare`](skills/vps-blue-green-prepare/SKILL.md) | Prepare project-specific blue-green VPS deployment scripts and runbooks without executing a deployment. | `npx skills add lucaswilliameufrasio/agent-skills --skill vps-blue-green-prepare --global` |
@@ -54,6 +60,13 @@ Each first-party skill lives in its own directory and contains a `SKILL.md` with
 
 `task-completion` owns the portable execution and handoff workflow;
 `testing-standard` is the canonical testing policy in this collection.
+When persistent context is authorized, `context-checkpoint` owns saving and
+recovering the working plan at material boundaries where the user's selected
+store supports active-task records. It verifies writes and does not treat memory
+as fresh authorization. ai-memory-specific guidance uses documented retrieval
+and observations, not durable wiki pages or mid-session handoffs for transient
+plans; unsupported persistence requires a user-approved suitable backend.
+No automatic compaction hook is installed or promised.
 `testing-quality-gate`, `quality-gate`, and `test-strategy` are compatibility
 entry points, not independent testing policies. `git-workflow` delegates to
 `git-delivery` and `conventional-commits`; process requirements never grant
@@ -90,6 +103,13 @@ Keep baseline and with-skill workspaces separate and grade artifacts as well as
 the final report. Passing a handoff scenario is not evidence of actual execution
 or automatic skill activation.
 
+### Evaluating operational workflows
+
+See [workflow skill evaluations](docs/workflow-skill-evaluations.md) for the five
+operational skills' ownership boundaries, synthetic scenarios, paired design
+checks, aggregate results, and privacy/validation limits. Raw evaluation outputs
+and source-memory details stay outside this public repository.
+
 ## Third-party skill recommendations
 
 These are upstream skills discovered in the public Skills ecosystem. They are **not copied or republished here**; install directly from their maintainers with `npx skills`:
@@ -97,6 +117,7 @@ These are upstream skills discovered in the public Skills ecosystem. They are **
 | Upstream | Recommended skills | Install |
 | --- | --- | --- |
 | [anthropics/skills](https://github.com/anthropics/skills) | `frontend-design` | `npx skills add anthropics/skills --skill frontend-design` |
+| [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) | `security-audit` — source-first security reviews with coverage tracking, independent finding verification, and evidence-based reporting. | `npx skills add cloudflare/security-audit-skill --skill security-audit` |
 | [majidmanzarpour/threejs-game-skills](https://github.com/majidmanzarpour/threejs-game-skills) | `threejs-gameplay-systems` | `npx skills add https://github.com/majidmanzarpour/threejs-game-skills --skill threejs-gameplay-systems` |
 | [mattpocock/skills](https://github.com/mattpocock/skills) | `code-review`, `diagnosing-bugs`, `grill-me`, `grill-with-docs`, `improve-codebase-architecture`, `tdd` | `npx skills add mattpocock/skills --skill <name>` |
 | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | `web-design-guidelines` | `npx skills add vercel-labs/agent-skills --skill web-design-guidelines` |
@@ -118,5 +139,7 @@ These are upstream skills discovered in the public Skills ecosystem. They are **
 | [Stripe's official skills](https://docs.stripe.com/skills) | Stripe integration guidance | `npx skills add https://docs.stripe.com` |
 
 Use `npx skills add <owner/repo> --list` to check the upstream repository's current skill names before installing. Third-party skills remain maintained by their authors; review their content and permissions before use.
+
+Cloudflare's full `security-audit` workflow requires subagents and Node.js validators. Executing target-controlled code additionally requires the upstream's OS-enforced sandbox controls; without them, keep source-grounded leads as needing validation rather than running code or probing live services. Adding this recommendation does not install the skill or authorize an audit.
 
 Only first-party skills reviewed for public reuse are stored in this repository. Project-specific skills and files from private repositories are not copied here.

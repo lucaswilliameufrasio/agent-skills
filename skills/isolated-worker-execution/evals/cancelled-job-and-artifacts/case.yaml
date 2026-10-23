@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: cancelled-job-and-artifacts
+expected_outcome: |
+  Owns/reaps the whole execution tree, rejects race-prone broad artifact copies,
+  preserves interrupted attempt history and approval boundaries, and does not
+  silently repeat uncertain effects or rewrite earlier evidence to success.

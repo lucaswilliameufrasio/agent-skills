@@ -21,6 +21,13 @@ conversation and applicable repository instructions. Keep a short checklist for
 multi-step work, using the harness's task list if available or ordinary notes if
 not. A one-step task does not need a ceremonial plan.
 
+When the user has authorized persistent context, read and apply
+[`context-checkpoint`](../context-checkpoint/SKILL.md) using the skill loader or
+sibling file. Recover its scoped active plan before rebuilding it, and persist
+material progress and corrections with verification. A volatile task list alone
+does not establish that the plan will survive compaction. Report an unavailable
+dependency or memory store rather than claiming recovery coverage.
+
 Distinguish implementation, validation, documentation, and delivery steps only
 when they apply. A request to investigate or propose a plan is complete with
 findings or a plan; it does not authorize implementation. A request to implement

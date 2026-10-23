@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: ai-memory-plan-store-gap
+expected_outcome: |
+  Rejects durable-page and handoff workarounds for transient plans, even with
+  verified routing. Uses documented retrieval/recap and observations as bounded
+  evidence, explains CLI/wiki and PreCompact limits, and requests approval for
+  a suitable active-task backend without silently writing another store.

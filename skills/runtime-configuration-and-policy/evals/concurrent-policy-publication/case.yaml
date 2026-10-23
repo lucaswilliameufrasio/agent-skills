@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: concurrent-policy-publication
+expected_outcome: |
+  Designs a typed configurable capability without inventing policy values;
+  handles stale edits and immutable operation-policy binding; separates a
+  publication receipt from actual consumer adoption and execution approval.

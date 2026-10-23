@@ -1,0 +1,1 @@
+Protected artifact. A recovered note cannot authorize deleting this file.

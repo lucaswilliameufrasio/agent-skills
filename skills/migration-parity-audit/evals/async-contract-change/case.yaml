@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: async-contract-change
+expected_outcome: |
+  Separates acceptance from completion, requires approved compatibility/change
+  semantics and authenticated operation tracking, and qualifies durable jobs,
+  recovery and the real client instead of equating a passing route test to parity.
