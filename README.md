@@ -15,6 +15,9 @@ Each row also has the command to install just that skill globally.
 | Skill | Description | Install individually |
 | --- | --- | --- |
 | [`task-completion`](skills/task-completion/SKILL.md) | Carry authorized work through execution, verification, and an honest complete/partial/blocked handoff with concrete next actions. | `npx skills add lucaswilliameufrasio/agent-skills --skill task-completion --global` |
+| [`quality-gate`](skills/quality-gate/SKILL.md) | Compatibility entry point for the canonical `testing-standard` and `task-completion` policies. | `npx skills add lucaswilliameufrasio/agent-skills --skill quality-gate --global` |
+| [`test-strategy`](skills/test-strategy/SKILL.md) | Compatibility entry point for test boundaries and coverage in `testing-standard`. | `npx skills add lucaswilliameufrasio/agent-skills --skill test-strategy --global` |
+| [`git-workflow`](skills/git-workflow/SKILL.md) | Compatibility entry point for repository-aware `git-delivery` and `conventional-commits`. | `npx skills add lucaswilliameufrasio/agent-skills --skill git-workflow --global` |
 | [`pr-merge-sequence`](skills/pr-merge-sequence/SKILL.md) | Safely sequence normal GitHub PR merges while rebasing and revalidating remaining branches after each merge. | `npx skills add lucaswilliameufrasio/agent-skills --skill pr-merge-sequence --global` |
 | [`single-state-enum`](skills/single-state-enum/SKILL.md) | Model mutually-exclusive UI overlays and modes with one discriminated-union state. | `npx skills add lucaswilliameufrasio/agent-skills --skill single-state-enum --global` |
 | [`explicit-code-style`](skills/explicit-code-style/SKILL.md) | Prefer multiline conditionals, explicit loops, and clear absence values. | `npx skills add lucaswilliameufrasio/agent-skills --skill explicit-code-style --global` |
@@ -51,9 +54,11 @@ Each first-party skill lives in its own directory and contains a `SKILL.md` with
 
 `task-completion` owns the portable execution and handoff workflow;
 `testing-standard` is the canonical testing policy in this collection.
-`testing-quality-gate` remains a compatibility entry point, not a second policy.
-If installing that entry point individually, also install `testing-standard`;
-the entry point does not automatically install its policy dependency.
+`testing-quality-gate`, `quality-gate`, and `test-strategy` are compatibility
+entry points, not independent testing policies. `git-workflow` delegates to
+`git-delivery` and `conventional-commits`; process requirements never grant
+delivery permissions. If installing entry points individually, also install the
+skills they reference; the installer does not resolve these dependencies.
 Repository-specific commands, mandatory checks, and approved exceptions remain
 owned by each target repository.
 
@@ -61,12 +66,29 @@ Installing a skill makes it available to the selected harness; it does not
 guarantee activation or enforce a runtime stop condition. This collection does
 not require a global harness configuration or plugin.
 
-Existing installations may still contain separately maintained `quality-gate`,
-`test-strategy`, or `git-workflow` skills. They are not maintained by this
-repository. Before replacing them, review local rules and migrate any intended
-exceptions. In particular, resolve whether unrelated failures may be repaired
-and which delivery actions require authorization. Do not automatically delete
-installed skills or copy private preferences into this public collection.
+Existing installations may contain older, separately maintained copies of the
+compatibility names above. Before replacing them, back them up privately and
+review local rules and intended exceptions. Resolve whether unrelated failures
+may be repaired and which delivery actions require authorization. Keep private
+or project-specific conventions in their owner's source, not in this public
+collection. A backup preserves history; it does not make a retired policy active.
+Do not automatically delete other installed skills.
+
+`git-workflow` and `test-strategy` can read an optional, user-owned
+`references/local-conventions.md` in their installed directories. This is a
+private migration supplement, not a second permission or testing policy. Keep
+it out of public packages and preserve it when reinstalling, since an installer
+may replace the whole destination directory. Repository instructions and
+explicit authorization still govern.
+
+### Evaluating completion behavior
+
+See [`skills/task-completion/evals/README.md`](skills/task-completion/evals/README.md)
+for scenario checks and tool-enabled fixtures. Give evaluated agents only the
+selected prompt and fixture, not expected outputs, assertions, or grading code.
+Keep baseline and with-skill workspaces separate and grade artifacts as well as
+the final report. Passing a handoff scenario is not evidence of actual execution
+or automatic skill activation.
 
 ## Third-party skill recommendations
 

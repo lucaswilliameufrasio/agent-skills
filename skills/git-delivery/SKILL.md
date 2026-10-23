@@ -14,6 +14,11 @@ Coordinate Git tasks without assuming every repository uses the same flow.
 Treat repository instructions, remote configuration, branch protections, and
 the user's explicit authorization as the source of truth.
 
+Read and apply [`task-completion`](../task-completion/SKILL.md) for tracking
+requested outcomes, finishing authorized steps, and reporting remaining work.
+Use the skill loader or sibling file; if unavailable, report the limitation.
+This does not grant permission for any delivery step.
+
 ## Inspect before acting
 
 1. Check the repository, current branch, remotes, `git status`, recent history,
@@ -23,11 +28,16 @@ the user's explicit authorization as the source of truth.
 3. Determine whether the request authorizes only preparation, or also commit,
    push, PR creation, merge, tagging, or publication. Do not infer permission
    for a later step from permission for an earlier one.
+4. Check whether pushing a target branch triggers deployment and whether shared
+   branch restrictions apply. Follow the repository's exact process; do not
+   treat a backport requirement or a second PR as implied authorization.
 
 ## Branch and changes
 
 - Use the repository's documented base branch and branch naming. If unclear,
   ask rather than assuming `main`, `develop`, or a particular Git flow.
+- Follow documented commit language and ticket-reference conventions. Do not
+  invent issue identifiers or infer Git flow solely from a branch name.
 - Keep changes focused. Inspect the final diff and stage only intended files.
 - Follow the `conventional-commits` skill for commit messages. Do not commit,
   amend, force-push, or push unless explicitly authorized.

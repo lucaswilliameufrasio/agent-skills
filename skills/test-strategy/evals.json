@@ -1,0 +1,11 @@
+{
+  "skill_name": "test-strategy",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Choose integration coverage for a real local datastore and an unavailable SaaS, and explain how the canonical testing policy applies. Do not maintain a second testing checklist.",
+      "expected_output": "Reads testing-standard, uses the real local store and protocol-boundary fake for the external service, and delegates coverage and verification policy rather than duplicating it.",
+      "files": []
+    }
+  ]
+}

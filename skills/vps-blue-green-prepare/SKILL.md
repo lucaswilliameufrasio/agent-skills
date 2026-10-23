@@ -18,6 +18,12 @@ green reduces application downtime, but does not by itself guarantee zero
 downtime: database changes, singleton work, shared state, and infrastructure
 limits can still require coordination or a maintenance window.
 
+Read and apply [`task-completion`](../task-completion/SKILL.md) using the skill
+loader or sibling file; report if unavailable. Complete and validate the
+requested preparation artifacts. A verified preparation task can be complete
+without a live deployment: list operator prerequisites separately, and do not
+connect to a host or deploy merely to eliminate a preparation-only next step.
+
 ## Establish the project and deployment model
 
 1. Inspect the repository, build/test commands, runtime entrypoint, existing

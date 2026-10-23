@@ -1,0 +1,11 @@
+{
+  "skill_name": "quality-gate",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Verify a Python repository before delivery. Its documented full gate failed in an unrelated subsystem. Do not assume Go commands or broaden the task into behavioral repairs.",
+      "expected_output": "Loads testing-standard, discovers Python repository checks, reports the required gate failure without claiming completion or silently repairing unrelated behavior, and uses task-completion for the next action.",
+      "files": []
+    }
+  ]
+}

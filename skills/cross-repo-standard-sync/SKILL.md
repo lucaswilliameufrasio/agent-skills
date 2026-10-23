@@ -15,6 +15,12 @@ Keep a development rule consistent without pretending every repository has the
 same owner, stack, commands, or exceptions. A canonical source is selected by
 who owns the rule, not by which copy happens to be easiest to find.
 
+Read and apply [`task-completion`](../task-completion/SKILL.md) using the skill
+loader or sibling file. Track each approved target through verification; an
+audit is complete with findings, while a synchronization also requires the
+authorized writes and read-back checks. Report an unavailable dependency.
+This workflow does not expand the approved targets or authorize publication.
+
 ## Classify ownership before choosing a source
 
 For each rule, identify its scope:

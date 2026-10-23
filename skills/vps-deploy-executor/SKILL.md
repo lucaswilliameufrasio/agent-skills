@@ -17,6 +17,12 @@ authorizes work only on the identified application and release; it does not
 authorize stopping, reconfiguring, or cleaning up other services. Prefer
 read-only discovery first. Never promise zero downtime.
 
+Read and apply [`task-completion`](../task-completion/SKILL.md) using the skill
+loader or sibling file; report if unavailable. Track the approved plan through
+health verification and report the delivery state and next action. Its
+persistence rule never bypasses this skill's explicit plan approval, safe
+rollback limits, or separate cleanup authorization.
+
 ## 1. Identify scope and inspect before changing anything
 
 Confirm the target host/environment, application, intended version, and the

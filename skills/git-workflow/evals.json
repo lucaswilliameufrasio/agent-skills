@@ -1,0 +1,17 @@
+{
+  "skill_name": "git-workflow",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Implement a hotfix, but do not commit, push, or open a PR yet. The documented process requires a later backport and two PRs. Does that process authorize delivery now?",
+      "expected_output": "Reads git-delivery, respects the explicit no-delivery boundary, and reports backport and PR requirements without executing them or inventing permission.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Prepare a branch in a repository with a develop branch but no documented Git flow. What base, naming, and delivery permissions apply?",
+      "expected_output": "Inspects repository rules rather than inferring Git flow solely from a branch name, clarifies consequential missing facts, and separates preparation from commit/push authorization.",
+      "files": []
+    }
+  ]
+}

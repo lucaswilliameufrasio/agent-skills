@@ -96,6 +96,10 @@ verification.
 - Fix failures caused by the change.
 - Report pre-existing failures with the exact command and a concise, redacted
   summary; do not conceal them.
+- If the user or repository policy explicitly authorizes whole-repository
+  mechanical cleanup, apply narrowly scoped behavior-preserving fixes and
+  recheck them. A green-gate requirement alone does not authorize unrelated
+  behavioral changes, architecture work, or weakening assertions.
 - Never claim the full suite passed when only a subset ran or when relying on
   cached results.
 - Do not claim completion while required checks are unverified unless the
