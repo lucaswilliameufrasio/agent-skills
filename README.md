@@ -53,6 +53,7 @@ Each row also has the command to install just that skill globally.
 | [`performance-benchmarking-and-load-testing`](skills/performance-benchmarking-and-load-testing/SKILL.md) | Build repeatable benchmarks and load tests for performance, saturation, and capacity. | `npx skills add lucaswilliameufrasio/agent-skills --skill performance-benchmarking-and-load-testing --global` |
 | [`performance-profiling-ebpf`](skills/performance-profiling-ebpf/SKILL.md) | Profile measured bottlenecks with runtime tools and optional, safely scoped eBPF/perf diagnostics. | `npx skills add lucaswilliameufrasio/agent-skills --skill performance-profiling-ebpf --global` |
 | [`rust-cross-platform-builds`](skills/rust-cross-platform-builds/SKILL.md) | Accelerate and validate Rust cross-platform release builds with Zig/cargo-zigbuild and controlled benchmarks. | `npx skills add lucaswilliameufrasio/agent-skills --skill rust-cross-platform-builds --global` |
+| [`create-verification-skill`](skills/create-verification-skill/SKILL.md) | Create a project-local, harness-native skill to drive real app workflows and preserve observable verification evidence. | `npx skills add lucaswilliameufrasio/agent-skills --skill create-verification-skill --global` |
 
 Each first-party skill lives in its own directory and contains a `SKILL.md` with frontmatter. The [Skills CLI](https://github.com/vercel-labs/skills) installs selected skills into the agent directories it manages.
 
