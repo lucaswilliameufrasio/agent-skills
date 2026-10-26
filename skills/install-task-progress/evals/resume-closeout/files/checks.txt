@@ -1,0 +1,6 @@
+Task export-a, source snapshot fixture-v2:
+header-public-id: PASS, first column public_id
+column-order: PASS, public_id,name
+quote-escaping: PASS, embedded quotes escaped
+No unverified requested outcomes remain for export-a.
+This is supplied synthetic evidence, not a claim of a real app test run.

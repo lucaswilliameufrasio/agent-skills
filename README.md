@@ -54,6 +54,8 @@ Each row also has the command to install just that skill globally.
 | [`performance-profiling-ebpf`](skills/performance-profiling-ebpf/SKILL.md) | Profile measured bottlenecks with runtime tools and optional, safely scoped eBPF/perf diagnostics. | `npx skills add lucaswilliameufrasio/agent-skills --skill performance-profiling-ebpf --global` |
 | [`rust-cross-platform-builds`](skills/rust-cross-platform-builds/SKILL.md) | Accelerate and validate Rust cross-platform release builds with Zig/cargo-zigbuild and controlled benchmarks. | `npx skills add lucaswilliameufrasio/agent-skills --skill rust-cross-platform-builds --global` |
 | [`create-verification-skill`](skills/create-verification-skill/SKILL.md) | Create a project-local, harness-native skill to drive real app workflows and preserve observable verification evidence. | `npx skills add lucaswilliameufrasio/agent-skills --skill create-verification-skill --global` |
+| [`acceptance-traceability`](skills/acceptance-traceability/SKILL.md) | Trace requested outcomes and scope changes to current tests/evidence without confusing implementation or green builds with acceptance. | `npx skills add lucaswilliameufrasio/agent-skills --skill acceptance-traceability --global` |
+| [`install-task-progress`](skills/install-task-progress/SKILL.md) | Install an AGENTS.md contract for per-task progress, recovery, and verified durable documentation before exact completed-record cleanup. | `npx skills add lucaswilliameufrasio/agent-skills --skill install-task-progress --global` |
 
 Each first-party skill lives in its own directory and contains a `SKILL.md` with frontmatter. The [Skills CLI](https://github.com/vercel-labs/skills) installs selected skills into the agent directories it manages.
 
@@ -68,6 +70,20 @@ as fresh authorization. ai-memory-specific guidance uses documented retrieval
 and observations, not durable wiki pages or mid-session handoffs for transient
 plans; unsupported persistence requires a user-approved suitable backend.
 No automatic compaction hook is installed or promised.
+When the user deliberately chooses filesystem progress, `install-task-progress`
+adds a self-contained rule to the target repository's `AGENTS.md`: one live file
+per task/worktree, milestone updates and recovery, retained blocked/partial work,
+and durable outcomes/decision links verified before the completed record is
+removed. ai-memory can remain available for history; it is not a competing live
+plan. Local-only files do not follow clones/worktrees. Installing the skill
+globally does not install the rule into any repository or global instructions.
+`acceptance-traceability` maps requirements to observable proof, while
+`create-verification-skill` authors the project-specific journey driver. Neither
+replaces test policy, execution ownership, product sign-off, or decision rationale.
+See [task workflow contracts](docs/task-workflow-contracts.md) for ownership,
+file lifecycle, design rationale, and evaluation limits. Example requests:
+“Use acceptance-traceability to validate this delivery” and “Use
+install-task-progress to install the progress rule in this repository.”
 `testing-quality-gate`, `quality-gate`, and `test-strategy` are compatibility
 entry points, not independent testing policies. `git-workflow` delegates to
 `git-delivery` and `conventional-commits`; process requirements never grant

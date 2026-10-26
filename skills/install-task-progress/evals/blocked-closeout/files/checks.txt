@@ -1,0 +1,3 @@
+crop-preview: PASS (supplied synthetic result)
+png-export: NOT RUN; no file or browser available
+Requested acceptance still requires an actual valid downloaded PNG.

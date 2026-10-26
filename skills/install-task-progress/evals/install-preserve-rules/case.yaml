@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: install-preserve-rules
+expected_outcome: |
+  Installs a self-contained bounded AGENTS.md block twice without duplication,
+  preserves existing memory/security instructions, and scopes local-only files.
+context:
+  scaffold_script: place-files.sh

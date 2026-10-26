@@ -30,6 +30,11 @@ that the task is complete.
    owner, audience, and authorization. Use verified routing metadata or the
    user's explicit destination, not a directory-name guess or server's last
    active project. Separate concurrent tasks and worktrees.
+   When the user or canonical `AGENTS.md` deliberately selects per-task files,
+   use that filesystem store as the live plan. `install-task-progress` can install
+   that project policy when requested; it is not permission to add it everywhere.
+   See [references/filesystem.md](references/filesystem.md) for file lifecycle
+   and durable closeout without a second memory-backed copy.
 3. Verify that the provider actually supports reusable active-task/plan records;
    a durable wiki write, lifecycle log, or feature named "checkpoint" alone does
    not establish that contract. Discover actual schemas for scoped search, full
@@ -149,6 +154,12 @@ agent's record. End-of-session handoffs are only for actual session endings;
 mid-session compaction needs a supported reusable checkpoint, not a single-use
 handoff. If none is available, disclose the recovery gap instead of repurposing
 a durable wiki page or starting a handoff mid-session.
+
+An explicitly selected transient-file contract may require removal of the exact
+completed task file after verified durable closeout. Follow that contract; this
+does not authorize deleting historical records, cancelled/blocked/partial tasks,
+another owner's files, or evidence. Promote outcomes and substantive decisions
+before removing the live plan, and verify the durable records remain.
 
 ## Reliability boundary
 

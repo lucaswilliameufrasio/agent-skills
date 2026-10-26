@@ -38,6 +38,15 @@ user steering or context compaction, reconcile the remaining work against the
 latest request rather than silently dropping earlier requirements. Respect
 explicit cancellations and scope reductions.
 
+When project instructions select per-task progress files, use that file as the
+canonical live plan and keep it current at material boundaries. Before its
+approved completion cleanup, preserve verified results, acceptance evidence,
+limitations/follow-ups, and substantive decision links in durable documentation.
+Read the durable output back before removing only the completed owned record;
+blocked/partial work keeps its recovery file. `install-task-progress` installs
+this contract only when requested; `acceptance-traceability` maps outcomes to
+proof without replacing this execution workflow or the testing policy.
+
 ## Execute instead of offering to execute
 
 Continue with the next safe, necessary, already-authorized action until the
