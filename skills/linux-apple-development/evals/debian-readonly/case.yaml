@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: debian-readonly
+expected_outcome: |
+  Distinguishes Ubuntu builder evidence from native Debian support, rejects
+  read-only assumptions about repair and user installs, and selects a compatible
+  full SDK or approved Mac route for a complete macOS SwiftUI app.

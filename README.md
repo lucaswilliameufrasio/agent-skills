@@ -54,10 +54,19 @@ Each row also has the command to install just that skill globally.
 | [`performance-profiling-ebpf`](skills/performance-profiling-ebpf/SKILL.md) | Profile measured bottlenecks with runtime tools and optional, safely scoped eBPF/perf diagnostics. | `npx skills add lucaswilliameufrasio/agent-skills --skill performance-profiling-ebpf --global` |
 | [`rust-cross-platform-builds`](skills/rust-cross-platform-builds/SKILL.md) | Accelerate and validate Rust cross-platform release builds with Zig/cargo-zigbuild and controlled benchmarks. | `npx skills add lucaswilliameufrasio/agent-skills --skill rust-cross-platform-builds --global` |
 | [`create-verification-skill`](skills/create-verification-skill/SKILL.md) | Create a project-local, harness-native skill to drive real app workflows and preserve observable verification evidence. | `npx skills add lucaswilliameufrasio/agent-skills --skill create-verification-skill --global` |
+| [`desktop-visual-qa`](skills/desktop-visual-qa/SKILL.md) | Verify native desktop UI/UX over SSH with real screenshots, interaction evidence, safe Linux sessions, and egui/Slint/GPUI guidance. | `npx skills add lucaswilliameufrasio/agent-skills --skill desktop-visual-qa --global` |
+| [`linux-apple-development`](skills/linux-apple-development/SKILL.md) | Orchestrate Apple app development from CachyOS/Arch, Debian or Ubuntu with upstream xtool tooling and optional Mac build/test stages, explicit compatibility and release gates. | `npx skills add lucaswilliameufrasio/agent-skills --skill linux-apple-development --global` |
 | [`acceptance-traceability`](skills/acceptance-traceability/SKILL.md) | Trace requested outcomes and scope changes to current tests/evidence without confusing implementation or green builds with acceptance. | `npx skills add lucaswilliameufrasio/agent-skills --skill acceptance-traceability --global` |
 | [`install-task-progress`](skills/install-task-progress/SKILL.md) | Install an AGENTS.md contract for per-task progress, recovery, and verified durable documentation before exact completed-record cleanup. | `npx skills add lucaswilliameufrasio/agent-skills --skill install-task-progress --global` |
 
 Each first-party skill lives in its own directory and contains a `SKILL.md` with frontmatter. The [Skills CLI](https://github.com/vercel-labs/skills) installs selected skills into the agent directories it manages.
+
+For native Rust apps accessed over SSH, see the [desktop visual QA workflow](docs/desktop-visual-qa.md).
+The skill guides real screenshot/interaction checks; graphical sessions, MCP tools
+and image inspection must be provided and verified separately.
+
+For Apple app development from Linux using a Mac as controller or optional native
+stage, see [the Linux/Apple workflow and support boundaries](docs/linux-apple-development.md).
 
 ## Completion and testing policy
 

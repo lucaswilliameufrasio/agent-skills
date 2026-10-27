@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: ssh-egui
+expected_outcome: |
+  Refuses visual acceptance without inspecting images; distinguishes wgpu widget
+  snapshots from the real glow app and uses isolated synthetic database data.

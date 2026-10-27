@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: gpui-display-failure
+expected_outcome: |
+  Diagnoses graphics readiness separately from application quality, refuses silent
+  takeover, and plans renderer-compatible scoped checks with explicit DPI evidence.

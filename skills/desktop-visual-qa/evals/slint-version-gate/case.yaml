@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: slint-version-gate
+expected_outcome: |
+  Version-gates embedded Slint automation, avoids public privileged endpoints,
+  and preserves separate native OS integration checks.

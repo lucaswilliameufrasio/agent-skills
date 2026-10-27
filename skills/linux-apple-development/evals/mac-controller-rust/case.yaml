@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: mac-controller-rust
+expected_outcome: |
+  Rejects SwiftPM/Cargo conflation and Linux Apple runtime assumptions, respects
+  the Mac-as-controller topology and keeps signing keys/publication scoped.
