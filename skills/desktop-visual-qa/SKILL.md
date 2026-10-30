@@ -47,6 +47,11 @@ Inspect capabilities without installing or changing configuration:
 - Can input target the verified app/window? Are accessibility nodes exposed?
 - What renderer/driver and display geometry can this environment support?
 
+Run `scripts/probe.sh` first: it is read-only and lists the routes this machine
+already supports (for example a private KWin session on Plasma, which needs no
+installation and, with `scripts/qa_session.py`, supports click, type, paste, real
+fractional DPI, a private keyring and native dialogs). Prefer a ready route over
+proposing installs; probe the actual renderer instead of assuming software rendering.
 Use installed tools and their current schemas/help; do not invent MCP tool names.
 Run available read-only readiness diagnostics, then prove capture with an actual
 frame. A successful doctor report or portal detection is not capture consent.
