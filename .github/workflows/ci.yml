@@ -52,7 +52,7 @@ jobs:
       - name: Lint shell scripts
         run: |
           set -euo pipefail
-          # shellcheck is preinstalled on GitHub-hosted Ubuntu runners.
+          # The tool ships preinstalled on GitHub-hosted Ubuntu runners.
           git ls-files -z '*.sh' | xargs -0 --no-run-if-empty shellcheck
       - name: Reject unpinned third-party actions
         run: |
