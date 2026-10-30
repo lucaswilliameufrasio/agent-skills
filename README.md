@@ -68,6 +68,23 @@ and image inspection must be provided and verified separately.
 For Apple app development from Linux using a Mac as controller or optional native
 stage, see [the Linux/Apple workflow and support boundaries](docs/linux-apple-development.md).
 
+## Operational additions
+
+New operational skills:
+
+| Skill | Description | Install individually |
+| --- | --- | --- |
+| [`vault-namespace-ownership`](skills/vault-namespace-ownership/SKILL.md) | Scope secrets by ownership and actual shared consumers, without universal shared fallback. | `npx skills add lucaswilliameufrasio/agent-skills --skill vault-namespace-ownership --global` |
+| [`vault-bootstrap-configuration`](skills/vault-bootstrap-configuration/SKILL.md) | Resolve operational configuration consistently across servers, workers, and data commands, leaving only bootstrap/platform inputs in envs. | `npx skills add lucaswilliameufrasio/agent-skills --skill vault-bootstrap-configuration --global` |
+| [`actions-billing-local-validation`](skills/actions-billing-local-validation/SKILL.md) | Map billing-blocked CI to complete local evidence without false success claims or implicit bypass. | `npx skills add lucaswilliameufrasio/agent-skills --skill actions-billing-local-validation --global` |
+| [`insert-only-predeploy-import`](skills/insert-only-predeploy-import/SKILL.md) | Preserve existing records in repeatable imports and qualify deployment hooks safely with local services. | `npx skills add lucaswilliameufrasio/agent-skills --skill insert-only-predeploy-import --global` |
+
+Shell/session improvements belong to `shell-docker-preflight`; per-feature
+rebase and conditional release-promotion guidance belong to `pr-merge-sequence`.
+There are no duplicate shell or merge-policy entry points for these additions.
+See [operational skill verification](docs/operational-skill-verification.md)
+for the selection rationale, scenarios, and verification limits.
+
 ## Completion and testing policy
 
 `task-completion` owns the portable execution and handoff workflow;

@@ -72,6 +72,12 @@ Confirm the intended contents and target, run the quality gate, and use
 notes only when requested. Creating tags, publishing artifacts, or deploying
 requires explicit authorization.
 
+Release promotion is not an ordinary feature rebase. Consult
+`pr-merge-sequence` for the distinction when a development/release/main flow is
+in use. For confirmed Actions billing blocks, use
+`actions-billing-local-validation` for evidence and approved local substitution,
+without treating this as permission to bypass checks or protection.
+
 ## Final report
 
 State what was completed, the branch/commit/PR references, which checks actually

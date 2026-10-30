@@ -44,6 +44,26 @@ tool. Before each command, use that verified executor; repeat the preflight if
 any of those contexts changes. Do not execute commands through a different
 shell implicitly.
 
+### Helpers, scripts, and command lifetime
+
+- Use the verified execution shell's syntax in tools, and the user's verified
+  terminal shell's syntax in instructions intended for them. A Fish login with
+  a Bash tool executor is valid; neither overrides the other's syntax.
+- Do not infer Zsh from a `.zshrc` file or assume a remembered machine still uses
+  the same shell. Query only relevant account/process metadata, not the entire
+  environment or process arguments, which may contain credentials.
+- Aliases and functions belong to their shell/session. For a required Fish-only
+  helper, verify availability in that context and invoke the intended shell
+  explicitly, or use the underlying standard CLI instead. Do not invent helpers.
+- Respect project script interpreters and shebangs; a Fish login can execute a
+  Bash script explicitly. Do not rewrite scripts or change login shells to fix
+  a harness mismatch.
+- Unless the tool guarantees persistence, assume each call is independent.
+  Pass working directories and required inputs per call; do not rely on a prior
+  `cd`, exported variable, or loaded function surviving.
+- Do not alter dotfiles or global harness configuration without authorization.
+  Installing a skill does not install an always-on rule into those files.
+
 ## Check Docker mode before Docker operations
 
 As part of the initial task preflight, and again if the host/user/daemon
