@@ -2,7 +2,10 @@
 
 ## Choose a route
 
+0. Run `scripts/probe.sh` (read-only) to see what this machine already has.
 1. Reuse a repository-owned native harness if it proves the needed behavior.
+1a. On KDE machines, try the zero-install private KWin route below before
+   asking to install anything.
 2. For real-window QA over SSH, prefer an approved private desktop managed by
    `agent-workspace-linux` when installed and compatible.
 3. Use `computer-use-linux` on an existing desktop only with explicit approval
@@ -15,6 +18,66 @@ software rendering may work for some apps; prove actual rendering. Virtual nativ
 Wayland compositors may be alternatives depending on installed versions, render
 nodes and permissions. Do not install a full desktop or grant GPU/input-device
 access automatically. GPUI failure under Xvfb does not mean the UI is defective.
+
+## Zero-install route: private KWin on Plasma
+
+Plasma machines usually already ship `kwin_wayland` (`--virtual`), `spectacle`,
+`dbus-run-session`, `kscreen-doctor`, `wl-copy` and `ksecretd`. `scripts/probe.sh`
+lists what exists. `scripts/qa_session.py` uses them to run an app in a private
+Wayland compositor and drive it, with no package installs and no contact with the
+user's session (private runtime dir, private D-Bus, private HOME/XDG by default).
+Input uses libei through KWin's EIS D-Bus endpoint, via `scripts/eitool.c`, which
+`qa_session.py` compiles per run with `cc` (needs libei headers, e.g. `pkg-config
+--exists libei-1.0`).
+
+```sh
+scripts/qa_session.py --out RUN_DIR --size 1920x1200 [--output-scale 1.5] [--keyring] \
+  --steps steps.txt -- /path/to/NEW/binary
+```
+
+Step files are plain text (`click X Y`, `type`, `paste`, `key ctrl+a`, `shot NAME`,
+`wait`, `sh`, ...; see the script header). Coordinates are compositor logical
+pixels. Observe, act, then re-observe; do not reuse guessed coordinates.
+
+Smoke-tested on 2026-10-30 on KWin 6.8.1 (Arch/CachyOS, NVIDIA + AMD) with four
+Rust egui/glow apps and a Qt app:
+
+- **Real GPU, not software.** An EGL probe inside the session reported the NVIDIA
+  driver, and `nvidia-smi pmon` listed the app as a graphics client. Do not assume
+  llvmpipe; probe the adapter in each environment. It still is one machine's GPU.
+- **Click, type, Tab, ctrl+a, Enter, scroll and clipboard paste work.** ASCII typing
+  is US-layout; use `paste` (private `wl-copy`) for accents. Pasted `São João ção`
+  arrived intact in an egui field, a SQL editor and a Valkey console.
+- **Real fractional DPI** needs `--output-scale N` (KDE output management through
+  `kscreen-doctor`) applied **before** the app starts. KWin's own `--scale` only
+  enlarges the framebuffer and is *not* a DPI test. Size the physical framebuffer as
+  logical size x scale, or a 1.5x window overflows the screen.
+- **Native dialogs are reachable.** A GTK file chooser (from `rfd`) and the KDE Wallet
+  wizard appeared inside the private compositor and could be driven and captured.
+- **Private keyring.** Without a Secret Service, apps using the `keyring` crate fail
+  with a readable error. `--keyring` starts a private `ksecretd`; its first use opens
+  a wallet wizard that must be completed (classic/Blowfish, throwaway password) by a
+  `sh secret-tool store ...` step plus clicks *before* the app saves a password. The
+  wallet lives in the private HOME; never point this at the real one.
+
+Pitfalls that cost time:
+
+- **Pick a framebuffer larger than the app's initial window plus decorations.** An app
+  that opens 1360x860 does not fit a 1360x860 screen; its status bar was off-screen and
+  looked like a missing feature.
+- **KWin drops the EIS client when the D-Bus connection that requested it closes.** Keep
+  that connection alive for the whole run (the script does).
+- **egui repaints on events.** A frame captured after an async result may be stale until
+  the pointer moves; add a `move` step before the capture and say so in the report.
+- **Check ports before starting disposable services.** One default port was already in
+  use by another local service; bind disposable containers on free loopback ports with
+  unique names and remove only those.
+- **Apps may not follow system theme.** Several force dark mode, so "light theme" was
+  not testable; report that as not supported rather than as a gap in tooling.
+- Not covered: macOS, other compositors, an on-screen IME, multi-monitor, and apps that
+  need a portal (no `xdg-desktop-portal` runs in the private session).
+
+For a Qt/KDE-less machine use the other routes below.
 
 ## agent-workspace-linux
 

@@ -54,6 +54,15 @@ Upstream links and freshness limits are in the skill's references. Distro packag
 names, MCP registration formats and graphic backends must be checked at use time;
 this collection does not pin third-party installation scripts as universal setup.
 
+## Zero-install Plasma route
+
+`scripts/probe.sh` reports what a Linux machine already has. On Plasma,
+`scripts/qa_session.py` runs the app in a private `kwin_wayland --virtual` session
+and drives it with libei input, `kscreen-doctor` fractional scaling, a private
+`ksecretd` and `spectacle` capture, without installing packages or touching the
+user's session. It was smoke-tested on one machine (2026-10-30) against four egui
+apps; the pitfalls and limits are in `references/linux-ssh.md`.
+
 ## Evaluation boundary
 
 Three synthetic decision scenarios cover absent image inspection, GPUI graphics
