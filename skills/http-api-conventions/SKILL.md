@@ -4,7 +4,7 @@ description: >-
   Design, implement, or review HTTP/JSON APIs. Use for request/response
   contracts, validation, error handling, pagination, authentication, or caching.
   Enforce consistent wire formats, omit absent values instead of encoding null,
-  stable error codes, precise status semantics, and safe boundaries.
+  specific error codes, precise status semantics, and safe boundaries.
 ---
 
 # HTTP API conventions
@@ -44,23 +44,29 @@ Every API error response uses this shape:
 ```json
 {
   "message": "Mensagem legível para pessoas",
-  "error_code": "STABLE_UPPER_SNAKE_CASE",
-  "extra": {
-    "context_key": "context value"
-  }
+  "error_code": "EMAIL_ALREADY_REGISTERED"
 }
 ```
 
-`extra` is optional. Omit it when there is no useful context. A missing value
-must not be represented by a JSON `null`; omit an optional key instead.
+`extra` is optional. Omit it when the code is already specific enough for the
+client to choose its handling. A missing value must not be represented by a
+JSON `null`; omit an optional key instead.
 
 - `message` is for people, not client-side branching. Use the API's required
   human language; for the house convention, use PT-BR.
-- `error_code` is a stable, documented identifier. Clients branch or translate
-  by this code, never by parsing `message`.
-- Do not rename a shipped code without a compatibility plan with API consumers.
-- `extra` may carry safe context useful to a UI or operator, such as validation
-  details, a resource identifier, retryability, or a limit. Never put secrets,
+- `error_code` is how the client selects its handling, and it is specific in
+  most cases. The code names one situation (`EMAIL_ALREADY_REGISTERED`,
+  `<RESOURCE>_NOT_FOUND`); the client branches on it and does not parse
+  `message`. A code is non-specific only for an unknown failure
+  (`UNEXPECTED_ERROR`) or when `extra` complements it and carries the fact that
+  distinguishes the case (`INVALID_PARAMS` with `validation_errors`, an
+  integration code with a safe upstream detail). Name a known situation in the
+  code. Return `UNEXPECTED_ERROR` for a situation that is not classified yet,
+  until a specific code exists. Do not rename a shipped code without a
+  compatibility plan with API consumers.
+- `extra` complements a non-specific code with the fact the client needs. On a
+  code that is already specific, it is optional safe context, such as a
+  resource identifier, and is omitted when it adds nothing. Never put secrets,
   stack traces, raw internal errors, or sensitive payloads there.
 
 ## Status semantics
@@ -70,13 +76,13 @@ must not be represented by a JSON `null`; omit an optional key instead.
 | Missing/invalid authentication | 401 | `UNAUTHORIZED` or a stable auth code | Omit unless safe context is needed |
 | Authenticated but not allowed | 403 | `PERMISSION_DENIED` | Omit unless safe context is needed |
 | Resource does not exist | 404 | `<RESOURCE>_NOT_FOUND` | Omit unless safe context is needed |
-| State conflict (already exists/decided) | 409 | A stable conflict-specific code | Omit unless safe context is needed |
-| Business precondition not satisfied | 412 | A stable precondition-specific code | Current safe state, when useful |
+| State conflict (already exists/decided) | 409 | Code that names the conflict, e.g. `EMAIL_ALREADY_REGISTERED` | Omit when the code already names it |
+| Business precondition not satisfied | 412 | Code that names the precondition | Current safe state, when useful |
 | Syntactically valid payload violates validation/business rules | 422 | `INVALID_PARAMS` | **Required:** `validation_errors` array |
 | Malformed request (invalid JSON/encoding/corrupt body) | 400 | `MALFORMED_REQUEST` | Omit unless safe context is needed |
 | Upstream dependency rejects/fails an operation | 502 | Our stable integration code | Safe upstream code/context, if useful |
 | Unexpected or unmapped server error | 500 | `UNEXPECTED_ERROR` | Never expose stack or internal details |
-| Derived resource generation fails | 500 | A stable operation-specific code | Safe limits/context, if useful |
+| Derived resource generation fails | 500 | Code that names the failed operation | Safe limits/context, if useful |
 | Request body exceeds configured size limit | 413 | `PAYLOAD_TOO_LARGE` | Omit unless safe context is needed |
 
 Keep the distinctions precise:
@@ -86,6 +92,7 @@ Keep the distinctions precise:
   rule. Every 422 response includes `extra.validation_errors`, an array of
   `{ "field": "...", "message": "..." }` entries.
 - **409** means the current resource state conflicts with the requested action.
+  The code names which conflict.
 - **412** means a prerequisite for the action has not been satisfied.
 - **404** means the addressed resource does not exist.
 
@@ -108,7 +115,7 @@ and naming conventions. Keep secrets and full sensitive payloads out of logs.
 
 ## Centralize translation
 
-Domain errors should carry a human message and stable error code. Translate
+Domain errors should carry a human message and a specific error code. Translate
 them to `{ statusCode, body }` in one shared builder/adapter rather than
 scattering HTTP status selection and response-envelope construction across
 routes. Map schema-validation failures into the standard validation error
@@ -127,12 +134,14 @@ invalidation impractical, and store the generation outside an evicting cache.
 
 ## Review checklist
 
-- Does every error use the shared body shape and stable code?
+- Does every error use the shared body shape and a specific `error_code`?
 - Does the status reflect the semantics, especially malformed 400 vs. invalid
   422 and conflict 409 vs. precondition 412?
 - Does every 422 include `extra.validation_errors[]`?
 - Are absent values omitted, with no JSON `null` in API request/response bodies?
-- Do clients make decisions from `error_code`, not `message`?
+- Can the client select its handling from a specific `error_code`, without
+  parsing `message`? A code is non-specific only for `UNEXPECTED_ERROR` or when
+  `extra` complements it with the distinguishing fact.
 - Are upstream codes kept separate from this API's codes?
 - Are application routes versioned, with only required platform probes outside
   the versioned path?
