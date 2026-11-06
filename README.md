@@ -56,6 +56,8 @@ Each row also has the command to install just that skill globally.
 | [`performance-benchmarking-and-load-testing`](skills/performance-benchmarking-and-load-testing/SKILL.md) | Build repeatable benchmarks and load tests for performance, saturation, and capacity. | `npx skills add lucaswilliameufrasio/agent-skills --skill performance-benchmarking-and-load-testing --global` |
 | [`performance-profiling-ebpf`](skills/performance-profiling-ebpf/SKILL.md) | Profile measured bottlenecks with runtime tools and optional, safely scoped eBPF/perf diagnostics. | `npx skills add lucaswilliameufrasio/agent-skills --skill performance-profiling-ebpf --global` |
 | [`rust-cross-platform-builds`](skills/rust-cross-platform-builds/SKILL.md) | Accelerate and validate Rust cross-platform release builds with Zig/cargo-zigbuild and controlled benchmarks. | `npx skills add lucaswilliameufrasio/agent-skills --skill rust-cross-platform-builds --global` |
+| [`design-system-definition`](skills/design-system-definition/SKILL.md) | Research, decide, and record a complete product design system (concept, tokens, components, ethical engagement, web/mobile/desktop/TUI) with checkable directives. | `npx skills add lucaswilliameufrasio/agent-skills --skill design-system-definition --global` |
+| [`interface-redesign`](skills/interface-redesign/SKILL.md) | Redesign every screen of a web, mobile, desktop, or TUI app against one documented system, preserving contracts and proving it with real screenshots. | `npx skills add lucaswilliameufrasio/agent-skills --skill interface-redesign --global` |
 | [`create-verification-skill`](skills/create-verification-skill/SKILL.md) | Create a project-local, harness-native skill to drive real app workflows and preserve observable verification evidence. | `npx skills add lucaswilliameufrasio/agent-skills --skill create-verification-skill --global` |
 | [`desktop-visual-qa`](skills/desktop-visual-qa/SKILL.md) | Verify native desktop UI/UX over SSH with real screenshots, interaction evidence, safe Linux sessions, and egui/Slint/GPUI guidance. | `npx skills add lucaswilliameufrasio/agent-skills --skill desktop-visual-qa --global` |
 | [`linux-apple-development`](skills/linux-apple-development/SKILL.md) | Orchestrate Apple app development from CachyOS/Arch, Debian or Ubuntu with upstream xtool tooling and optional Mac build/test stages, explicit compatibility and release gates. | `npx skills add lucaswilliameufrasio/agent-skills --skill linux-apple-development --global` |
@@ -68,6 +70,14 @@ Each locally maintained skill lives in its own directory and contains a `SKILL.m
 attribution and license in its directory. It discovers each project's actual
 technologies and dependency versions; it does not require a particular package,
 analyzer, or companion skill. See its [evaluation scenarios](skills/untangle-codebase/evals/README.md).
+
+`design-system-definition` and `interface-redesign` work as a pair: the first
+audits, researches, and records the design direction; the second applies it to
+every screen and verifies the result. `interface-redesign` routes through the
+definition workflow when no approved design document exists, so install both.
+It uses `create-verification-skill` for repeatable journey proof when available.
+See their [definition](skills/design-system-definition/evals/README.md) and
+[redesign](skills/interface-redesign/evals/README.md) evaluation scenarios.
 
 For native Rust apps accessed over SSH, see the [desktop visual QA workflow](docs/desktop-visual-qa.md).
 The skill guides real screenshot/interaction checks; graphical sessions, MCP tools
