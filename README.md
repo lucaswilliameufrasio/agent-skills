@@ -4,7 +4,7 @@ A curated collection of reusable agent skills maintained in public.
 
 ## Skills
 
-Install all first-party skills globally:
+Install all maintained skills globally:
 
 ```sh
 npx skills add lucaswilliameufrasio/agent-skills --skill '*' --global
@@ -45,6 +45,7 @@ Each row also has the command to install just that skill globally.
 | [`backup-restore-drills`](skills/backup-restore-drills/SKILL.md) | Prove scoped recoverability with consistent recovery sets, isolated restores, integrity checks, and bounded failure drills. | `npx skills add lucaswilliameufrasio/agent-skills --skill backup-restore-drills --global` |
 | [`isolated-worker-execution`](skills/isolated-worker-execution/SKILL.md) | Build enforceable execution boundaries, bounded process trees, safe cancellation, and privacy-preserving evidence promotion. | `npx skills add lucaswilliameufrasio/agent-skills --skill isolated-worker-execution --global` |
 | [`system-module-architecture`](skills/system-module-architecture/SKILL.md) | Plan and build journey-first systems, backoffices, modules, screens, and integration boundaries. | `npx skills add lucaswilliameufrasio/agent-skills --skill system-module-architecture --global` |
+| [`untangle-codebase`](skills/untangle-codebase/SKILL.md) | Refactor hidden coupling, needless dependencies, and surplus across any stack using discovered versions, preserved contracts, and verified slices. | `npx skills add lucaswilliameufrasio/agent-skills --skill untangle-codebase --global` |
 | [`web-capability-architecture`](skills/web-capability-architecture/SKILL.md) | Structure web features, data sources, and validated API boundaries around domain capabilities. | `npx skills add lucaswilliameufrasio/agent-skills --skill web-capability-architecture --global` |
 | [`vps-blue-green-prepare`](skills/vps-blue-green-prepare/SKILL.md) | Prepare project-specific blue-green VPS deployment scripts and runbooks without executing a deployment. | `npx skills add lucaswilliameufrasio/agent-skills --skill vps-blue-green-prepare --global` |
 | [`vps-deploy-executor`](skills/vps-deploy-executor/SKILL.md) | Safely execute an approved VPS deployment after inspecting shared-host services and protecting unrelated applications. | `npx skills add lucaswilliameufrasio/agent-skills --skill vps-deploy-executor --global` |
@@ -61,7 +62,12 @@ Each row also has the command to install just that skill globally.
 | [`acceptance-traceability`](skills/acceptance-traceability/SKILL.md) | Trace requested outcomes and scope changes to current tests/evidence without confusing implementation or green builds with acceptance. | `npx skills add lucaswilliameufrasio/agent-skills --skill acceptance-traceability --global` |
 | [`install-task-progress`](skills/install-task-progress/SKILL.md) | Install an AGENTS.md contract for per-task progress, recovery, and verified durable documentation before exact completed-record cleanup. | `npx skills add lucaswilliameufrasio/agent-skills --skill install-task-progress --global` |
 
-Each first-party skill lives in its own directory and contains a `SKILL.md` with frontmatter. The [Skills CLI](https://github.com/vercel-labs/skills) installs selected skills into the agent directories it manages.
+Each locally maintained skill lives in its own directory and contains a `SKILL.md` with frontmatter. The [Skills CLI](https://github.com/vercel-labs/skills) installs selected skills into the agent directories it manages.
+
+`untangle-codebase` is adapted from `caldoai/skills` under MIT, with upstream
+attribution and license in its directory. It discovers each project's actual
+technologies and dependency versions; it does not require a particular package,
+analyzer, or companion skill. See its [evaluation scenarios](skills/untangle-codebase/evals/README.md).
 
 For native Rust apps accessed over SSH, see the [desktop visual QA workflow](docs/desktop-visual-qa.md).
 The skill guides real screenshot/interaction checks; graphical sessions, MCP tools
@@ -157,7 +163,7 @@ and source-memory details stay outside this public repository.
 
 ## Third-party skill recommendations
 
-These are upstream skills discovered in the public Skills ecosystem. They are **not copied or republished here**; install directly from their maintainers with `npx skills`:
+The recommendations below are upstream skills discovered in the public Skills ecosystem. These recommended skills are **not copied or republished here**; install directly from their maintainers with `npx skills`:
 
 | Upstream | Recommended skills | Install |
 | --- | --- | --- |
@@ -187,4 +193,4 @@ Use `npx skills add <owner/repo> --list` to check the upstream repository's curr
 
 Cloudflare's full `security-audit` workflow requires subagents and Node.js validators. Executing target-controlled code additionally requires the upstream's OS-enforced sandbox controls; without them, keep source-grounded leads as needing validation rather than running code or probing live services. Adding this recommendation does not install the skill or authorize an audit.
 
-Only first-party skills reviewed for public reuse are stored in this repository. Project-specific skills and files from private repositories are not copied here.
+Only locally maintained skills reviewed for public reuse are stored in this repository, including explicitly attributed adaptations with their upstream license notices. Project-specific skills and files from private repositories are not copied here.

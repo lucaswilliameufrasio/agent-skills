@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: bounded-refactor
+expected_outcome: |
+  Proposes bounded export-format ownership with explicit transaction boundaries,
+  preserves user edits/contracts/tests, separates the genuine bug from structural
+  cleanup, uses manual review, and records the blocked integration gate honestly.

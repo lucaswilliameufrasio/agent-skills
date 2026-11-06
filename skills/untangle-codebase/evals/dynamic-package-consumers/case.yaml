@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: dynamic-package-consumers
+expected_outcome: |
+  Rejects import-only dead-code conclusions, retains the security/audit boundary,
+  investigates reflection and Windows packaging, distinguishes generated outputs
+  from source configuration, and avoids unrequested package or tool changes.
