@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: base-refresh
+expected_outcome: |
+  Both workflows fetch, safely update local develop using git pull --rebase,
+  verify its upstream, and only then create or rebase the feature branch.
+  Unsafe divergence or another worktree causes a stop without discarding work.

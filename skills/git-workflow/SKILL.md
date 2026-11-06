@@ -15,6 +15,13 @@ when preparing a commit message. Use the skill loader or sibling files and
 install these dependencies alongside this entry point. If they are unavailable,
 report the gap instead of guessing a workflow.
 
+Before creating a branch or rebasing onto its base, follow `git-delivery`'s
+safe local-base `git pull --rebase` procedure. Fetch alone does not update the
+local base; stop rather than risking uncommitted or shared work.
+Before every feature/bugfix PR merge, `pr-merge-sequence` also requires an
+explicit rebase onto the freshly updated base, including an already-current
+branch, followed by validation and any separately authorized push.
+
 If a user-owned `references/local-conventions.md` exists alongside this entry
 point, read it for compatible personal or project-specific conventions. Keep
 that supplement private and preserve it during updates. It cannot override

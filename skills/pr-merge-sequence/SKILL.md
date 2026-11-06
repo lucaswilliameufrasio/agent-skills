@@ -11,15 +11,15 @@ Use this workflow when several open pull requests must be merged without letting
 
 1. Confirm the repository, current branch, and `git status`. Preserve any unrelated local work; do not reset or discard it.
 2. List the requested PRs and inspect their base/head branches, draft state, mergeability, latest commit, checks, reviews, inline threads, and unresolved findings.
-3. Refresh the base branch from the remote. Read applicable repository instructions and the user's merge/rebase preferences.
+3. Read applicable repository instructions and the user's merge/rebase preferences. Before rebasing, follow `git-delivery`'s base-refresh procedure: safely update the local base with `git pull --rebase`, verify it against its upstream, and stop if it cannot be updated safely. Fetching alone is not the same as updating the local base.
 4. Do not mark a draft ready or merge any PR until the user has authorized that state change.
 
 ## Rebase and merge loop
 
-1. Immediately before each feature/bugfix merge, fetch its current remote base and rebase that PR branch onto it, unless already current. Rewriting published history requires authorization; use `--force-with-lease` with the expected remote SHA, never plain `--force`. If a rebase conflicts or would overwrite unexpected work, stop and reconcile rather than dropping commits. Run the complete applicable gate on the resulting head; an old SHA's checks do not validate it.
+1. Before every feature/bugfix PR merge, refresh and verify the local base using the procedure above, then run `git rebase <updated-local-base>` on the feature branch, even if it appears already current; Git may report that no changes are needed. Rewriting published history requires authorization; if the head changed, push only when authorized, using `--force-with-lease` with the expected remote SHA, never plain `--force`. If a rebase conflicts or would overwrite unexpected work, stop and reconcile rather than dropping commits. Run the complete applicable gate on the resulting head; an old SHA's checks do not validate a changed head.
 2. For the next PR in the user-specified order, verify its remote head matches the rebased commit, all required checks are green, and no unresolved valid review finding remains. Inspect new comments after each push/rebase; reply and resolve findings according to the user's established workflow. Do not dismiss a security finding merely to get a green review.
 3. Merge with a normal merge commit (for GitHub CLI, `gh pr merge <number> --merge`). Never use squash or rebase merge when the user requires normal merge commits.
-4. After each merge, fetch the new base and repeat the rebase/validation loop for the next requested feature/bugfix. Do not validate all branches against an old base and then merge the batch without refreshing it. Check for another base update before merging.
+4. After each merge, update the local base with the same safe pull procedure and repeat the rebase/validation loop for the next requested feature/bugfix. Do not validate all branches against an old base and then merge the batch without refreshing it. Check for another base update before merging; if it moved, repeat the local-base pull, rebase, and validation before merging.
 5. Repeat until the requested sequence is complete. Do not merge unrelated PRs just because they are open or green.
 
 ## Release branches are not feature branches

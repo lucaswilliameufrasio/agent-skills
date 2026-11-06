@@ -36,6 +36,24 @@ This does not grant permission for any delivery step.
 
 - Use the repository's documented base branch and branch naming. If unclear,
   ask rather than assuming `main`, `develop`, or a particular Git flow.
+- Before creating a branch **or rebasing an existing branch onto its base**,
+  refresh the actual local base branch, not just its remote-tracking reference:
+  1. Identify the intended base, remote and upstream; inspect the working tree,
+     other worktrees using the base, and local/remote divergence after fetching.
+  2. If the checkout is clean, the base is available, and it has no local-only
+     commits to rewrite, switch to the base and run `git pull --rebase` with its
+     verified upstream, or `git pull --rebase <remote> <base>` when appropriate.
+     Verify the local base matches the refreshed upstream after the pull.
+  3. Create the new branch from that base, or return to the intended existing
+     branch and rebase it onto the updated base. Confirm the rebase and any
+     published-history rewrite are authorized; validate the resulting head.
+  4. If uncommitted work, local-only/divergent base commits, another worktree,
+     missing upstream/access, conflicts, or repository policy prevents safe
+     updating, stop and explain. Do not stash, discard changes, rewrite shared
+     base history, force-update refs, or switch worktrees without authorization.
+     A fetch alone is not a substitute for updating the local base.
+  The pull itself may fetch newer commits: verify against the post-pull upstream.
+  Recheck freshness before subsequent rebases when the remote may have moved.
 - Follow documented commit language and ticket-reference conventions. Do not
   invent issue identifiers or infer Git flow solely from a branch name.
 - Keep changes focused. Inspect the final diff and stage only intended files.
@@ -60,9 +78,13 @@ results, or requirements. After opening, report the PR link and monitor required
 checks if requested.
 
 Do not merge unless the user authorized merging. Verify the head, mergeability,
-checks, and actionable review threads first. For multiple related PRs, use
-`pr-merge-sequence` so remaining branches are rebased and revalidated after each
-merge.
+checks, and actionable review threads first. Before merging any feature/bugfix
+PR, use `pr-merge-sequence` to refresh the local base with `git pull --rebase`,
+run a rebase of the feature branch onto that updated base even if already current,
+and validate the resulting head. Repeat if the base moves before merge. Respect
+authorization for rewriting published history and pushing the changed head;
+stop when that authorization or safe base refresh is missing. This requirement
+does not turn release-promotion branches into feature branches.
 
 ## Release handoff
 

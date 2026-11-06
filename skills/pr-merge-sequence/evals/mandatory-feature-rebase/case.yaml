@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: mandatory-feature-rebase
+expected_outcome: |
+  Safely pull --rebase and verify the local base, explicitly rebase the feature
+  even when apparently current, validate its resulting head, and repeat when
+  the base moves. Stop at conflicts and preserve all work.
