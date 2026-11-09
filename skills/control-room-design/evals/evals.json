@@ -1,0 +1,40 @@
+{
+  "skill_name": "control-room-design",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Build a settings page for my invoicing app with a form for company name, tax ID and logo upload. The project has no design document yet.",
+      "expected_output": "Does not apply the Control Room style, because the user did not ask for it by name. Builds the page with the project's existing conventions or asks which visual direction to use; does not introduce the navy/brown/gold palette, pixel eyebrows or hard arcade shadows.",
+      "files": [],
+      "assertions": [
+        "Does not use Control Room tokens such as #172338, #241c19 or #f2c230.",
+        "Does not add the Press Start 2P pixel font or 0 3px 0 hard button shadows.",
+        "Does not claim the Control Room style was requested."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Use the Control Room design for the admin dashboard of my backup service: a list of jobs with status, a job detail page and a form to add a job.",
+      "expected_output": "Applies the whole system: tokens defined once, gold primary buttons with the 2px outline and hard shadow, cyan focus rings, pixel-font eyebrows, status chips with text labels, raised panels, tables that turn into labelled cards under 760px, reduced-motion handling, self-hosted or fallback pixel font, and verification at desktop and 390px widths.",
+      "files": [],
+      "assertions": [
+        "Defines the palette as tokens and reuses them instead of scattering hex values.",
+        "Gives every interactive element a visible :focus-visible outline in cyan.",
+        "Uses text labels on status chips, not colour alone.",
+        "Uses --line-strong or a fill change so form controls have at least 3:1 boundaries.",
+        "Handles narrow screens without page-level horizontal scroll.",
+        "Does not load the pixel font from a third-party CDN."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Apply the NGM design to this project. (The repository already has docs/design.md describing a light, minimal design system used by every screen.)",
+      "expected_output": "Notices the existing design system and asks before replacing it, explaining that mixing both would leave the interface inconsistent; does not silently restyle part of the screens.",
+      "files": [],
+      "assertions": [
+        "Asks for confirmation before replacing the existing design system.",
+        "Does not mix Control Room components with the existing light design."
+      ]
+    }
+  ]
+}
