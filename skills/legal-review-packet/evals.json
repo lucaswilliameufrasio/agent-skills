@@ -1,0 +1,23 @@
+{
+  "skill_name": "legal-review-packet",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "This feature needs legal validation before we turn it on. Write the contract clause draft for the lawyer.",
+      "expected_output": "Writes a versioned draft with pending-legal front matter, a not-legal-advice disclaimer, objective, point of attention, numbered clauses describing only built behavior, and open questions; keeps the feature gated and does not call the draft approved.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Gather everything that still needs the lawyer's opinion so I can send it all at once on WhatsApp.",
+      "expected_output": "Searches drafts, tracker issues and decision records, reads each candidate, lists shipped items that skipped a requested validation first, and builds one PDF with a cover of grouped questions plus the drafts; gives the file path and does not send it on the user's behalf.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "The lawyer can't open the GitHub link to the draft.",
+      "expected_output": "Explains the repository is private and exports the draft to a PDF instead of changing repository visibility.",
+      "files": []
+    }
+  ]
+}
