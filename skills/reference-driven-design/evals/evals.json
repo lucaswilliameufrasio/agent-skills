@@ -1,0 +1,54 @@
+{
+  "skill_name": "reference-driven-design",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Make a landing page for my habit-tracking app. Make it look good. The repository has no design document or theme yet.",
+      "expected_output": "Before writing styled UI, asks for 2-5 references for a landing page and names where to find them (Mobbin, CollectUI, Unsection, Dribbble, component libraries) with their caveats; offers to search candidates for the user to choose. Does not invent a palette, font, or hero layout. If the user insists on proceeding, builds structure only and states the visual layer is pending references.",
+      "files": [],
+      "assertions": [
+        "Asks for references before producing styled UI.",
+        "Does not introduce a gradient hero, pill badge, or three icon cards on its own.",
+        "Does not pick references on the user's behalf without presenting choices."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Here are two screenshots: one of a finance dashboard I like for its dense tables, and one of a music app I like for its colors and typography. Build the transactions page of my app using them.",
+      "expected_output": "Assigns roles (dashboard: density and table layout; music app: color and type), extracts traits as values marked measured or estimated, names signature moves and what not to take, adds 1-3 identity moves drawn from the product itself with a job each, shows the summary before building, records tokens and rules in the project's design document with a reference board, builds through tokens, captures the result at the same viewport, compares trait by trait, runs the slop audit, and reports remaining differences.",
+      "files": [],
+      "assertions": [
+        "Records a role for each reference.",
+        "Writes observations as values, not adjectives, and distinguishes sampled from estimated colors.",
+        "Records tokens in the stack's native mechanism and a design document linked from agent instructions.",
+        "Compares the implementation with the references side by side before claiming a match.",
+        "Does not copy logos, illustrations, or copy from the references.",
+        "Defines identity moves that come from the product, not from a reference, each with a job."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Here is a screenshot of a well-known product's settings page. Make my settings page exactly identical, including their logo placement and wording. (The repository already has docs/design-system.md with its own tokens.)",
+      "expected_output": "Notices the existing design system and asks whether the reference should extend or change it instead of mixing both. Explains it will take layout and interaction patterns, not the product's identity, logo, or wording, and offers the pattern-level version.",
+      "files": [],
+      "assertions": [
+        "Asks before overriding the existing design system.",
+        "Declines to reproduce the other product's logo, wording, or identifying composition.",
+        "Offers to apply the reference's patterns through the project's tokens."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Use this banking dashboard screenshot as the reference for my notebook-style expense tracker called 'Ink & Ledger'. Apply it to the whole web app, but I don't want it to look like a copy of that bank.",
+      "expected_output": "Extracts the reference traits, then defines an identity layer from the product name and domain (for example ink color, a pen-stroke underline for the current place, a ledger double rule under totals), each with a job and limited use. Applies tokens at the foundation so every screen follows, re-points legacy token names, reviews all touched screens after the change, reruns visual/accessibility checks against the previous run, records screens outside the reference's role as uncovered, and documents how the system carries over to a back office and mobile.",
+      "files": [],
+      "assertions": [
+        "Defines identity moves derived from the product name/domain, not from the reference.",
+        "Changes shared tokens or theme first instead of restyling screen by screen.",
+        "Reviews screens beyond the one compared with the reference and treats new check findings as regressions.",
+        "Records how tokens and moves map to other surfaces (back office, mobile).",
+        "Does not reproduce the bank's logo, copy, or illustrations."
+      ]
+    }
+  ]
+}

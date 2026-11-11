@@ -72,6 +72,10 @@ specific critique:
 Research is evidence for decisions, not decoration. Keep a short source list
 (title, URL or document, date consulted) in the final record.
 
+Visual references chosen by the owner outrank the agent's own taste. Ask for
+them, and when screenshots or links exist, follow the `reference-driven-design`
+workflow to extract and record their traits before deciding foundations.
+
 - **Category patterns:** how respected products in the same category structure
   discovery, browsing, playback, editing, or whatever the core job is. Extract
   patterns and conventions; never copy another product's identity, artwork,

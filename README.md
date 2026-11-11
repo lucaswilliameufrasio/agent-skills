@@ -59,6 +59,7 @@ Each row also has the command to install just that skill globally.
 | [`rust-cross-platform-builds`](skills/rust-cross-platform-builds/SKILL.md) | Accelerate and validate Rust cross-platform release builds with Zig/cargo-zigbuild and controlled benchmarks. | `npx skills add lucaswilliameufrasio/agent-skills --skill rust-cross-platform-builds --global` |
 | [`design-system-definition`](skills/design-system-definition/SKILL.md) | Research, decide, and record a complete product design system (concept, tokens, components, ethical engagement, web/mobile/desktop/TUI) with checkable directives. | `npx skills add lucaswilliameufrasio/agent-skills --skill design-system-definition --global` |
 | [`interface-redesign`](skills/interface-redesign/SKILL.md) | Redesign every screen of a web, mobile, desktop, or TUI app against one documented system, preserving contracts and proving it with real screenshots. | `npx skills add lucaswilliameufrasio/agent-skills --skill interface-redesign --global` |
+| [`reference-driven-design`](skills/reference-driven-design/SKILL.md) | Build UI from user-chosen references (screenshots, Mobbin/Dribbble/CollectUI/Unsection, component libraries) plus an identity layer drawn from the product, instead of agent taste: measure traits, record them as the project's design system, compare side by side. | `npx skills add lucaswilliameufrasio/agent-skills --skill reference-driven-design --global` |
 | [`control-room-design`](skills/control-room-design/SKILL.md) | Opt-in dark, arcade-flavoured admin style (navy canvas, brown panels, gold actions, cyan focus, pixel eyebrows); applied only when requested by name. | `npx skills add lucaswilliameufrasio/agent-skills --skill control-room-design --global` |
 | [`create-verification-skill`](skills/create-verification-skill/SKILL.md) | Create a project-local, harness-native skill to drive real app workflows and preserve observable verification evidence. | `npx skills add lucaswilliameufrasio/agent-skills --skill create-verification-skill --global` |
 | [`desktop-visual-qa`](skills/desktop-visual-qa/SKILL.md) | Verify native desktop UI/UX over SSH with real screenshots, interaction evidence, safe Linux sessions, and egui/Slint/GPUI guidance. | `npx skills add lucaswilliameufrasio/agent-skills --skill desktop-visual-qa --global` |
@@ -78,6 +79,9 @@ audits, researches, and records the design direction; the second applies it to
 every screen and verifies the result. `interface-redesign` routes through the
 definition workflow when no approved design document exists, so install both.
 It uses `create-verification-skill` for repeatable journey proof when available.
+`reference-driven-design` carries no style of its own: it anchors interface work
+on references the user picks and turns them into the project's design system;
+`design-system-definition` uses it whenever references exist.
 See their [definition](skills/design-system-definition/evals/README.md) and
 [redesign](skills/interface-redesign/evals/README.md) evaluation scenarios.
 
