@@ -49,6 +49,17 @@
         "Records how tokens and moves map to other surfaces (back office, mobile).",
         "Does not reproduce the bank's logo, copy, or illustrations."
       ]
+    },
+    {
+      "id": 5,
+      "prompt": "Make the mobile app of my monitoring product look better. Here is a screenshot of another monitoring app I like. (The mobile repository has no design document; the product's web app, in a sibling repository linked from the README, has docs/DESIGN_SYSTEM.md and theme tokens.)",
+      "expected_output": "Looks beyond the mobile repository before concluding no design system exists, finds the web app's design system, and treats it as governing: colors, type, radius, and signal rules come from it. Uses the screenshot only for what the web system does not cover, such as mobile list and detail structure, and reports where it looked.",
+      "files": [],
+      "assertions": [
+        "Searches sibling repositories or linked product surfaces for an existing design system.",
+        "Uses the web app's tokens and rules instead of the screenshot's palette.",
+        "Limits the reference's role to what the existing system does not cover."
+      ]
     }
   ]
 }

@@ -40,6 +40,14 @@ Read the repository's agent instructions and look for an existing design
 document, token files (CSS variables, Tailwind/theme config, design tokens JSON,
 platform theme files), and a component library already in use.
 
+The look of a product often lives outside the repository being changed. A
+mobile app, back office, or widget usually follows a web app or brand that
+already exists. Before concluding that nothing exists, look for the product's
+other surfaces: sibling repositories, the README's links, the backend
+repository's docs, and the running product. If another surface has an approved
+design system, it governs this one too. References then shape only what that
+system does not cover, such as mobile structure. Report where you looked.
+
 - **An approved design system exists:** follow it. New references may only
   extend it (a new component, a new screen type). If a reference contradicts it,
   ask whether the system should change; never mix both silently.
