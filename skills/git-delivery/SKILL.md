@@ -3,9 +3,9 @@ name: git-delivery
 description: >-
   Plan and carry out a safe Git delivery from branch preparation through commit,
   push, pull request, CI, and release handoff. Use when asked to deliver a
-  feature/fix, prepare a commit or PR, or release a batch of changes. Discover
-  the repository's workflow instead of assuming branch names, ticket systems,
-  or merge policies.
+  feature/fix, prepare a commit or PR, release a batch of changes, or address
+  review comments on the author's own pull request. Discover the repository's
+  workflow instead of assuming branch names, ticket systems, or merge policies.
 ---
 
 # Git delivery
@@ -85,6 +85,43 @@ and validate the resulting head. Repeat if the base moves before merge. Respect
 authorization for rewriting published history and pushing the changed head;
 stop when that authorization or safe base refresh is missing. This requirement
 does not turn release-promotion branches into feature branches.
+
+## Comments on the author's own pull request
+
+When asked to handle comments on that person's own pull request, confirm
+authorship, the branch, and the head. Read the general comments and every
+review thread, including earlier replies and whether each thread is resolved or
+outdated. Apply the steps below to each suggestion. This work does not include
+approving the pull request or merging it.
+
+Reply in the language of that thread. When the thread does not show a language,
+use the language of reviews in that repository or organization. When that
+language is Brazilian Portuguese, a done closing is exactly `Feito`.
+
+- **It applies:** correct it or apply the appropriate solution, validate the
+  behavior, and update the branch once that update is authorized. When the
+  correction is on the pull request and follows the requested approach, reply
+  on that same thread with the done closing, then resolve the conversation. An
+  incidental difference still uses that closing when the requested behavior is
+  what landed. When the issue is fixed by a different approach, reply with one
+  sentence saying what was done instead. Add the reason only when the diff does
+  not make the difference obvious. Do not use the done closing for that reply.
+  Resolve when no decision or question remains. If that other approach still
+  needs the reviewer's agreement, handle it as partial.
+- **It does not apply:** explain respectfully, and with the reason, why the
+  suggestion does not apply. After that reply, resolve the conversation when no
+  decision or question remains. If the point still depends on the reviewer's
+  agreement or clarification, leave the thread open and wait.
+- **Partial, inconclusive, or out of scope:** separate what holds from what
+  does not, and get the missing data or decision. Do not send the done closing,
+  including `Feito`, and do not resolve the thread while any doubt or work is
+  still pending.
+
+Push, reply, and resolution are separate actions. Have authorization for each
+one before doing it. Reply before using **Resolve conversation** /
+**Resolver conversa**, or the equivalent control. Handling threads on the
+author's own pull request does not authorize resolving someone else's threads
+on another person's pull request.
 
 ## Release handoff
 
