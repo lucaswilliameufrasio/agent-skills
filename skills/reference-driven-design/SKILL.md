@@ -182,6 +182,13 @@ project.
   text and essential UI boundaries), visible focus, labelled controls, usable
   target sizes, reduced-motion handling. If a reference fails one of these,
   adjust the value minimally and record the deviation.
+- Pass the hierarchy gate and the craft gate in
+  [psychology and heuristics](../design-system-definition/references/psychology-and-heuristics.md)
+  before calling a screen done. They are a usability floor, like contrast. If a
+  reference fails one, adjust the minimum and record the deviation. Matching a
+  flat or kit-like reference is not a reason to ship peer headings, equal
+  buttons, identical cards for different jobs, or a wash over the subject. If
+  that file is not installed, read it from the agent-skills collection first.
 
 ## 6. Compare side by side and close the gap
 

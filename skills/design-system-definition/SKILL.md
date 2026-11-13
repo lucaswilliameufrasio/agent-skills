@@ -61,7 +61,10 @@ specific critique:
   fonts, radii, shadows, icon styles, and one-off components);
 - usability heuristic violations (visibility of status, consistency, recognition
   over recall, error prevention, aesthetic and minimalist design), each tied to a
-  screen;
+  screen. Include a flat hierarchy: the primary fact, the page label, and
+  section headings at similar sizes; primary and secondary actions with the
+  same chrome; optional fields that look required; a secondary region beside
+  the dominant element;
 - accessibility failures you can measure (contrast ratios, target sizes, focus
   visibility, motion, labels);
 - if a previous redesign was judged poor, why: name the concrete causes so the
@@ -115,8 +118,10 @@ Make the decisions in this order, each with a one-line rationale.
    rely on color alone to carry meaning.
 4. **Typography.** Prefer one family with a clear weight range (a second only
    with a specific job). Define the scale (sizes, line heights, weights,
-   tracking), numeric style for data, maximum line length, and how text wraps
-   and truncates. Respect platform font loading and user text-size settings.
+   tracking) with one dominant step, then task, body, and caption. Record which
+   element on the representative screen is the dominant one. Define numeric
+   style for data, maximum line length, and how text wraps and truncates.
+   Respect platform font loading and user text-size settings.
 5. **Space, layout, shape, depth.** Spacing scale, grid and breakpoints (or
    terminal column rules), radii, borders, elevation, and when translucency is
    allowed (rarely over moving content; never where it hurts legibility).
@@ -179,7 +184,10 @@ user data, and is not indexed.
 - Apply the definition to one representative screen (prototype, mockup, or a
   real implementation slice in a branch) and capture it at the relevant sizes.
   A definition never shown on a real screen is unproven.
-- Review that screen against each directive and the checklist; revise the
+- Review that screen against each directive, the checklist, and the
+  [hierarchy and craft gates](references/psychology-and-heuristics.md). Naming a
+  principle in the document is not passing the gates. If the capture fails, fix
+  the screen or the definition and recapture before handing it off. Revise the
   definition where it was ambiguous.
 - Present the concept, palette, type, and the sample screen to the owner for
   approval before a full redesign. Approval of the definition is not approval to

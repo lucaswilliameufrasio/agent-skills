@@ -6,6 +6,9 @@ Select checks relevant to the requested journey; record omitted scope explicitly
 
 - Hierarchy, typography, spacing rhythm, density, alignment, icon clarity and
   readable contrast across normal, selected, hovered, disabled and error states.
+  Hierarchy and craft mean those two gates in the design-system-definition
+  skill. A flat peer layout, a wash over the subject, or identical cards for
+  different jobs are findings even when a spec only named the principles.
 - No clipped labels/buttons, overlapping panels, unintended blank areas or
   unreadable text at supported minimum, normal and large window sizes.
 - Resize panel splitters, long labels, wide/large result grids, scrollbars and

@@ -154,3 +154,7 @@ transforms. No looping animation.
       font CDN.
 - [ ] Checked in a real browser or device at desktop and 390px widths, with
       screenshots, before calling the work done.
+- [ ] The hierarchy gate and the craft gate in the design-system-definition
+      skill pass. This style's recorded exceptions are the gold page title, the
+      pixel eyebrows, and the hard shadow as its one material. Do not add a
+      second material or paint anything else with the accent.

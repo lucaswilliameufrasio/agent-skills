@@ -64,6 +64,7 @@ MUST NOT
 - [ ] No MUST NOT pattern appears.
 - [ ] Compared side by side with the relevant reference at the same viewport.
 - [ ] Contrast, focus, labels, targets, and reduced motion checked.
+- [ ] Capture passes the hierarchy gate and the craft gate: one dominant, the subject as the figure, one material, a scan that names the job.
 
 ## Change log
 - YYYY-MM-DD: <change and reason>

@@ -117,10 +117,15 @@ the change was authorized and is documented) or the redesign broke behavior
 - Capture **after** evidence for every inventory row at every documented size
   and compare with the before evidence. Look at each image yourself; a capture
   that was never inspected is not evidence.
-- Review each screen against the design document's directives and checklist and
-  the usability heuristics; fix findings and recapture. Typical findings: text
-  over translucent bars, clipped titles, overlays covering controls, duplicated
-  glyphs, focus rings hidden, layout shift on load, unstyled first paint.
+- Review each screen against the design document's directives and checklist,
+  the usability heuristics, and the hierarchy and craft gates in
+  [psychology and heuristics](../design-system-definition/references/psychology-and-heuristics.md).
+  A capture that fails either gate is not done, even when the design document
+  already names those principles. Fix and recapture. If that file is not
+  installed, read it from the agent-skills collection before approving the
+  screen. Typical findings: a failed hierarchy or craft gate, text over translucent
+  bars, clipped titles, overlays covering controls, duplicated glyphs, focus
+  rings hidden, layout shift on load, unstyled first paint.
 - Drive the main user journeys end to end. If the repository has no repeatable
   verification path, create or update one with `create-verification-skill` (or
   an equivalent project-local procedure) and run it; record the result.

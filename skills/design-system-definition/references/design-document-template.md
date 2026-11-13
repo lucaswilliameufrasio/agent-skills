@@ -62,6 +62,7 @@ What was observed, why it is banned, what to do instead.
 - [ ] Keyboard/focus and accessible names
 - [ ] Reduced motion respected
 - [ ] Real content only; honest empty states
+- [ ] Capture passes the hierarchy gate and the craft gate: one dominant, the subject as the figure, one material, a scan that names the job
 - [ ] Checked at the documented sizes with screenshots
 
 ## 14. Research sources
