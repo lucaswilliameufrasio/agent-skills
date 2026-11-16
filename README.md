@@ -67,6 +67,7 @@ Each row also has the command to install just that skill globally.
 | [`linux-apple-development`](skills/linux-apple-development/SKILL.md) | Orchestrate Apple app development from CachyOS/Arch, Debian or Ubuntu with upstream xtool tooling and optional Mac build/test stages, explicit compatibility and release gates. | `npx skills add lucaswilliameufrasio/agent-skills --skill linux-apple-development --global` |
 | [`acceptance-traceability`](skills/acceptance-traceability/SKILL.md) | Trace requested outcomes and scope changes to current tests/evidence without confusing implementation or green builds with acceptance. | `npx skills add lucaswilliameufrasio/agent-skills --skill acceptance-traceability --global` |
 | [`install-task-progress`](skills/install-task-progress/SKILL.md) | Install an AGENTS.md contract for per-task progress, recovery, and verified durable documentation before exact completed-record cleanup. | `npx skills add lucaswilliameufrasio/agent-skills --skill install-task-progress --global` |
+| [`agent-correction-tree`](skills/agent-correction-tree/SKILL.md) | Turn each agent mistake into the cheapest durable check (redesign, lint/type/test, hook, real-app verification) and write a rule only when nothing else can catch it. | `npx skills add lucaswilliameufrasio/agent-skills --skill agent-correction-tree --global` |
 
 Each locally maintained skill lives in its own directory and contains a `SKILL.md` with frontmatter. The [Skills CLI](https://github.com/vercel-labs/skills) installs selected skills into the agent directories it manages.
 

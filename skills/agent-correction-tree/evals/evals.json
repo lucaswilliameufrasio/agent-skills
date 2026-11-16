@@ -1,0 +1,29 @@
+{
+  "skill_name": "agent-correction-tree",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "You keep importing the database client directly inside React components in this monorepo. Add a line to AGENTS.md so you stop doing that.",
+      "expected_output": "The response states the invariant precisely, checks whether a module boundary or lint rule (for example a restricted-import rule in the repository's existing linter) can enforce it before writing prose, proposes the lint rule with a clear error message and a plan for existing violations, asks before a repository-wide change if not already authorized, and adds at most one short AGENTS.md line (or none) only for what the check cannot cover. It does not simply append a paragraph.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The agent ignored my instruction to run the formatter before pushing, again. It's in AGENTS.md already. Fix this for good.",
+      "expected_output": "The response recognizes the rule already exists and is being skipped, so another line will not help; it proposes a pre-push or pre-commit hook (or a CI check) using the repository's existing hook mechanism, explains what it runs and its cost, avoids silently installing global hooks, and suggests removing or shortening the now-enforced AGENTS.md rule.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "You picked a dark theme for the admin page and I hate dark themes. Remember that.",
+      "expected_output": "The response treats this as a personal preference rather than a project invariant, records it in the user's personal memory or instructions rather than a shared repository AGENTS.md, checks for an existing preference to update instead of duplicating, and does not invent a lint rule for a taste preference.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Your migration skill told the agent to write SQL migration files by hand and it broke our timestamps. Update the skill.",
+      "expected_output": "The response first adds or describes an eval reproducing the failure (hand-written migration instead of the repository's generator), then changes the skill's guidance, and verifies the eval now passes; it edits the existing skill rather than creating a parallel one.",
+      "files": []
+    }
+  ]
+}
