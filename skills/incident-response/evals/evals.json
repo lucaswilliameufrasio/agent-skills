@@ -1,0 +1,23 @@
+{
+  "skill_name": "incident-response",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Checkout is returning 500s for about 30% of users since roughly 10 minutes ago. We deployed 20 minutes ago. What do we do? You have kubectl and our deploy CLI.",
+      "expected_output": "The response prioritizes mitigation over diagnosis, correlates the timing with the recent deploy and proposes rolling it back first after checking it contains no irreversible migration, states the exact command and expected effect and asks for approval before running it, starts a timestamped timeline, assigns or asks about roles, sets a communication cadence, verifies recovery on user-facing metrics, and hands off to a postmortem.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The database is at 100% CPU and the site is crawling. Just restart the primary.",
+      "expected_output": "The response does not restart the stateful primary without explicit confirmation of the risk; it first checks for recent changes, runaway queries or traffic spikes using read-only views, proposes lower-risk reversible mitigations (kill the offending query, shed load, disable a feature, fail over to a replica) with their blast radius, and asks for approval for any disruptive action.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "We think an API key leaked and someone is using it to pull customer data right now. Tell customers on the status page and rotate everything.",
+      "expected_output": "The response treats it as a security incident: preserves evidence before changing systems, revokes or rotates the exposed key with attention to consumers that will break, limits ongoing access, involves security and legal owners, drafts the customer communication without speculating about cause and does not publish it without the owner's approval, and keeps a timeline.",
+      "files": []
+    }
+  ]
+}

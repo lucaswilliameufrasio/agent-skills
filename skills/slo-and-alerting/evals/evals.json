@@ -1,0 +1,23 @@
+{
+  "skill_name": "slo-and-alerting",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We have 140 alerts in our monitoring and on-call gets paged five times a night, mostly CPU and memory. Customers still report outages before we notice. Fix our alerting.",
+      "expected_output": "The response inventories alerts with firing history and actionability, defines user-facing SLIs and SLOs for key journeys from measured baselines, replaces cause-based pages with multi-window burn-rate alerts, downgrades CPU/memory alerts to tickets or dashboards unless they predict imminent impact, deletes unused alerts only with owner agreement, links runbooks to every page, and verifies alerts fire by replay or controlled failure with an expected page volume.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Set a 99.99% availability SLO for our API.",
+      "expected_output": "The response checks the measured current availability and dependency reliability before accepting the target, defines the SLI precisely (valid and good events measured near the user), explains the error budget the target implies and proposes a budget policy for the team to decide, and warns if 99.99% exceeds what dependencies allow.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Our nightly data export sometimes finishes hours late and nobody notices until analysts complain. What should we alert on?",
+      "expected_output": "The response defines a freshness or completion-by-deadline SLI for the batch job rather than request latency or host metrics, sets an SLO with a window, alerts when the deadline is at risk or missed, and adds a runbook link.",
+      "files": []
+    }
+  ]
+}
