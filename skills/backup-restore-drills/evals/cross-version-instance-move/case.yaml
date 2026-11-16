@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: cross-version-instance-move
+expected_outcome: |
+  Treats moving a database to a new instance on a newer major version as a
+  planned restore: checks format/version compatibility, recreates roles and
+  grants from definitions, fixes sequences, verifies data against the source,
+  rehearses the freeze window, and asks approval for the live cutover.
