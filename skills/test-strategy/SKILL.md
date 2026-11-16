@@ -1,12 +1,14 @@
 ---
 name: test-strategy
 description: >-
-  Compatibility entry point for testing-standard when selecting unit, integration,
-  regression, mocking, or coverage boundaries. Read the canonical testing policy
-  rather than maintaining a second set of rules.
+  Deprecated alias kept for existing callers until 2027-02-16; prefer
+  testing-standard. Loads that canonical policy and keeps no rules of its own.
 ---
 
 # Test strategy compatibility
+
+> **Deprecated.** Removal planned for 2027-02-16; see
+> [deprecations](../../docs/deprecations.md). Use `testing-standard` directly.
 
 Read and apply [`testing-standard`](../testing-standard/SKILL.md), using the
 skill loader or the sibling file. Install it alongside this entry point. If it

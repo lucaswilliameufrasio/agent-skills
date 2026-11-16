@@ -1,13 +1,14 @@
 ---
 name: git-workflow
 description: >-
-  Compatibility entry point for git-delivery and conventional-commits. Use when
-  starting development, choosing branches, preparing a commit or PR, or following
-  a repository's Git process. Inspect local rules; do not impose one Git flow
-  or infer delivery authorization from a workflow convention.
+  Deprecated alias kept for existing callers until 2027-02-16; prefer
+  git-delivery, conventional-commits, and pr-merge-sequence. Loads that canonical policy and keeps no rules of its own.
 ---
 
 # Git workflow compatibility
+
+> **Deprecated.** Removal planned for 2027-02-16; see
+> [deprecations](../../docs/deprecations.md). Use `git-delivery`, `conventional-commits`, `pr-merge-sequence` directly.
 
 Read and apply [`git-delivery`](../git-delivery/SKILL.md) for execution and
 authorization, and [`conventional-commits`](../conventional-commits/SKILL.md)
