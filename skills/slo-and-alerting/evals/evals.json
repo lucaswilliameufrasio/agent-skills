@@ -18,6 +18,12 @@
       "prompt": "Our nightly data export sometimes finishes hours late and nobody notices until analysts complain. What should we alert on?",
       "expected_output": "The response defines a freshness or completion-by-deadline SLI for the batch job rather than request latency or host metrics, sets an SLO with a window, alerts when the deadline is at risk or missed, and adds a runbook link.",
       "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Our internal admin tool gets about 40 requests per hour. Set up burn-rate alerts with the standard 14.4x/1h and 6x/6h windows like the main API.",
+      "expected_output": "The response explains that at 40 requests per hour a few errors swing the ratio and burn-rate pages become noisy, proposes minimum event counts, synthetic probes, longer windows, or ticket-only alerting for this low-traffic service, and checks whether the tool even needs paging given who depends on it.",
+      "files": []
     }
   ]
 }

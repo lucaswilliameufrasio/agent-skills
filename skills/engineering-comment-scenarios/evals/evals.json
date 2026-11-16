@@ -1,0 +1,17 @@
+{
+  "skill_name": "engineering-comment-scenarios",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a PR review comment: this migration deletes old sessions with `DELETE FROM sessions WHERE created_at < now() - interval '90 days'` in one statement; the table has 200M rows.",
+      "expected_output": "The output is only the ready-to-paste comment, with no greeting or closing, stating the specific problem (single unbounded delete locking/long transaction on a 200M-row table), the production impact, and a direct alternative (batched deletes or async job), within two or three short blocks.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The security audit says we must require symbols in passwords. Product decided against it last year in PROJ-12. Draft my reply on the audit ticket.",
+      "expected_output": "The response produces a concise reply that cites the original decision by its key, acknowledges what is technically valid in the finding, proposes concrete mitigations, names who must decide if the rule changes, and does not invent other ticket keys, names, or numbers.",
+      "files": []
+    }
+  ]
+}

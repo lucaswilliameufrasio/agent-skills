@@ -1,0 +1,17 @@
+{
+  "skill_name": "jira-issue-writing",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a Jira story for adding CSV export to the reports page. It touches the API repo and the web repo.",
+      "expected_output": "The response checks the target project and board for duplicates and suitable parents, drafts one end-to-end story with context, scope and non-goals, a technical solution naming each repository's responsibility, testable acceptance criteria and open questions, does not invent product decisions such as limits or formats, and shows the draft before creating unless creation was explicitly authorized.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Split this feature into a backend card, a frontend card and a QA card.",
+      "expected_output": "The response follows the explicit request for that decomposition while noting dependencies between the cards, keeps acceptance criteria verifiable for each, checks for duplicates, and does not assign, rank, or transition the issues unless asked.",
+      "files": []
+    }
+  ]
+}

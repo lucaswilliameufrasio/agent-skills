@@ -18,6 +18,12 @@
       "prompt": "We need to merge today and the flaky e2e suite blocks us. What can we do?",
       "expected_output": "The response offers visible, owned, time-boxed quarantine only as the user's decision, with an issue linked and the test still running in a non-blocking job, while starting the cause investigation; it does not silently skip tests or add retries.",
       "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "I already found it: the test is flaky because CI is slow. Bump the wait in `await sleep(500)` to `sleep(3000)` and we're done. It's an e2e test that waits for a toast after saving.",
+      "expected_output": "The response does not accept a longer sleep as the fix, replaces the fixed sleep with waiting on the observable condition (the toast or the save response) with a bounded deadline, checks whether the save request itself can race, and proves the fix with repeated runs at CI parallelism rather than a single green run.",
+      "files": []
     }
   ]
 }

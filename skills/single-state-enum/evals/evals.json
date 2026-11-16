@@ -1,0 +1,17 @@
+{
+  "skill_name": "single-state-enum",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "In this React component we have showDeleteModal, showEditModal, selectedItem and isConfirmOpen. Add a 'duplicate item' modal.",
+      "expected_output": "The response replaces the separate booleans and selected item with one state holding a discriminated union (including an explicit 'none' variant) with the target item as payload, adds the duplicate case as a new variant, narrows the type in handlers, and always closes by setting the explicit none state.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Add a three-step signup wizard in Svelte 5.",
+      "expected_output": "The response models the steps as a single $state discriminated union with per-step payload rather than a step number plus separate booleans or nullable fields, and transitions explicitly between variants.",
+      "files": []
+    }
+  ]
+}

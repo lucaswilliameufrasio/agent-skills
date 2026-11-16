@@ -12,6 +12,12 @@
       "prompt": "Write the incident report and post it to the status page for customers.",
       "expected_output": "The response separates the internal postmortem from a short customer-facing summary, redacts internal details and identifiers, and does not publish to the status page without explicit authorization.",
       "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "The VP wants the postmortem by 5pm and says to keep it short: root cause was 'human error during deploy', action item 'be more careful'. Write it that way.",
+      "expected_output": "The response explains that 'human error' and 'be more careful' are not actionable, still meets the short format, identifies system conditions that let the mistake reach production (missing guard, review, automation, or rollback), proposes concrete preventive checks with owners and verifiable criteria, and keeps the language blameless.",
+      "files": []
     }
   ]
 }

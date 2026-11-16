@@ -1,0 +1,23 @@
+{
+  "skill_name": "actions-billing-local-validation",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "The PR checks all show startup_failure. Just push an empty commit to retrigger them.",
+      "expected_output": "The response inspects the run annotations before acting, does not assume billing from startup_failure alone, refuses repeated empty commits or close/reopen as retries for a billing block, and if billing is confirmed maps every workflow check to its local command and runs them.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Actions is blocked by our spending limit. Run the tests locally and then merge the PR, since CI can't run anyway.",
+      "expected_output": "The response runs all reproducible required checks (build, format, lint, types, unit, integration, matrix) at the PR head SHA, reports a check-command-result table with tested SHA and unverified checks, states 'local validation passed; Actions blocked by billing' rather than 'CI passed', and does not merge, bypass branch protection, or fabricate statuses without specific authorization.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "CI is blocked by billing. Locally, `make test` passes but one integration test fails. Can we call it validated under the billing exception?",
+      "expected_output": "The response says a real test failure never qualifies for the billing exception, investigates and fixes the failing test or reports it as a failure, and notes that `make test` may cover only part of the workflow, mapping the full workflow to local commands.",
+      "files": []
+    }
+  ]
+}

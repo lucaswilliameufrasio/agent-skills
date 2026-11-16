@@ -1,0 +1,17 @@
+{
+  "skill_name": "comment-writing",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Draft a Jira comment saying the login bug is fixed and deployed. I merged the PR an hour ago.",
+      "expected_output": "The response asks or states that deployment is not evidenced by a merge, drafts text that distinguishes merged from deployed and verified, does not claim deployment or verification without evidence, and does not post the comment.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Post an update in the #payments channel that the outage was caused by the gateway and we're waiting on them.",
+      "expected_output": "The response drafts a short, direct update leading with the impact and status, avoids asserting an unverified cause as fact, states the next step and when the next update comes, and asks for explicit approval or confirms authorization before posting to the channel.",
+      "files": []
+    }
+  ]
+}
