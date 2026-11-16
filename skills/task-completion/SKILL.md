@@ -1,11 +1,9 @@
 ---
 name: task-completion
 description: >-
-  Carry an authorized task through execution, verification, and an honest handoff.
-  Use whenever implementing or fixing something, executing a multi-step request,
-  resuming unfinished work, or preparing a final delivery report, even when the
-  user does not explicitly ask for a checklist or next steps. Prevent premature
-  stopping, plan-only delivery, hidden omissions, and vague follow-up offers.
+  Carry authorized work through execution and verification to an honest
+  complete, partial, or blocked handoff. Use when implementing or fixing
+  something, resuming work, or writing a final report.
 ---
 
 # Task completion

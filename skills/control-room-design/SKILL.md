@@ -1,13 +1,9 @@
 ---
 name: control-room-design
 description: >-
-  Opt-in visual style "Control Room": a dark, arcade-flavoured admin look with a
-  navy canvas, warm brown panels, gold actions with chunky shadows, cyan links
-  and focus, pixel-font eyebrows and dotted status chips. Use ONLY when the user
-  explicitly asks for this style by name ("Control Room design", "control-room
-  style", "the nginx-gateway-manager look", "the NGM design"). Never apply it by
-  default, never pick it because a task involves UI, and never use it to restyle
-  a project that already has its own design system.
+  Opt-in dark, arcade-flavoured admin style (navy canvas, brown panels, gold
+  actions). Use ONLY when the user asks for "Control Room" by name; never as a
+  default UI style.
 ---
 
 # Control Room design

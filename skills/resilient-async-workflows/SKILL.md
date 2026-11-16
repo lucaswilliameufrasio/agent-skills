@@ -1,12 +1,9 @@
 ---
 name: resilient-async-workflows
 description: >-
-  Design or improve asynchronous jobs, webhook processing, consumers, and
-  downstream calls. Use whenever a webhook, background job, or consumer needs
-  retries, timeouts, cancellation, idempotency, durable acceptance, dead-letter
-  handling, or protection from retry storms—even if the user only reports lost
-  events, duplicate work, or downstream failures. Trace the full lifecycle and
-  delivery guarantees before adding retries or choosing an in-memory queue.
+  Make webhooks, background jobs, and consumers recoverable: timeouts, bounded
+  retries, idempotency, durable acceptance, dead letters. Use when events are
+  lost or duplicated or a downstream call fails.
 ---
 
 # Resilient asynchronous workflows

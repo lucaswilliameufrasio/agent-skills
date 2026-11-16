@@ -202,3 +202,28 @@ state, and accepting a longer sleep as a flaky-test fix.
 The harder SLO, design-review, and restore cases still did not discriminate:
 the baseline already handles low-traffic alerting, destructive currency
 backfills, and refusing to restore over live data. Same limits as above.
+
+## Skill triggering (2026-11-16)
+
+Earlier rounds handed each skill to the executor, so they measured behaviour
+after loading, not whether an agent picks the skill on its own. A triggering
+check gave 14 fresh Sonnet subagents a realistic request in Portuguese that
+named no skill, inside a disposable Go repository, and read each transcript for
+`Skill` tool calls.
+
+- **Before** (about 150 installed skills, descriptions averaging ~400
+  characters): the listing showed descriptions for only 58 of 151 skills; most
+  new skills appeared as bare names. That run also framed requests as a
+  "simulation", which suppressed tool use, so it loaded no skill at all and is
+  not a valid baseline.
+- **After** removing unused global skills (115 left) and shortening this
+  repository's descriptions to ~190 characters: 104 of 115 skills listed with
+  descriptions, and 12 of 14 requests loaded the expected skill. The misses: a
+  slow-endpoint request loaded the third-party `diagnose` instead of
+  `performance-optimization` (overlapping scope), and "is this ready to
+  commit?" loaded nothing (the agent ran lint and tests anyway). Both
+  descriptions were sharpened afterwards; not re-run.
+
+`validate_repo.py` now rejects descriptions over 260 characters so the
+listing budget stays usable. One sample per request; the result depends on
+which other skills a user has installed.

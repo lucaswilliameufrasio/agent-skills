@@ -1,11 +1,9 @@
 ---
 name: runtime-configuration-and-policy
 description: >-
-  Design, implement, or review typed runtime configuration, administrative
-  settings, hot reload, and versioned business policies. Use when settings must
-  change without a release, concurrent editors can overwrite each other, secret
-  references need replacement, or an operation must retain its original policy.
-  Distinguish authoring, publication, runtime adoption, and execution approval.
+  Design typed runtime settings, hot reload, and versioned business policies
+  with safe publication. Use when settings must change without a release or
+  concurrent edits can overwrite each other.
 ---
 
 # Runtime configuration and policy

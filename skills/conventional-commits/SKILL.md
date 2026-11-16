@@ -1,10 +1,8 @@
 ---
 name: conventional-commits
 description: >-
-  Draft or review commit messages using the Conventional Commits format. Use
-  whenever asked to prepare, amend, or create a commit, or to check whether a
-  change communicates its type, scope, and breaking impact clearly. Inspect the
-  actual staged diff and repository conventions first.
+  Draft or review commit messages in Conventional Commits format from the actual
+  staged diff. Use whenever preparing, amending, or checking a commit message.
 ---
 
 # Conventional Commits

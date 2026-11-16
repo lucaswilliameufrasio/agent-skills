@@ -1,13 +1,9 @@
 ---
 name: agent-correction-tree
 description: >-
-  Turn a mistake made by an AI agent into the cheapest durable check that stops
-  it from happening again. Use whenever an agent produced a bug, a bad pattern,
-  a wrong guess, or skipped a step, whenever the user says "don't do that
-  again", "remember this", "add a rule", or asks to update AGENTS.md, CLAUDE.md,
-  a skill, or memory after a correction. Prefer redesign, lint/type/test,
-  hooks, and real-app verification before writing prose; a written rule is the
-  fallback, not the default.
+  Turn an AI agent's mistake into the cheapest durable check (redesign, lint,
+  test, hook) instead of a new rule. Use when the user says "don't do that
+  again", "remember this", or to update AGENTS.md after a correction.
 ---
 
 # Agent correction tree

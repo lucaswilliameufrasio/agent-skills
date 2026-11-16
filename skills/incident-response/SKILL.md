@@ -1,13 +1,9 @@
 ---
 name: incident-response
 description: >-
-  Guide the response while a production incident is happening: stabilize
-  first, coordinate, communicate, and keep a timeline. Use whenever the user
-  says production is down, broken, slow, losing data, under attack, or a deploy
-  just went wrong, or asks "what do we do now". Prefer reversible mitigation
-  (rollback, flag off, failover, shed load) over live debugging, never take
-  destructive or outward-facing actions without explicit approval, and hand
-  off to postmortem afterwards.
+  Guide the response while production is down or degraded: mitigate first
+  (rollback, flag, failover), get approval for risky actions, keep a timeline.
+  Use when prod is broken now or a deploy just went wrong.
 ---
 
 # Incident response

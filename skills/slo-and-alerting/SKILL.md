@@ -1,13 +1,9 @@
 ---
 name: slo-and-alerting
 description: >-
-  Define service level indicators and objectives from what users experience,
-  and build alerts that page only when users are hurt or soon will be. Use
-  whenever the user asks for SLOs, SLIs, error budgets, availability or latency
-  targets, alert rules, paging policy, on-call noise, "too many alerts", or
-  "we found out from customers", and whenever a postmortem asks for better
-  detection. Works with any monitoring stack; inspect what is already measured
-  before adding anything.
+  Define SLIs and SLOs from user journeys and replace noisy CPU/memory alerts
+  with burn-rate pages that link runbooks. Use for SLOs, error budgets, alert
+  rules, or too many alerts.
 ---
 
 # SLOs and alerting

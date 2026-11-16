@@ -1,12 +1,9 @@
 ---
 name: postmortem
 description: >-
-  Write a blameless postmortem (incident review) after an outage, data problem,
-  security event, failed deploy, or near miss, and turn its lessons into checks
-  that prevent recurrence. Use whenever the user asks for a postmortem, incident
-  report, RCA, retrospective of a production problem, or "what happened and how
-  do we stop it happening again". Build the timeline from evidence, separate
-  facts from hypotheses, and give every action an owner and a verifiable outcome.
+  Write a blameless postmortem after an outage, failed deploy, or near miss,
+  turning lessons into checks with owners. Use when asked for an incident
+  report, RCA, or "what happened and how do we prevent it".
 ---
 
 # Postmortem

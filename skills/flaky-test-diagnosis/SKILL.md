@@ -1,12 +1,9 @@
 ---
 name: flaky-test-diagnosis
 description: >-
-  Find and fix the cause of tests that pass and fail without a code change.
-  Use whenever a test is intermittent, fails only in CI, only in parallel, only
-  in a certain order, or only sometimes; whenever someone proposes retries,
-  reruns, quarantine, longer timeouts, or skipping to get CI green; or when a
-  suite leaks state between tests. A check that needs a retry has a bug: in the
-  test, the fixture, the environment, or the product.
+  Find and fix why a test passes and fails without code changes (order, shared
+  state, time, async). Use when a test is intermittent or fails only in CI, or
+  someone proposes retries, sleeps, or skipping it.
 ---
 
 # Flaky test diagnosis

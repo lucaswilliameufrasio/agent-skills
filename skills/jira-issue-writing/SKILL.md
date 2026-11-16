@@ -1,10 +1,9 @@
 ---
 name: jira-issue-writing
 description: >-
-  Create or refine complete, actionable Jira issues. Use whenever asked to open,
-  draft, split, or improve a Jira card, story, task, feature, or bug. Check the
-  target project and board for duplicates, make cross-repository solutions
-  explicit, and write verifiable acceptance criteria without inventing decisions.
+  Create or refine complete Jira issues with duplicate checks, end-to-end scope,
+  and verifiable acceptance criteria. Use whenever asked to open, draft, split,
+  or improve a Jira card, story, task, or bug.
 ---
 
 # Jira issue writing

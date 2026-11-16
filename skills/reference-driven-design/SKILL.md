@@ -1,15 +1,9 @@
 ---
 name: reference-driven-design
 description: >-
-  Build or restyle interfaces from visual references the user chose (screenshots,
-  links, Mobbin/Dribbble/CollectUI/Unsection shots, component library examples)
-  instead of the agent's own taste. Use whenever UI work starts without an
-  approved project design system, when the user sends prints or references, says
-  the result looks generic, "SaaS-like", or "AI slop", or wants the project to
-  keep one consistent look. Asks for references before inventing a style,
-  extracts measurable traits, records them as the project's design system, and
-  proves the result with side-by-side comparison. Carries no palette, font, or
-  style of its own.
+  Build or restyle UI from references the user chose (screenshots, links,
+  component libraries) instead of agent taste, and record them as the design
+  system. Use when UI work has no approved style or looks generic.
 ---
 
 # Reference-driven design

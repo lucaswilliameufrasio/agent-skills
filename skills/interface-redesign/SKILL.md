@@ -1,13 +1,9 @@
 ---
 name: interface-redesign
 description: >-
-  Redesign every screen of an existing web, mobile, desktop, or terminal (TUI)
-  application against one researched and documented design system, preserving
-  behavior, data, and public contracts, and proving the result with real
-  screenshots and journey verification. Use when asked to restyle, repaint,
-  modernize, or overhaul an app's interface as a whole, or when a previous
-  redesign was judged poor. Inventory all screens and states first, fix the
-  first paint, and record what was and was not verified.
+  Redesign every screen of an existing app against one documented design system,
+  preserving behavior and proving it with screenshots. Use to restyle,
+  modernize, or overhaul a whole interface.
 ---
 
 # Redesign a whole application interface

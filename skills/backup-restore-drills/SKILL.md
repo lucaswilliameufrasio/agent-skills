@@ -1,11 +1,9 @@
 ---
 name: backup-restore-drills
 description: >-
-  Design, implement, review, or safely test application backup and restoration.
-  Use for encrypted archives, database/object consistency, recovery kits,
-  disaster-recovery drills, RPO/RTO claims, or checking whether a successful
-  backup command really proves recoverability. Separate isolated drills from
-  destructive or live restores, which require explicit approval.
+  Design and test backups and restores: consistent recovery sets, isolated
+  restore drills, RPO/RTO, restoring into another instance. Use when asked
+  whether backups really recover, or to rehearse a restore.
 ---
 
 # Backup and restore drills

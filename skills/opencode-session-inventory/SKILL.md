@@ -1,10 +1,9 @@
 ---
 name: opencode-session-inventory
 description: >-
-  Create or refresh a point-in-time inventory of running OpenCode processes and
-  active sessions, and map them to Herdr workspace and tab labels. Use whenever
-  the user asks which OpenCode sessions are running or requests a Herdr sidebar
-  mapping. This is not a generic saved-session history or handoff.
+  Inventory running OpenCode processes and sessions and map them to Herdr
+  workspace and tab labels. Use when the user asks which OpenCode sessions are
+  running.
 ---
 
 # OpenCode session inventory

@@ -1,13 +1,9 @@
 ---
 name: vps-deploy-executor
 description: >-
-  Safely execute or troubleshoot an authorized application deployment on a VPS,
-  especially a blue-green release on a shared host. Use whenever a user asks to
-  deploy, switch traffic, roll back, or run a release on a VPS. Inspect the host
-  and deployment ownership before changes, protect unrelated applications, show
-  the exact proposed actions and impact, and obtain explicit approval before any
-  mutation. This skill is for execution; use vps-blue-green-prepare to create
-  deployment scripts and documentation without deploying.
+  Execute an approved VPS deployment (often blue-green) after inspecting the
+  shared host and protecting other apps. Use when asked to deploy, switch
+  traffic, or roll back on a VPS.
 ---
 
 # Execute a VPS deployment safely

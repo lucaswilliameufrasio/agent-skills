@@ -1,11 +1,9 @@
 ---
 name: rust-cross-platform-builds
 description: >-
-  Speed up and harden Rust release builds for a different OS or CPU architecture.
-  Use whenever an ARM64/container deployment spends a long time compiling Rust
-  under QEMU, the user mentions Zig or cargo-zigbuild, a cross linker/sysroot,
-  glibc compatibility, or asks for a build-time comparison—even if they only
-  ask to make deployment faster.
+  Speed up Rust cross-platform release builds with Zig/cargo-zigbuild instead of
+  QEMU emulation. Use when ARM64 or container Rust builds are slow, or for glibc
+  or cross-linker issues.
 ---
 
 # Fast, reliable Rust cross-platform builds

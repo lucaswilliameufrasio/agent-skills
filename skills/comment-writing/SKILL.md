@@ -1,6 +1,9 @@
 ---
 name: comment-writing
-description: "Write clear, human, concise comments for work conversations across Jira, pull requests, chat, email, and other collaboration tools. Use when drafting or publishing a status update, investigation summary, decision, handoff, request, or customer/team response."
+description: >-
+  Write clear, human status updates, summaries, handoffs, and requests for Jira,
+  PRs, chat, and email. Use when drafting or publishing a work comment; never
+  overstate what was verified.
 ---
 
 # Comment writing

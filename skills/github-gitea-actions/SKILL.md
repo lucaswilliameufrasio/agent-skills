@@ -1,12 +1,9 @@
 ---
 name: github-gitea-actions
 description: >-
-  Create, update, or audit GitHub Actions and Gitea Actions workflows, including
-  YAML under .github/workflows/ or .gitea/workflows/. Use this skill whenever a
-  task adds or changes workflow steps or `uses:` references, or reviews CI
-  automation on either platform. Verify every external action against current
-  upstream releases and security information; do not copy stale action versions
-  from memory or examples.
+  Create or audit GitHub Actions and Gitea Actions workflows with freshly
+  verified, pinned action versions. Use whenever editing .github/workflows or
+  .gitea/workflows or changing `uses:` references.
 ---
 
 # GitHub and Gitea Actions workflows

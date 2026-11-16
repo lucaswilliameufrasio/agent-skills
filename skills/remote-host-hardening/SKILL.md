@@ -1,12 +1,9 @@
 ---
 name: remote-host-hardening
 description: >-
-  Harden remote access to a server, workstation, or home-lab machine (Linux or
-  macOS) and give its owner a clear view of its health and access. Use whenever
-  the user asks to secure SSH or remote management, restrict who can log in,
-  audit access, set up a private network path, or build a status page or
-  dashboard for a host's metrics, disk, services, and logins. Inspect the
-  host first, change one control at a time, and never lock the owner out.
+  Harden SSH and remote access on Linux or macOS without locking the owner out,
+  and optionally build a private host status page. Use to secure SSH, restrict
+  logins, or monitor a server's health and access.
 ---
 
 # Remote host hardening

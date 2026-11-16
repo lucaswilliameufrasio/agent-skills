@@ -1,13 +1,9 @@
 ---
 name: dependency-freshness
 description: >-
-  Choose current, stable versions of languages, runtimes, toolchains, CLIs,
-  libraries, base images, and scaffolding templates by checking upstream at
-  task time, and upgrade outdated ones safely. Use whenever adding a
-  dependency, creating a project, writing a version into a manifest, Dockerfile,
-  or tool-version file, installing a CLI, or when the user asks to update or
-  audit dependencies. Never take a version from model memory, an old example,
-  or whatever happens to be installed globally on the machine.
+  Pick current stable versions of runtimes, toolchains, CLIs, libraries, and
+  base images from upstream, not memory or global installs. Use when adding a
+  dependency, creating a project, or updating versions.
 ---
 
 # Dependency freshness

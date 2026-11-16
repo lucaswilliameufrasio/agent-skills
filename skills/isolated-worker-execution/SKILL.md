@@ -1,11 +1,9 @@
 ---
 name: isolated-worker-execution
 description: >-
-  Design, implement, or review workers, test runners, evaluators and plugin hosts
-  that execute less-trusted commands or code. Use for subprocess/browser
-  isolation, sanitized environments, filesystem/network boundaries, resource
-  budgets, cancellation, process-tree cleanup and safe result promotion. A
-  timeout or rootless container alone does not establish a sandbox.
+  Design workers, test runners, and plugin hosts that run less-trusted code:
+  isolation, resource limits, cancellation, process cleanup. Use when executing
+  untrusted commands or code safely.
 ---
 
 # Isolated worker execution

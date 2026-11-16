@@ -1,10 +1,9 @@
 ---
 name: http-api-conventions
 description: >-
-  Design, implement, or review HTTP/JSON APIs. Use for request/response
-  contracts, validation, error handling, pagination, authentication, or caching.
-  Enforce consistent wire formats, omit absent values instead of encoding null,
-  specific error codes, precise status semantics, and safe boundaries.
+  Design or review HTTP/JSON APIs: contracts, validation, error codes and
+  statuses, pagination, auth, caching. Use when building or changing API
+  endpoints.
 ---
 
 # HTTP API conventions

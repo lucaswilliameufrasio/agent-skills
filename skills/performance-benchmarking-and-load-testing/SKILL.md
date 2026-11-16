@@ -1,12 +1,9 @@
 ---
 name: performance-benchmarking-and-load-testing
 description: >-
-  Design, implement, run, or interpret reproducible performance benchmarks and
-  application load/capacity tests. Use whenever the user asks how many RPS a
-  service can handle, wants a benchmark or before/after comparison, or mentions
-  load, stress, saturation, spike, soak, ceiling, WebSocket, or streaming tests.
-  Inspect the existing harness and choose workload and tools appropriate to the
-  system; avoid unsafe production load and misleading cross-machine comparisons.
+  Build and run reproducible benchmarks and load, stress, soak, or capacity
+  tests. Use when the user asks how many requests a service handles, wants a
+  before/after comparison, or mentions load testing.
 ---
 
 # Reproducible benchmarking and load testing

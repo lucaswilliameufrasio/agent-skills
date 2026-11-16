@@ -1,6 +1,9 @@
 ---
 name: engineering-comment-scenarios
-description: "Turn technical analysis, bug investigations, review findings, audit responses, and blockers into short, direct, human issue-tracker or pull-request comments. Use when drafting an engineering comment for Jira, GitHub, Bitbucket, or similar, and the scenario is a decision response, bug triage, code-review finding, or blocker."
+description: >-
+  Turn bug investigations, review findings, audit responses, and blockers into
+  short, direct engineering comments for Jira or PRs. Use when drafting a
+  technical comment for an issue tracker or code review.
 ---
 
 # Engineering comment scenarios

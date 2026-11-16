@@ -1,13 +1,9 @@
 ---
 name: single-state-enum
 description: >-
-  Controls UI status (modals, sheets, drawers, tabs, steps, view modes) with a
-  single state holding a discriminated union / enum instead of many independent
-  booleans, nulls, and strings. Applies to any frontend — Svelte
-  ($state), Vue (ref), React (useState), and Flutter/Dart — to keep dialogs,
-  overlays, and multi-step flows consistent and easy to maintain. Use whenever
-  adding or reviewing any modal, dialog, confirmation, wizard, tab, or view-mode
-  state.
+  Model mutually exclusive UI state (modals, tabs, wizard steps, view modes) as
+  one discriminated-union state instead of many booleans. Use when adding or
+  reviewing modals, dialogs, wizards, or tabs.
 ---
 
 # Single State, Enum (Discriminated Union)

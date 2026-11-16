@@ -1,12 +1,9 @@
 ---
 name: legal-review-packet
 description: >-
-  Prepare drafts and questions for a lawyer's opinion and send them as one
-  readable packet. Use when a feature, policy, contract clause, or product
-  decision needs legal validation before release; when asked to write a clause
-  draft ("minuta") for counsel; or to gather every open legal question into a
-  single PDF to share by chat or e-mail. Never present the drafts as legal advice
-  and never mark a review as done without the actual opinion.
+  Prepare clause drafts ("minutas") and questions for a lawyer and bundle them
+  into one PDF to share. Use when a feature, policy, or contract needs legal
+  review; never present drafts as legal advice.
 ---
 
 # Legal review packet

@@ -1,11 +1,9 @@
 ---
 name: migration-parity-audit
 description: >-
-  Audit or plan a legacy replacement, framework rewrite, service extraction,
-  or backend migration for behavioral parity and cutover readiness. Use when
-  route counts, passing tests, merged PRs, or a migration status document are
-  being treated as proof that the replacement is complete. Cover workers,
-  consumers, data, permissions, failures, and deliberate contract changes too.
+  Audit a rewrite, service extraction, or backend migration for behavioral
+  parity and cutover readiness. Use when passing tests, route counts, or a
+  status doc are being taken as proof the replacement is complete.
 ---
 
 # Migration parity audit

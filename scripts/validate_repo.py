@@ -14,6 +14,7 @@ from urllib.parse import unquote
 ROOT = Path(__file__).resolve().parent.parent
 SKILLS = ROOT / "skills"
 errors = []
+MAX_DESCRIPTION = 260
 
 
 def fail(path, message):
@@ -49,6 +50,12 @@ def parse_frontmatter(path):
         tail = block[description.end():]
         if not re.match(r"\n\s+\S", tail):
             fail(path, "description is empty")
+    folded = " ".join(part.strip() for part in block[description.start():].splitlines()[1:]
+                      if part.startswith(" "))
+    text = folded or description.group(1).strip()
+    if len(text) > MAX_DESCRIPTION:
+        fail(path, f"description has {len(text)} characters; keep it under {MAX_DESCRIPTION} "
+                   "(skill listings share one description budget; move rules into the body)")
     return name.group(1).strip("\"'") if name else None
 
 

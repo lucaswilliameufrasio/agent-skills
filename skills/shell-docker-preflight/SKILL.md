@@ -1,12 +1,9 @@
 ---
 name: shell-docker-preflight
 description: >-
-  Use before running shell commands, scripts, CLI tools, or Docker workloads.
-  Identify the configured login shell and the shell that will actually execute
-  commands; inspect Docker CLI/daemon availability and determine whether access
-  is rootless or rootful. Prefer a verified rootless Docker context whenever it
-  supports the task. Do not assume Bash, switch persistent contexts, escalate
-  privileges, or reconfigure Docker silently.
+  Check the real login and execution shells and whether Docker is rootless or
+  rootful before running commands. Use before running shell scripts, CLIs, or
+  Docker workloads.
 ---
 
 # Shell and Docker preflight

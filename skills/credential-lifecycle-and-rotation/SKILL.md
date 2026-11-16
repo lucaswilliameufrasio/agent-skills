@@ -1,11 +1,9 @@
 ---
 name: credential-lifecycle-and-rotation
 description: >-
-  Design, implement, or review credential enrollment, secure custody, renewal,
-  refresh rotation, revocation, and consumer adoption for CLIs, workers and
-  services. Use when credentials expire, rotation spans a secret store and live
-  clients, a renewal response is lost, or recovery could reactivate a revoked
-  credential. Prefer documented protocols and existing credential providers.
+  Design credential enrollment, custody, renewal, rotation, and revocation for
+  CLIs, workers, and services. Use when tokens expire, rotation spans a secret
+  store and live clients, or a renewal response is lost.
 ---
 
 # Credential lifecycle and rotation

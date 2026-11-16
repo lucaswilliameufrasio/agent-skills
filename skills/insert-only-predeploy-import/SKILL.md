@@ -1,10 +1,9 @@
 ---
 name: insert-only-predeploy-import
 description: >-
-  Prepare repeatable legacy-data imports and pre-deploy hooks that preserve
-  existing operational records. Use for object-storage-to-database imports,
-  retryable migration commands, conflict policies, and deployment-blocking
-  import verification without executing unauthorized remote operations.
+  Build repeatable legacy-data imports and pre-deploy hooks that never overwrite
+  existing records. Use for object-storage-to-database imports, rerunnable
+  import commands, and deploy-blocking import checks.
 ---
 
 # Import without replacing operational data

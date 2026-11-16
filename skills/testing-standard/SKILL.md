@@ -1,12 +1,9 @@
 ---
 name: testing-standard
 description: >-
-  Apply the repository testing standard whenever adding or changing code, tests,
-  persistence, APIs, CI, or fixing a bug, and whenever asked to verify that work
-  is complete. Select meaningful unit, integration, and regression coverage;
-  run the repository's full documented quality gate using safe local resources;
-  report exactly what passed, failed, or was not run. Inspect repository
-  instructions and commands instead of assuming a universal stack.
+  Choose tests and run the repository's full quality gate (format, lint,
+  typecheck, unit, integration). Use when asked to run the tests, check if work
+  is ready to commit or merge, or after changing code or fixing a bug.
 ---
 
 # Repository testing standard
