@@ -21,7 +21,7 @@ If a missing fact would make the comment misleading or change its ask, clarify b
 
 ## Writing principles
 
-- Lead with the point that matters to the reader.
+- Lead with the point that matters to the reader. In an outage or incident update, that is the impact and current status, not the cause. Present a cause as confirmed only with evidence; otherwise call it suspected or leave it out.
 - Use short paragraphs and ordinary language. Prefer a few clear sentences over a long block or unnecessary bullets.
 - Say what happened, what was done, what was verified, and what happens next. Include only the parts relevant to the audience.
 - Make requests specific, polite, and easy to answer. Use the user's language and the team's normal level of formality.

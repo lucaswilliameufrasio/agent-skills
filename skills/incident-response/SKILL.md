@@ -48,8 +48,12 @@ afterwards. Change one thing at a time so effects are attributable.
 
 **Approval.** Production changes during an incident still need authorization.
 Propose the exact command and its blast radius and wait for an explicit yes
-unless the user or runbook has already authorized that specific action.
-Destructive actions (data deletion, restores over live data, killing stateful
+unless the user or runbook has already authorized that specific action. When
+someone with the authority to do so explicitly authorizes acting without
+waiting during this incident, treat that as approval for reversible
+mitigations: announce each action and its expected effect, take it, and report
+the result, without asking again. That authorization does not extend to
+destructive actions. Destructive actions (data deletion, restores over live data, killing stateful
 nodes, rotating credentials that break consumers) always need explicit
 approval. A rollback that includes an irreversible migration is not a simple
 rollback; check first (`schema-migration-safety`).

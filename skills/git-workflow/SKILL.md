@@ -1,13 +1,14 @@
 ---
 name: git-workflow
 description: >-
-  Compatibility entry point for git-delivery and conventional-commits. Use when
-  starting development, choosing branches, preparing a commit or PR, or following
-  a repository's Git process. Inspect local rules; do not impose one Git flow
-  or infer delivery authorization from a workflow convention.
+  Deprecated alias kept for existing callers until 2027-02-16; prefer
+  git-delivery, conventional-commits, and pr-merge-sequence. Loads that canonical policy and keeps no rules of its own.
 ---
 
 # Git workflow compatibility
+
+> **Deprecated.** Removal planned for 2027-02-16; see
+> [deprecations](../../docs/deprecations.md). Use `git-delivery`, `conventional-commits`, `pr-merge-sequence` directly.
 
 Read and apply [`git-delivery`](../git-delivery/SKILL.md) for execution and
 authorization, and [`conventional-commits`](../conventional-commits/SKILL.md)
@@ -38,3 +39,15 @@ it. An instruction to implement does not by itself authorize a commit, push,
 PR, merge, tag, or deployment. Conversely, do not ask again for the same action
 and scope when explicitly authorized. Follow `git-delivery` rather than keeping
 a separate quality gate or permission exception here.
+
+## Migrate `local-conventions.md` before removal
+
+If `references/local-conventions.md` exists next to this skill, tell the user
+once per session, before relying on it, that this alias will be removed on
+2027-02-16 and the canonical skills do not read that file. Offer to migrate it:
+show its contents (redacting any secret), propose where each convention
+belongs (the user's personal agent instructions or memory for personal
+preferences, the repository's `AGENTS.md` for project rules), and write only
+after the user approves. Then tell the user the alias can be uninstalled. Do
+not delete or edit the file without approval, and do not repeat the offer in
+the same session after the user declines.

@@ -1,0 +1,17 @@
+{
+  "skill_name": "followable-guides",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Document the steps we just used to rotate the TLS certificate on the proxy so I can do it again next quarter.",
+      "expected_output": "The guide opens with what the procedure produces and the precondition, numbers steps in execution order with one action and a complete pasteable command each, gives answers to prompts, quotes the line that must appear before any confirmation that changes the system and what to do if it does not, leaves secret values out while saying where they come from, and ends with the successful output and how to read it.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The restore command failed halfway with 'permission denied on /var/lib/app'. What now?",
+      "expected_output": "The response says whether anything was written based on observed output lines, names the cause in one sentence using the tool's error, gives the same command again with the fix, and quotes the summary line that must appear this time, rather than writing a lab report.",
+      "files": []
+    }
+  ]
+}

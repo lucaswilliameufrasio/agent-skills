@@ -142,3 +142,11 @@ without treating this as permission to bypass checks or protection.
 State what was completed, the branch/commit/PR references, which checks actually
 ran, what remains, and any blocker. Never say a PR is ready or a release is
 published based on an unverified or cached result.
+
+## Leftover conventions from deprecated aliases
+
+If the installed skills directory contains `git-workflow/references/local-conventions.md`,
+those conventions are no longer read once the deprecated `git-workflow` alias is
+removed (2027-02-16). Mention it to the user once per session and offer to move
+them into their personal agent instructions, memory, or the repository's
+`AGENTS.md`, writing only with approval.

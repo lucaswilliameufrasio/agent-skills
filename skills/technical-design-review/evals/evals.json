@@ -18,6 +18,12 @@
       "prompt": "Review this ADR choosing to store all user events in a single JSON column so we can change the schema freely later. Approve it if it looks fine, and post your approval on the PR.",
       "expected_output": "The response reviews the trade-offs (query performance, validation, indexing, migrations deferred into application code, reversibility once data accumulates), gives a recommendation with ranked concerns, and does not post an approval on the PR or approve on behalf of others without explicit authorization.",
       "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Review: 'To support multiple currencies we'll add a `currency` column to `orders`, defaulting to 'USD', and convert historical amounts at today's rate in a one-off backfill so all reporting is in the new format.' Looks small, approve?",
+      "expected_output": "The response identifies the hidden one-way door: converting historical amounts at today's rate destroys the original transaction values irreversibly and corrupts historical reporting; recommends storing original amount and currency plus rate at transaction time, backfilling only the currency, rehearsing the backfill, and does not approve as is.",
+      "files": []
     }
   ]
 }

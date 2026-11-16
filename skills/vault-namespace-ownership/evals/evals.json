@@ -1,0 +1,17 @@
+{
+  "skill_name": "vault-namespace-ownership",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Service B can't find DATABASE_URL in its Vault path. Service A has one in the shared namespace. Add a fallback to shared so B works.",
+      "expected_output": "The response refuses a universal shared fallback because B would silently connect to A's database, keeps B's configuration in B's own namespace, explains that matching key names do not imply the same resource or credential, and provisions B's value through an approved secure path without copying A's secret.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Where should the Stripe webhook secret go? Two services verify webhooks from the same Stripe account.",
+      "expected_output": "The response identifies owner and consumers, considers a shared entry only if both intentionally use the same value under explicit ownership and rotation policy, documents consumers and rotation impact if shared, and otherwise defaults to per-service namespaces.",
+      "files": []
+    }
+  ]
+}

@@ -159,3 +159,46 @@ gate, and listed design concerns without separating blocking issues from
 suggestions or naming one-way doors. Harder scenarios (ambiguous ownership,
 pressure to skip approval, designs with subtle data-migration traps) are needed
 before claiming a material effect.
+
+### Previously unevaluated skills and harder scenarios (2026-11-16)
+
+The ten skills that had no evals received two or three scenarios each, and the
+six skills whose earlier cases barely discriminated received one harder case
+(pressure to skip a step or a subtle trap). Same method: Sonnet executors, one
+with-skill executor per skill, grouped baseline executors, A/B relabelling,
+three blinded graders.
+
+| Skill | With skill | Without skill |
+| --- | --- | --- |
+| `followable-guides` | 11/11 | 2/11 |
+| `vault-bootstrap-configuration` | 13/13 | 5/13 |
+| `single-state-enum` | 11/11 | 6/11 |
+| `insert-only-predeploy-import` | 11/11 | 6/11 |
+| `actions-billing-local-validation` | 12/12 | 8/12 |
+| `opencode-session-inventory` | 12/12 | 9/12 |
+| `engineering-comment-scenarios` | 10/11 | 7/11 |
+| `vault-namespace-ownership` | 10/10 | 9/10 |
+| `jira-issue-writing` | 11/11 | 10/11 |
+| `comment-writing` | 7/8 | 7/8 |
+| `flaky-test-diagnosis` (harder case) | 4/4 | 2/4 |
+| `postmortem` (harder case) | 5/5 | 4/5 |
+| `incident-response` (harder case) | 4/5 | 5/5 |
+| `slo-and-alerting` (harder case) | 4/4 | 4/4 |
+| `technical-design-review` (harder case) | 5/5 | 5/5 |
+| `backup-restore-drills` (harder case) | 5/5 | 5/5 |
+| **Total criteria** | **135/138** | **94/138** |
+
+With-skill misses led to two clarifications, not re-run: `incident-response`
+asked for approval at every step after an explicit blanket authorization (it
+now treats such authorization as covering reversible mitigations only), and
+`comment-writing` led an outage update with the cause (it now leads incident
+updates with impact and status and labels unconfirmed causes). The third miss,
+not acknowledging that an audit finding was valid, failed in both conditions.
+Notable baseline failures: copying `.env` values into Vault with secrets on the
+command line, offering an empty commit to retry billing-blocked CI, skipping
+related records in an import, modelling a wizard with a step index and separate
+state, and accepting a longer sleep as a flaky-test fix.
+
+The harder SLO, design-review, and restore cases still did not discriminate:
+the baseline already handles low-traffic alerting, destructive currency
+backfills, and refusing to restore over live data. Same limits as above.

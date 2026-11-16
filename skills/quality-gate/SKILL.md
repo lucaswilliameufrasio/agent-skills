@@ -1,12 +1,14 @@
 ---
 name: quality-gate
 description: >-
-  Compatibility entry point for testing-standard when finishing an implementation,
-  preparing a commit, or verifying that a repository is green. Load the canonical
-  policy instead of applying a separate language-specific quality checklist.
+  Deprecated alias kept for existing callers until 2027-02-16; prefer
+  testing-standard and task-completion. Loads that canonical policy and keeps no rules of its own.
 ---
 
 # Quality gate compatibility
+
+> **Deprecated.** Removal planned for 2027-02-16; see
+> [deprecations](../../docs/deprecations.md). Use `testing-standard`, `task-completion` directly.
 
 Read and apply [`testing-standard`](../testing-standard/SKILL.md), using the
 skill loader or the sibling file. If unavailable, report the missing dependency;

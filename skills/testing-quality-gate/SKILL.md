@@ -1,13 +1,14 @@
 ---
 name: testing-quality-gate
 description: >-
-  Compatibility entry point for testing-standard. Use when adding or reviewing
-  tests, fixing bugs, changing persistence or APIs, or finishing a code change.
-  Load testing-standard for the canonical test boundaries, regression coverage,
-  safe local infrastructure, and full repository quality gate.
+  Deprecated alias kept for existing callers until 2027-02-16; prefer
+  testing-standard. Loads that canonical policy and keeps no rules of its own.
 ---
 
 # Testing strategy and quality gate
+
+> **Deprecated.** Removal planned for 2027-02-16; see
+> [deprecations](../../docs/deprecations.md). Use `testing-standard` directly.
 
 This entry point is retained for existing callers. The canonical policy is
 [`testing-standard`](../testing-standard/SKILL.md); read and apply that skill

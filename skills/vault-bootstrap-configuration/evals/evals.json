@@ -1,0 +1,17 @@
+{
+  "skill_name": "vault-bootstrap-configuration",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We moved our API keys to Vault but DATABASE_URL, the S3 bucket and the Redis URL are still deployment env vars, and the seed command reads its own env. Finish moving config to Vault.",
+      "expected_output": "The response traces every consumer including workers, seed, migrations and pre-deploy commands, separates bootstrap inputs needed to reach Vault from operational settings, resolves settings before constructing dependent clients, fails fast when required keys are missing in Vault mode without silently falling back to old envs, keeps a documented local no-Vault mode, tests the real client against a local fake store, and reports any consumer still requiring envs.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Generate the Vault entries we need for staging and production and fill them from our current .env files.",
+      "expected_output": "The response produces per-environment import templates with empty or safe placeholder values and per-key explanations, inspects the target import schema, does not read real secrets from env files to populate them, keeps fillable credential files out of Git, and states that generating templates does not authorize applying them.",
+      "files": []
+    }
+  ]
+}

@@ -16,9 +16,9 @@ Each row also has the command to install just that skill globally.
 | --- | --- | --- |
 | [`context-checkpoint`](skills/context-checkpoint/SKILL.md) | Persist scoped plans in a user-approved active-task store; recover available context from providers such as ai-memory without treating durable wiki pages as transient checkpoints. | `npx skills add lucaswilliameufrasio/agent-skills --skill context-checkpoint --global` |
 | [`task-completion`](skills/task-completion/SKILL.md) | Carry authorized work through execution, verification, and an honest complete/partial/blocked handoff with concrete next actions. | `npx skills add lucaswilliameufrasio/agent-skills --skill task-completion --global` |
-| [`quality-gate`](skills/quality-gate/SKILL.md) | Compatibility entry point for the canonical `testing-standard` and `task-completion` policies. | `npx skills add lucaswilliameufrasio/agent-skills --skill quality-gate --global` |
-| [`test-strategy`](skills/test-strategy/SKILL.md) | Compatibility entry point for test boundaries and coverage in `testing-standard`. | `npx skills add lucaswilliameufrasio/agent-skills --skill test-strategy --global` |
-| [`git-workflow`](skills/git-workflow/SKILL.md) | Compatibility entry point for repository-aware `git-delivery` and `conventional-commits`. | `npx skills add lucaswilliameufrasio/agent-skills --skill git-workflow --global` |
+| [`quality-gate`](skills/quality-gate/SKILL.md) | **Deprecated** (removal 2027-02-16, see [deprecations](docs/deprecations.md)); use `testing-standard` and `task-completion`. | `npx skills add lucaswilliameufrasio/agent-skills --skill quality-gate --global` |
+| [`test-strategy`](skills/test-strategy/SKILL.md) | **Deprecated** (removal 2027-02-16, see [deprecations](docs/deprecations.md)); use `testing-standard`. | `npx skills add lucaswilliameufrasio/agent-skills --skill test-strategy --global` |
+| [`git-workflow`](skills/git-workflow/SKILL.md) | **Deprecated** (removal 2027-02-16, see [deprecations](docs/deprecations.md)); use `git-delivery`, `conventional-commits`, and `pr-merge-sequence`. | `npx skills add lucaswilliameufrasio/agent-skills --skill git-workflow --global` |
 | [`pr-merge-sequence`](skills/pr-merge-sequence/SKILL.md) | Safely sequence normal GitHub PR merges while rebasing and revalidating remaining branches after each merge. | `npx skills add lucaswilliameufrasio/agent-skills --skill pr-merge-sequence --global` |
 | [`single-state-enum`](skills/single-state-enum/SKILL.md) | Model mutually-exclusive UI overlays and modes with one discriminated-union state. | `npx skills add lucaswilliameufrasio/agent-skills --skill single-state-enum --global` |
 | [`explicit-code-style`](skills/explicit-code-style/SKILL.md) | Prefer multiline conditionals, explicit loops, and clear absence values. | `npx skills add lucaswilliameufrasio/agent-skills --skill explicit-code-style --global` |
@@ -34,7 +34,7 @@ Each row also has the command to install just that skill globally.
 | [`followable-guides`](skills/followable-guides/SKILL.md) | Write a tutorial or passo a passo a person can follow in order, with the command, the answers, and the line that must appear before they confirm. | `npx skills add lucaswilliameufrasio/agent-skills --skill followable-guides --global` |
 | [`engineering-comment-scenarios`](skills/engineering-comment-scenarios/SKILL.md) | Turn engineering analysis into short, direct comments for audit responses, bug triage, PR findings, and blockers. | `npx skills add lucaswilliameufrasio/agent-skills --skill engineering-comment-scenarios --global` |
 | [`document-decisions`](skills/document-decisions/SKILL.md) | Record durable decisions in the repository's existing documentation structure. | `npx skills add lucaswilliameufrasio/agent-skills --skill document-decisions --global` |
-| [`testing-quality-gate`](skills/testing-quality-gate/SKILL.md) | Compatibility entry point that delegates testing policy to `testing-standard`. | `npx skills add lucaswilliameufrasio/agent-skills --skill testing-quality-gate --global` |
+| [`testing-quality-gate`](skills/testing-quality-gate/SKILL.md) | **Deprecated** (removal 2027-02-16, see [deprecations](docs/deprecations.md)); use `testing-standard`. | `npx skills add lucaswilliameufrasio/agent-skills --skill testing-quality-gate --global` |
 | [`testing-standard`](skills/testing-standard/SKILL.md) | Apply repository testing policy for unit, integration, regression, safe execution, coverage, and full quality-gate verification. | `npx skills add lucaswilliameufrasio/agent-skills --skill testing-standard --global` |
 | [`cross-repo-standard-sync`](skills/cross-repo-standard-sync/SKILL.md) | Define canonical ownership and safely audit or sync shared standards while preserving repo-specific facts. | `npx skills add lucaswilliameufrasio/agent-skills --skill cross-repo-standard-sync --global` |
 | [`privacy-safe-skill-extraction`](skills/privacy-safe-skill-extraction/SKILL.md) | Generalize internal workflows into reusable skills and screen all artifacts for private information before sharing. | `npx skills add lucaswilliameufrasio/agent-skills --skill privacy-safe-skill-extraction --global` |
@@ -97,6 +97,22 @@ on references the user picks and turns them into the project's design system;
 See their [definition](skills/design-system-definition/evals/README.md) and
 [redesign](skills/interface-redesign/evals/README.md) evaluation scenarios.
 
+### Which design skill to use
+
+| Situation | Start with | Then |
+| --- | --- | --- |
+| New UI or restyle, and you have screenshots, links, or a component library you like | `reference-driven-design` | It records the result as the project's design system |
+| No references and no approved design document; product needs a full direction | `design-system-definition` | `interface-redesign` to apply it |
+| Approved design document exists; restyle every screen of an existing app | `interface-redesign` | `create-verification-skill` for journey proof |
+| You asked for the "Control Room" look by name | `control-room-design` | Never applied otherwise |
+| Native desktop app (egui, GPUI, Slint), often over SSH | `desktop-visual-qa` | Pairs with any of the above for evidence |
+| Review existing web UI against accessibility and interface guidelines | `web-design-guidelines` (third party) | Fix findings within the project's design system |
+| Quick one-off frontend with no project system to respect | `frontend-design` (third party) | Prefer `reference-driven-design` once the project needs a consistent look |
+
+An approved project design system always wins over a skill's defaults. Only
+one skill should own the visual direction at a time: references or a design
+document, never both inventing in parallel.
+
 For native Rust apps accessed over SSH, see the [desktop visual QA workflow](docs/desktop-visual-qa.md).
 The skill guides real screenshot/interaction checks; graphical sessions, MCP tools
 and image inspection must be provided and verified separately.
@@ -146,8 +162,9 @@ See [task workflow contracts](docs/task-workflow-contracts.md) for ownership,
 file lifecycle, design rationale, and evaluation limits. Example requests:
 “Use acceptance-traceability to validate this delivery” and “Use
 install-task-progress to install the progress rule in this repository.”
-`testing-quality-gate`, `quality-gate`, and `test-strategy` are compatibility
-entry points, not independent testing policies. `git-workflow` delegates to
+`testing-quality-gate`, `quality-gate`, and `test-strategy` are deprecated
+compatibility entry points, not independent testing policies; see
+[deprecations](docs/deprecations.md) for the removal timeline. `git-workflow` delegates to
 `git-delivery` and `conventional-commits`; process requirements never grant
 delivery permissions. If installing entry points individually, also install the
 skills they reference; the installer does not resolve these dependencies.
