@@ -1,9 +1,9 @@
 ---
 name: performance-optimization
 description: >-
-  Diagnose and fix slow applications from measurements: reproduce, find the
-  bottleneck, change one thing, verify. Use when an app or API is slow, has a
-  performance regression, or needs lower latency, CPU, or memory.
+  Fix slow apps and APIs from measurements: reproduce, find the bottleneck,
+  change one thing, verify. Use when an endpoint got slower, p95/p99 latency
+  rose after a release, or CPU, memory, or cost must drop.
 ---
 
 # Evidence-driven performance optimization

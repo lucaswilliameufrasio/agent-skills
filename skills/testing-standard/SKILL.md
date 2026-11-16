@@ -1,9 +1,9 @@
 ---
 name: testing-standard
 description: >-
-  Choose unit, integration, and regression tests and run the repository's full
-  quality gate with safe local resources. Use when changing code, fixing a bug,
-  or checking whether work is ready to commit.
+  Choose tests and run the repository's full quality gate (format, lint,
+  typecheck, unit, integration). Use when asked to run the tests, check if work
+  is ready to commit or merge, or after changing code or fixing a bug.
 ---
 
 # Repository testing standard
