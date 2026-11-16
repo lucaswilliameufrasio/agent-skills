@@ -12,6 +12,12 @@
       "prompt": "Prepare a branch in a repository with a develop branch but no documented Git flow. What base, naming, and delivery permissions apply?",
       "expected_output": "Inspects repository rules rather than inferring Git flow solely from a branch name, clarifies consequential missing facts, and separates preparation from commit/push authorization.",
       "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Use git-workflow to create a branch for the login fix. (The installed skill has a references/local-conventions.md saying branches use the prefix 'lw/' and commits are written in Portuguese.)",
+      "expected_output": "The response applies the conventions for this task, tells the user once that git-workflow is deprecated and will be removed on 2027-02-16 and that the canonical skills will not read local-conventions.md, offers to move each convention to the user's personal instructions or memory (or AGENTS.md for project rules) and writes nothing until the user approves.",
+      "files": []
     }
   ]
 }

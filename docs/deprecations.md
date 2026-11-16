@@ -23,7 +23,9 @@ Testing rules are owned by `testing-standard`.
 user-owned `references/local-conventions.md`. The canonical skills will not
 read it. Before removal, move those conventions to your personal agent
 instructions or memory, or to each repository's `AGENTS.md` when they are
-project rules.
+project rules. The two aliases offer this migration when they are loaded, and
+`git-delivery` and `testing-standard` mention the file if they find it; all of
+them write only with your approval.
 
 ### Timeline
 

@@ -144,3 +144,11 @@ State which checks ran and their results, which checks were skipped and why, and
 any remaining failures or risks. Include exact command names where useful, but
 redact private paths, hostnames, identifiers, and sensitive output. Never imply
 that unrun checks passed.
+
+## Leftover conventions from deprecated aliases
+
+If the installed skills directory contains `test-strategy/references/local-conventions.md`,
+those conventions are no longer read once the deprecated `test-strategy` alias is
+removed (2027-02-16). Mention it to the user once per session and offer to move
+them into their personal agent instructions, memory, or the repository's
+`AGENTS.md`, writing only with approval.
