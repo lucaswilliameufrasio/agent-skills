@@ -97,3 +97,45 @@ check, not a proof that every possible identifying detail has been removed.
 
 Creating and testing these files does not install skills, change harness
 configuration, authorize operational actions, or publish a release.
+
+## Correction, pipeline, and operations skills (2026-11-16)
+
+Eight skills added together (`agent-correction-tree`, `pipeline-latency`,
+`schema-migration-safety`, `flaky-test-diagnosis`, `local-fast-gates`,
+`dependency-freshness`, `remote-host-hardening`, `postmortem`) and the new
+instance-move case for `backup-restore-drills` were checked with 26 synthetic
+scenarios from their `evals/`. Each scenario was answered by a fresh executor
+with only the prompt and, for the with-skill condition, the selected skill
+files; a separate executor answered without the skill. Executors and graders
+used Claude Sonnet as subagents. Answers were relabelled A/B in random order
+before grading, and three independent graders split each expected outcome into
+atomic criteria and judged both answers against the same criteria with quoted
+evidence.
+
+| Skill | With skill | Without skill |
+| --- | --- | --- |
+| `agent-correction-tree` | 18/19 | 11/19 |
+| `pipeline-latency` | 17/17 | 8/17 |
+| `schema-migration-safety` | 18/18 | 13/18 |
+| `flaky-test-diagnosis` | 15/15 | 14/15 |
+| `local-fast-gates` | 11/11 | 9/11 |
+| `dependency-freshness` | 16/16 | 10/16 |
+| `remote-host-hardening` | 16/16 | 13/16 |
+| `postmortem` | 8/8 | 6/8 |
+| `backup-restore-drills` (instance move) | 7/7 | 7/7 |
+| **Total criteria** | **126/127** | **91/127** |
+
+The one with-skill miss (no run-time cost stated for a proposed hook) also
+failed in the baseline; `agent-correction-tree` now names hook run time in the
+cost it must report. That clarification was not re-run. Largest differences:
+the baseline accepted a fixed runner vendor and a uniform deploy target, offered
+retries, skipped a full-suite gate before PR selection, hand-wrote or edited
+migrations, inherited global toolchain versions without upstream lookup, and
+put personal preferences into shared repository rules.
+
+Same limits as above: single samples, criteria written by the skill author,
+graders from the same model family, design answers rather than executed work,
+and no trigger-selection or timing/cost measurement. The `flaky-test-diagnosis`,
+`postmortem/2`, and `backup-restore-drills` cases barely discriminate and should
+be made harder. Raw answers and per-criterion grades stay outside this
+repository.

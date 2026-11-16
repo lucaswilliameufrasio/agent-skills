@@ -73,7 +73,8 @@ process, or a redesign plus a regression test.
 ## Authorization and cost
 
 Layers 1 to 3 change code, tooling, or team workflow. Propose them with the
-blast radius (files touched, existing violations, CI time, contributor impact)
+blast radius (files touched, existing violations, CI time, the hook's run time
+on a typical change, contributor impact)
 and ask before implementing a redesign or a repository-wide rule unless the
 user already asked for it. Do not silently install hooks or global harness
 settings. If the cheapest reliable layer is not approved, say which layer was
