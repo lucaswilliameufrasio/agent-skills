@@ -97,6 +97,33 @@ unchanged and how it is checked; an assertion that the active state is unchanged
 without a comparison method is not recovery evidence. Do not inspect production
 state to add this proof to an otherwise local drill.
 
+## Restore into another instance on purpose
+
+Restoring a backup into a different instance is also how teams rehearse risky
+schema migrations (`schema-migration-safety`), upgrade engine versions, move
+providers or hosts, or seed a staging copy. Treat these as recovery work with
+their own plan:
+
+- **Compatibility.** Check the backup format against the destination engine
+  version, extensions, collations/encodings, time zone, and parameters. Logical
+  dumps usually cross major versions; physical/snapshot backups often do not.
+  Use the destination version's restore tool when the engine requires it.
+- **Objects outside the dump.** Roles, grants, ownership, scheduled jobs,
+  replication settings, and secrets may not travel with the data. Recreate them
+  from versioned definitions, not from the source host's state by hand.
+- **Sequences and identities.** Confirm counters continue after the highest
+  restored value so new rows do not collide.
+- **Data handling.** A copy of production data in a new instance carries the
+  same privacy obligations. Use masking or synthetic data where the purpose
+  allows; restrict access and agree on retention and destruction.
+- **Verification.** Compare schema version, row counts, checksums or sampled
+  fingerprints per table, and application-level invariants between source
+  backup and destination; start the application against it in isolation.
+- **Cutover (moves only).** A move adds a write freeze or replication catch-up,
+  a connection switch, and a rollback path to the old instance. Measure the
+  freeze window in a rehearsal first. Cutover is a live operation and needs
+  explicit approval; a successful rehearsal does not grant it.
+
 ## Report proof and gaps
 
 Report the recovery set and consistency mechanism, isolated checks and outcomes,

@@ -1,0 +1,23 @@
+{
+  "skill_name": "dependency-freshness",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a new TypeScript API project here. Use whatever Node I have installed.",
+      "expected_output": "The response checks the globally installed Node version against the current active LTS from the official source, does not silently start the project on an old global version, pins the chosen version in the project (version file and engines field), proposes updating the global install only with approval, and adds dependencies through the package manager after checking their current stable releases, reporting sources and lookup dates.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Add a Postgres client library and a Dockerfile for this Go service.",
+      "expected_output": "The response looks up the current stable library version and the current Go release and base image upstream rather than writing remembered versions, uses `go get` to update go.mod/go.sum, checks compatibility with the module's go directive, and reports chosen versions with source and date.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Update all our dependencies to the latest.",
+      "expected_output": "The response inventories outdated dependencies with the ecosystem's tools including runtime pins, base images and CI versions, prioritizes end-of-life and advisories, groups minors and separates majors, reads changelogs and migration guides for each major, runs the full quality gate per upgrade, and recommends update automation.",
+      "files": []
+    }
+  ]
+}

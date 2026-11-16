@@ -1,0 +1,17 @@
+{
+  "skill_name": "postmortem",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Yesterday the API was down for 40 minutes because Pedro ran a migration that locked the orders table. Write the postmortem.",
+      "expected_output": "The response writes a blameless document that describes the system conditions (a locking migration could reach production without lock assessment or rehearsal) rather than blaming a person, builds a timestamped timeline from cited evidence with detection and mitigation intervals, measures impact, separates facts from hypotheses, and turns contributing factors into verifiable actions with owners, such as lock and statement timeouts, migration review rules, and a rehearsal on a restored copy.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write the incident report and post it to the status page for customers.",
+      "expected_output": "The response separates the internal postmortem from a short customer-facing summary, redacts internal details and identifiers, and does not publish to the status page without explicit authorization.",
+      "files": []
+    }
+  ]
+}

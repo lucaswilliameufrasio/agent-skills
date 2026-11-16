@@ -1,0 +1,23 @@
+{
+  "skill_name": "flaky-test-diagnosis",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "test_checkout_total fails about once every 20 CI runs with 'expected 3 items, got 4'. Just add a retry decorator so it stops failing.",
+      "expected_output": "The response declines the retry, treats 'got 4' as leaked state from another test or a parallel worker sharing data, reproduces with random order and CI's parallelism, bisects the order to find the polluter, fixes isolation (unique fixtures, reset per test, per-worker database), and proves the fix with repeated runs against the prior failure rate.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "A date-formatting test fails only in CI, never on my machine.",
+      "expected_output": "The response compares environment differences (time zone, locale, clock, boundary dates), reproduces by setting CI's time zone and boundary times locally, and fixes by injecting a clock or fixing the time zone in tests rather than sleeping or skipping.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "We need to merge today and the flaky e2e suite blocks us. What can we do?",
+      "expected_output": "The response offers visible, owned, time-boxed quarantine only as the user's decision, with an issue linked and the test still running in a non-blocking job, while starting the cause investigation; it does not silently skip tests or add retries.",
+      "files": []
+    }
+  ]
+}

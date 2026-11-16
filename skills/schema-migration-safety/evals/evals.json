@@ -1,0 +1,29 @@
+{
+  "skill_name": "schema-migration-safety",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Add an `archived_at` column to the projects table. Here's the migrations folder: it has files like 20260102143000_create_projects.up.sql and .down.sql.",
+      "expected_output": "The response identifies the project's migration tool and creates the migration through its CLI (so the timestamped name and template come from the tool) instead of writing a filename by hand, writes both up and down, tests down then up locally, and regenerates any derived models.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Rename the `users.name` column to `full_name`. We deploy with blue-green.",
+      "expected_output": "The response explains that old and new versions overlap, splits the rename into expand (add column), dual-write and backfill, and a later contract (drop old column) release, rather than a single RENAME, and describes each step's migration and code change.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Add an index on orders(customer_id). The table has 400 million rows. Ship it.",
+      "expected_output": "The response checks the engine's locking behaviour and uses its online/concurrent index build (noting transaction restrictions), sets lock and statement timeouts, proposes rehearsing on a restored copy of a recent backup in a separate isolated instance to measure duration, confirms a recent backup before applying, and asks for authorization before running it against production.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "This migration was already applied in staging but has a typo in the default value. Just fix the file.",
+      "expected_output": "The response refuses to edit an applied migration and creates a new corrective migration with the CLI, with up and down.",
+      "files": []
+    }
+  ]
+}
