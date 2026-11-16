@@ -161,11 +161,51 @@ def check_privacy():
                     fail(path, f"line {number}: possible {label}: '{match.group(0)}'")
 
 
+# Backticked kebab-case words in skills that are not skill names (tools, CSS
+# properties, flags, example identifiers). Add here only after confirming the
+# word is not meant to be a skill.
+NON_SKILL_TOKENS = {
+    "aarch64-unknown-linux-gnu", "agent-workspace-linux", "aria-describedby",
+    "cargo-zigbuild", "computer-use-linux", "continue-on-error", "data-label",
+    "dbus-run-session", "font-display", "kscreen-doctor", "omarchy-apple-dev",
+    "payment-service", "pending-legal", "pkg-config", "prefers-color-scheme",
+    "prefers-reduced-motion", "wl-copy", "xdg-desktop-portal",
+}
+SKILL_TOKEN = re.compile(r"`([a-z0-9]+(?:-[a-z0-9]+)+)`")
+
+
+def deprecated_skills():
+    found = set()
+    for skill_file in SKILLS.glob("*/SKILL.md"):
+        match = re.search(r"^description:\s*>-?\n\s+Deprecated\b", skill_file.read_text(encoding="utf-8"), re.M)
+        if match:
+            found.add(skill_file.parent.name)
+    return found
+
+
+def check_skill_references():
+    known = {p.name for p in SKILLS.iterdir() if p.is_dir()}
+    deprecated = deprecated_skills()
+    for path in sorted(SKILLS.glob("*/SKILL.md")) + sorted(SKILLS.glob("*/references/*.md")):
+        owner = path.relative_to(SKILLS).parts[0]
+        for number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+            for name in SKILL_TOKEN.findall(line):
+                if name in NON_SKILL_TOKENS:
+                    continue
+                if name not in known:
+                    fail(path, f"line {number}: `{name}` is not a skill in this repository; "
+                               "fix the name, or add it to NON_SKILL_TOKENS if it is not a skill")
+                elif name in deprecated and owner not in deprecated and "deprecated" not in line.lower():
+                    fail(path, f"line {number}: refers to deprecated skill `{name}`; "
+                               "use its replacement (see docs/deprecations.md)")
+
+
 def main():
     check_skills()
     check_evals()
     check_links()
     check_privacy()
+    check_skill_references()
     if errors:
         print("\n".join(errors))
         print(f"\n{len(errors)} problem(s) found")
