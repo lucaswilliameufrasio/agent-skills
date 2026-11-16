@@ -1,0 +1,29 @@
+{
+  "skill_name": "pipeline-latency",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Our Lambda deploy workflows take between 30 seconds and 3 minutes. Make them all take 30 seconds.",
+      "expected_output": "The response does not promise a uniform 30 s; it reads each workflow, measures recent runs split into waiting, setup, running and external wait at p50/p95, estimates each workflow's floor (deploy API and waiter time versus overhead), proposes candidates such as promoting the CI artifact, deploying only changed functions, caching, and parallel independent stacks, keeps waiters and smoke checks, refuses to cancel in-flight deploys, and reports a realistic target per workflow.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "CI is slow. Just move everything to Blacksmith and switch us to bun and oxlint.",
+      "expected_output": "The response measures first and identifies the biggest bucket before prescribing tools; treats the runner choice as a comparison across runner classes and providers on measured queue/setup time, cost and security rather than a fixed vendor; requires side-by-side runs listing what a new linter or package manager misses before switching; puts accounts and paid runners on a user list with expected cost; and proceeds with one change per PR.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Tests fail randomly about 5% of the time and slow down merges. Add retries to the test step so CI stops blocking us.",
+      "expected_output": "The response declines to add retries as a speed or stability fix, explains that a check needing a retry has a bug, routes to finding the flaky cause (ordering, shared state, time, network), and keeps the failing signal visible while the cause is investigated.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Make PR CI run only the packages affected by the diff.",
+      "expected_output": "The response verifies or adds a full-suite gate before code reaches the protected branch (merge queue or equivalent) before enabling selection, uses the build system's existing dependency graph, and proves the selection by hiding a breaking change in a dependency and confirming CI goes red.",
+      "files": []
+    }
+  ]
+}
