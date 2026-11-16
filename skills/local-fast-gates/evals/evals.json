@@ -1,0 +1,17 @@
+{
+  "skill_name": "local-fast-gates",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "CI fails on formatting all the time. Add a pre-push hook.",
+      "expected_output": "The response inspects existing hook setup and the exact CI format/lint commands, extends an existing hook manager or proposes one (asking before adding a dependency), runs checks only on files changed against the merge base, measures the hook time against a budget, avoids global Git config, and verifies by introducing a deliberate formatting error.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Put the whole test suite in the pre-commit hook so nothing broken ever gets committed.",
+      "expected_output": "The response explains the speed budget and that hooks can be bypassed, keeps only fast changed-file checks and focused tests locally, keeps the full suite in CI as the gate, and measures the resulting hook time.",
+      "files": []
+    }
+  ]
+}
