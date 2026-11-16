@@ -73,6 +73,7 @@ Each row also has the command to install just that skill globally.
 | [`flaky-test-diagnosis`](skills/flaky-test-diagnosis/SKILL.md) | Find and fix the cause of intermittent tests (order, shared state, time, async, parallel workers) instead of retries, sleeps, or skips; prove the fix with repeated runs. | `npx skills add lucaswilliameufrasio/agent-skills --skill flaky-test-diagnosis --global` |
 | [`local-fast-gates`](skills/local-fast-gates/SKILL.md) | Add fast pre-commit/pre-push checks on changed files with the repository's own hook manager and CI commands; a hook enforces what instructions only ask for. | `npx skills add lucaswilliameufrasio/agent-skills --skill local-fast-gates --global` |
 | [`dependency-freshness`](skills/dependency-freshness/SKILL.md) | Choose current stable versions from upstream at task time instead of model memory or stale global installs; pin per project and upgrade majors with changelogs. | `npx skills add lucaswilliameufrasio/agent-skills --skill dependency-freshness --global` |
+| [`remote-host-hardening`](skills/remote-host-hardening/SKILL.md) | Harden SSH and remote management on Linux or macOS without locking the owner out, and optionally build a private status page for health, services, and logins. | `npx skills add lucaswilliameufrasio/agent-skills --skill remote-host-hardening --global` |
 
 Each locally maintained skill lives in its own directory and contains a `SKILL.md` with frontmatter. The [Skills CLI](https://github.com/vercel-labs/skills) installs selected skills into the agent directories it manages.
 
