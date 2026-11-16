@@ -139,3 +139,23 @@ and no trigger-selection or timing/cost measurement. The `flaky-test-diagnosis`,
 `postmortem/2`, and `backup-restore-drills` cases barely discriminate and should
 be made harder. Raw answers and per-criterion grades stay outside this
 repository.
+
+### SRE and design review skills (2026-11-16)
+
+Same method, nine scenarios, blinded single grader:
+
+| Skill | With skill | Without skill |
+| --- | --- | --- |
+| `slo-and-alerting` | 15/15 | 14/15 |
+| `incident-response` | 19/19 | 18/19 |
+| `technical-design-review` | 18/18 | 16/18 |
+| **Total criteria** | **52/52** | **48/52** |
+
+The baseline was already strong on these topics, so these scenarios
+discriminate little. Differences: the baseline set an SLO from stakeholder
+agreement rather than a measured baseline, proposed a production rollback (and,
+outside the criteria, a credential revocation) without an explicit approval
+gate, and listed design concerns without separating blocking issues from
+suggestions or naming one-way doors. Harder scenarios (ambiguous ownership,
+pressure to skip approval, designs with subtle data-migration traps) are needed
+before claiming a material effect.
