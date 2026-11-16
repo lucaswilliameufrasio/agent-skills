@@ -1,12 +1,9 @@
 ---
 name: local-fast-gates
 description: >-
-  Add or tune fast local checks (pre-commit or pre-push hooks) that run format,
-  lint, typecheck, and quick tests on changed files before code reaches CI.
-  Use when CI keeps failing on format or lint, when agents or people skip
-  documented checks, when the user asks for git hooks, or when a rule in
-  AGENTS.md should become enforcement. Reuse the repository's existing hook
-  manager and commands; keep the hook fast and never replace CI.
+  Add fast pre-commit or pre-push hooks that run format, lint, and typecheck on
+  changed files, mirroring CI. Use when CI keeps failing on trivial checks or a
+  rule should be enforced instead of written.
 ---
 
 # Local fast gates

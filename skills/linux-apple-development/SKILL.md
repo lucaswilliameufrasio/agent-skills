@@ -1,14 +1,9 @@
 ---
 name: linux-apple-development
 description: >-
-  Plan, set up and verify iOS/macOS development from CachyOS, Arch, Debian or
-  Ubuntu, with a Mac used as an SSH controller or an optional Apple build/test
-  host. Use for omarchy-apple-dev, xtool, Swift/Darwin SDKs, Linux-built Apple
-  apps, Flutter iOS builds, device deployment, signing or notarization across
-  Linux and macOS. Separate Linux build capability from Apple runtime validation;
-  inspect distro, language, toolchain and SDK compatibility before installing.
-  Do not assume Swift tooling builds Cargo apps or that remote administration
-  requires an Apple development toolchain.
+  Set up and verify iOS/macOS development from Linux (Arch, CachyOS, Debian,
+  Ubuntu) with xtool and an optional Mac. Use for Swift or Flutter iOS builds,
+  signing, or device deployment from Linux.
 ---
 
 # Apple development from Linux, controlled from a Mac

@@ -1,10 +1,9 @@
 ---
 name: followable-guides
 description: >-
-  Write a tutorial or passo a passo that a person can follow in order and
-  finish without inventing a missing step. Use when asked to document a
-  procedure, runbook, how-to, setup guide, or the exact steps that just worked,
-  including "documente o passo a passo" and "como fazer do jeito que deu certo".
+  Write a step-by-step guide or runbook a person can follow without guessing:
+  exact commands, prompt answers, lines to check. Use for "documente o passo a
+  passo" or to record steps that just worked.
 ---
 
 # Followable guides

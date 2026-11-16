@@ -1,12 +1,9 @@
 ---
 name: persistent-worktrees
 description: >-
-  Choose and manage persistent locations for Git worktrees, alternate checkouts,
-  build/test workspaces, and agent-managed workspaces. Use before creating or
-  selecting any separate workspace, including during parallel coding, testing,
-  or Git delivery. Default to `~/git-worktrees`; never put a repository checkout
-  or persistent workspace under `/tmp`, `/var/tmp`, `$TMPDIR`, `/dev/shm`, or
-  another temporary or RAM-backed filesystem.
+  Place Git worktrees and agent workspaces on persistent storage (default ~/git-
+  worktrees), never /tmp or RAM-backed paths. Use before creating any separate
+  checkout or workspace.
 ---
 
 # Persistent worktrees and workspaces

@@ -1,12 +1,9 @@
 ---
 name: untangle-codebase
 description: >-
-  Untangle existing codebases by finding hidden coupling, needless dependencies,
-  and surplus, then refactoring in verified, behavior-preserving slices. Use
-  when asked to untangle a project, reduce cross-module change cost, remove
-  architectural special cases, or carry out a structural cleanup. Works across
-  languages, frameworks, build systems, dependencies, and packages; discover the
-  actual stack and contracts instead of imposing a preferred architecture.
+  Refactor hidden coupling, needless dependencies, and special cases in verified
+  behavior-preserving slices. Use when asked to untangle a project, reduce
+  change cost, or do a structural cleanup.
 license: MIT
 ---
 

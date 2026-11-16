@@ -1,6 +1,9 @@
 ---
 name: pr-merge-sequence
-description: Safely merge one or more GitHub pull requests while keeping dependent branches current. Use whenever the user asks to merge multiple PRs, rebase PR branches before or after a merge, sequence merges, or says to merge normally rather than squash/rebase.
+description: >-
+  Merge one or more GitHub PRs in order with a normal merge, rebasing and
+  revalidating each branch first. Use when asked to merge PRs, sequence merges,
+  or rebase PR branches.
 ---
 
 # PR merge sequence

@@ -1,12 +1,9 @@
 ---
 name: create-verification-skill
 description: >-
-  Create or adapt a project-local skill that drives an application's real user
-  workflows and captures evidence that they work. Use when an app lacks a
-  repeatable agent-readable verification path, when setting up browser/CLI/API
-  smoke workflows, or when a team wants a maintained feature map. Inspect and
-  reuse the target repository's existing harness; do not assume Cursor, require
-  Playwright, or install dependencies without approval.
+  Create a project-local skill that drives the real app's user journeys
+  (browser, CLI, API) and captures evidence. Use when an app lacks a repeatable
+  way for agents to verify features work.
 ---
 
 # Create an application verification skill

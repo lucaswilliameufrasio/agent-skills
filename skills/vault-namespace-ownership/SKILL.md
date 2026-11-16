@@ -1,10 +1,9 @@
 ---
 name: vault-namespace-ownership
 description: >-
-  Choose and review secret-store namespaces by ownership and actual consumers.
-  Use when creating, moving, recommending, or resolving Vault secrets, adding
-  shared fallbacks, or debugging missing configuration. Shared namespaces require
-  intentional shared values, not matching key names or convenience.
+  Choose secret-store namespaces by ownership and real consumers, not matching
+  key names. Use when creating, moving, or resolving Vault secrets, or before
+  adding a shared fallback.
 ---
 
 # Secret namespaces express ownership

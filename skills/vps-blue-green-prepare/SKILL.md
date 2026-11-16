@@ -1,13 +1,9 @@
 ---
 name: vps-blue-green-prepare
 description: >-
-  Design and prepare repeatable blue-green deployments for applications hosted
-  on a VPS. Use when a user wants to deploy to a VPS with less downtime, create
-  or improve a deployment script, or document a VPS release and rollback process.
-  Inspect the repository and choose a runtime strategy that fits it (such as a
-  Go binary managed by systemd or Docker Compose); ask when deployment facts are
-  missing or consequential. Produce project-specific deployment artifacts but
-  do not connect to or deploy on the VPS.
+  Prepare blue-green deployment scripts and runbooks for an app on a VPS,
+  without deploying. Use when the user wants less-downtime VPS deploys or a
+  release and rollback process.
 ---
 
 # Prepare a blue-green VPS deployment

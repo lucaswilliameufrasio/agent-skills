@@ -1,11 +1,9 @@
 ---
 name: secrets-safety
 description: >-
-  Protect credentials and other secrets while coding, debugging, configuring
-  infrastructure, or reviewing logs and files. Use whenever work touches API
-  keys, tokens, passwords, private keys, environment files, secret stores, or a
-  suspected exposure. Prefer metadata and write-only/reference mechanisms over
-  retrieving secret values.
+  Protect API keys, tokens, passwords, and env files while coding, debugging, or
+  reviewing logs. Use whenever work touches secrets, secret stores, or a
+  suspected exposure.
 ---
 
 # Secrets safety

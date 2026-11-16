@@ -1,10 +1,9 @@
 ---
 name: vault-bootstrap-configuration
 description: >-
-  Move application configuration into Vault or an existing secret/configuration
-  service end to end, leaving environment variables only for bootstrap and
-  required platform inputs. Use for startup, workers, seed/import commands,
-  pre-deploy hooks, or requests to stop duplicating settings in deployment envs.
+  Move app configuration into Vault or a config service end to end, leaving env
+  vars only for bootstrap. Use for servers, workers, seed/import commands, and
+  pre-deploy hooks that still read duplicated envs.
 ---
 
 # Configure consumers end to end

@@ -1,14 +1,9 @@
 ---
 name: design-system-definition
 description: >-
-  Research, decide, and record a complete design definition for a product: brand
-  concept, principles, tokens, typography, color, motion, components, content
-  rules, ethical engagement patterns, platform adaptations, and a verifiable
-  checklist. Use before a redesign or a new product's first screens, when the
-  current look feels generic or inconsistent, when a previous redesign failed,
-  or when future work needs one documented visual direction. Covers web, mobile,
-  desktop, and terminal (TUI) interfaces. Research and audit come before visual
-  decisions; record the directives in the repository's own documentation.
+  Research and record a product's design system: concept, tokens, typography,
+  color, components, platform rules. Use before a redesign or a new product's
+  first screens, or when the UI looks generic or inconsistent.
 ---
 
 # Define a product design system

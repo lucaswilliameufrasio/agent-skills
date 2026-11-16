@@ -1,13 +1,9 @@
 ---
 name: schema-migration-safety
 description: >-
-  Create, review, or run database schema and data migrations safely. Use
-  whenever a change adds, alters, renames, or drops tables, columns, indexes,
-  constraints, or enums, backfills data, or touches migration files, ORMs, or
-  migration tools, and whenever a deploy depends on a schema change or uses
-  blue-green or rolling releases. Generate timestamped up/down migrations with
-  the project's own CLI, keep old and new code compatible, and rehearse risky
-  migrations on a restored copy before production.
+  Create and run database migrations safely: CLI-generated timestamped up/down
+  files, expand/contract, lock checks, rehearsal on a restored copy. Use when
+  adding or changing tables, columns, indexes, or backfills.
 ---
 
 # Schema migration safety

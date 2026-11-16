@@ -1,13 +1,9 @@
 ---
 name: desktop-visual-qa
 description: >-
-  Run evidence-based visual and interaction QA for native desktop applications,
-  especially Rust egui/eframe, GPUI and Slint apps accessed over SSH or on headless
-  Linux. Use when improving desktop UI/UX, testing resizing, keyboard navigation,
-  themes or DPI, capturing real before/after screenshots, or setting up a remote
-  GUI feedback loop. Distinguish component snapshots from the running application;
-  compilation alone is not visual verification. Do not install tools or take over
-  a user's graphical session without approval.
+  Visual and interaction QA for native desktop apps (Rust egui, GPUI, Slint),
+  including over SSH or headless Linux. Use when improving desktop UI or
+  capturing real before/after screenshots.
 ---
 
 # Desktop visual QA

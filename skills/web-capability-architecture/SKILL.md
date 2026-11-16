@@ -1,11 +1,9 @@
 ---
 name: web-capability-architecture
 description: >-
-  Design, review, or implement a web application's feature and data foundation
-  around domain capabilities, explicit integrations, and validated contracts.
-  Use before structuring a new web app or major frontend area, adding a workflow
-  that spans routes and data, integrating a real API, or replacing fixture-backed
-  behavior—even when the request names only a page or component.
+  Structure a web app's features and data around domain capabilities, explicit
+  integrations, and validated contracts. Use before structuring a new web app or
+  major area, or when wiring a real API.
 ---
 
 # Web Capability Architecture

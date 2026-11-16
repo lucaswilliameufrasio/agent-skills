@@ -1,10 +1,9 @@
 ---
 name: actions-billing-local-validation
 description: >-
-  Complete equivalent local checks when GitHub Actions cannot run because of
-  confirmed billing, spending limits, or quota. Use to diagnose billing-blocked
-  PR checks, avoid futile reruns, and produce SHA-bound local validation evidence
-  without pretending remote CI passed or bypassing branch protection.
+  Run equivalent local checks when GitHub Actions is blocked by billing,
+  spending limits, or quota. Use for billing-blocked PR checks; report SHA-bound
+  local evidence, never "CI passed".
 ---
 
 # Billing-blocked CI: verify locally

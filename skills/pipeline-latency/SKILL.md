@@ -1,13 +1,9 @@
 ---
 name: pipeline-latency
 description: >-
-  Make CI, CD, and other automation workflows (PR checks, deploys, releases,
-  scheduled jobs) faster without letting them lie. Use whenever the user says CI
-  or a deploy is slow, asks to reduce pipeline time or cost, wants faster PR
-  feedback, mentions queue time, runners, caching, sharding, test selection, or
-  a merge queue, on any CI platform, runner provider, or stack. Understand what
-  each workflow guarantees, measure where time goes, estimate its floor, then
-  remove overhead one measured change at a time.
+  Make CI/CD workflows (PR checks, deploys, releases) faster without hiding
+  failures: measure queue, setup, and run time, then cut overhead. Use when CI
+  or a deploy is slow or pipeline cost is too high.
 ---
 
 # Pipeline latency

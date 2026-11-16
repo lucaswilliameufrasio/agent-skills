@@ -1,12 +1,9 @@
 ---
 name: cross-repo-standard-sync
 description: >-
-  Find the canonical owner of a development standard, audit drift, or propagate
-  an approved standard across repositories and agent configurations. Use when
-  the user says their preferred workflow is out of sync, wants common rules
-  synchronized, or asks which copy is authoritative. Separate personal defaults,
-  organization policy, and repository facts; preserve local commands and
-  exceptions, and never overwrite ambiguous differences without approval.
+  Find the canonical owner of a development standard and audit or sync it across
+  repositories and agent configs. Use when shared rules drifted or the user asks
+  which copy is authoritative.
 ---
 
 # Cross-repository standards synchronization

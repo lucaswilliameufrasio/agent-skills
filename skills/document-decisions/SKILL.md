@@ -1,11 +1,9 @@
 ---
 name: document-decisions
 description: >-
-  Record architectural and product/technical decisions before non-trivial
-  implementation, and retrieve the rationale for prior decisions. Use when a
-  task has meaningful trade-offs, crosses module boundaries, introduces a
-  dependency or data flow, or the user asks what was previously decided. Skip
-  trivial fixes and purely mechanical changes.
+  Record architectural and product decisions before non-trivial work, and
+  retrieve past rationale. Use when a change has trade-offs, adds a dependency
+  or data flow, or the user asks what was decided.
 ---
 
 # Document decisions

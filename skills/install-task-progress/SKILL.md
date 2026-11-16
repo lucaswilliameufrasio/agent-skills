@@ -1,12 +1,9 @@
 ---
 name: install-task-progress
 description: >-
-  Install or update an AGENTS.md rule requiring explicit per-task progress files,
-  recovery after interruption, and durable documentation before completed task
-  files are removed. Use when the user asks to track plans/checkpoints in the
-  checkout, reduce reliance on memory services for current progress, or standardize
-  task recording and cleanup. Preserve existing instructions and memory routing;
-  do not silently change every repository or global agent rules.
+  Install an AGENTS.md rule for per-task progress files, recovery after
+  interruption, and cleanup after durable docs. Use when the user wants plans
+  and checkpoints tracked in the repository.
 ---
 
 # Install a task-progress contract

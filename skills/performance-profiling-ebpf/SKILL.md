@@ -1,12 +1,9 @@
 ---
 name: performance-profiling-ebpf
 description: >-
-  Diagnose a measured performance bottleneck with runtime profilers, operating
-  system tools, perf, or eBPF/bpftrace. Use when CPU, scheduling, syscall,
-  allocation, lock, or kernel-level behavior needs profiling, or whenever the
-  user mentions pprof, flamegraphs, perf, bpftrace, eBPF, sampling, or profiler
-  permission/readiness. Reproduce the workload first, treat eBPF as optional and
-  Linux-specific, and do not change privileges or kernel settings automatically.
+  Profile a measured bottleneck with runtime profilers, perf, or eBPF/bpftrace.
+  Use when CPU, locks, syscalls, or allocations need profiling, or the user
+  mentions pprof, flamegraphs, perf, or eBPF.
 ---
 
 # Runtime profiling and optional eBPF

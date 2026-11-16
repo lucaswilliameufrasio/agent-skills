@@ -1,12 +1,9 @@
 ---
 name: privacy-safe-skill-extraction
 description: >-
-  Turn an internal standard, runbook, prompt, or repeated workflow into a
-  reusable skill for a public or broader audience. Use whenever asked to
-  generalize or publish guidance derived from private material. Preserve useful
-  behavior while removing organization, product, customer, repository,
-  infrastructure, and operational identifiers; inspect the final artifacts for
-  leakage before sharing them.
+  Turn private runbooks, standards, or workflows into reusable public skills and
+  screen them for leaked identifiers. Use when generalizing or publishing
+  guidance derived from private material.
 ---
 
 # Privacy-safe skill extraction

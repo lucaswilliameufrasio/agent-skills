@@ -1,12 +1,9 @@
 ---
 name: system-module-architecture
 description: >-
-  Plan and build complete software systems in any domain or context, including
-  customer-facing products, internal tools, web, mobile, and APIs. Use before
-  starting a system, feature area, workflow, or major expansion—not only for
-  architecture reviews. Start from users, jobs, and end-to-end journeys; derive
-  screens, modules, contracts, and implementation slices from them. Prevent
-  all-in-one screens and page-first architecture.
+  Plan systems and feature areas from users and end-to-end journeys, then derive
+  screens, modules, and contracts. Use before starting a new system, feature
+  area, or major expansion.
 ---
 
 # Build systems from journeys and capabilities

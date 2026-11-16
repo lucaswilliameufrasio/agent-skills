@@ -1,13 +1,9 @@
 ---
 name: technical-design-review
 description: >-
-  Review a technical design, RFC, architecture proposal, or significant pull
-  request before it is built or merged, the way a principal engineer would.
-  Use whenever the user asks to review, critique, or stress-test a design doc,
-  RFC, ADR, migration plan, or architecture, or asks "is this a good approach",
-  "what am I missing", or "should we build it this way". Check the problem,
-  alternatives, failure modes, reversibility, operability, and rollout; give a
-  clear recommendation with ranked concerns.
+  Review an RFC, design doc, ADR, or architecture like a principal engineer:
+  alternatives, failure modes, one-way doors, rollout, ranked concerns. Use when
+  asked to review or stress-test a design.
 ---
 
 # Technical design review

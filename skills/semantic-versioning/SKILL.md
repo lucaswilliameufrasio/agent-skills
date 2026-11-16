@@ -1,10 +1,8 @@
 ---
 name: semantic-versioning
 description: >-
-  Select, validate, or update a project's version according to Semantic
-  Versioning 2.0.0. Use whenever a user asks to bump, release, tag, publish, or
-  change a package/application version, and whenever a release plan needs a
-  compatibility-based version recommendation.
+  Choose and validate version bumps under Semantic Versioning 2.0.0. Use when
+  asked to bump, tag, release, or publish a version.
 ---
 
 # Semantic Versioning
