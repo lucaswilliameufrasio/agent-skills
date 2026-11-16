@@ -1,0 +1,17 @@
+{
+  "skill_name": "rfc-writing",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write an RFC proposing we move from REST to GraphQL for our mobile API.",
+      "expected_output": "The response gathers or asks for evidence of the problem before recommending, writes a summary with the decision requested, goals and non-goals, at least two alternatives plus do-nothing compared on the same criteria, a recommendation with accepted trade-offs, design including failure modes and security, rollout and rollback with compatibility for existing clients, and risks with owners; it labels estimates and does not circulate it without authorization.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I already decided we're using Kafka. Write the RFC to justify it.",
+      "expected_output": "The response explains that an RFC should compare real alternatives fairly, still includes alternatives and do-nothing with honest trade-offs, presents Kafka as the recommendation if the evidence supports it, flags evidence gaps, and marks one-way doors such as event schemas and operational burden.",
+      "files": []
+    }
+  ]
+}

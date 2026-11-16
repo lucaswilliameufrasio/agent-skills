@@ -1,0 +1,17 @@
+{
+  "skill_name": "dependency-risk-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Add the npm package `left-pad-plus` to format our invoice numbers.",
+      "expected_output": "The response first checks whether the standard library or existing code covers padding, then reviews the candidate's identity (typosquat risk), maintenance, advisories, install scripts, licence, and transitive weight from primary sources with lookup date, and recommends writing a few lines in-house or an alternative rather than adopting a small, risky package.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Is it safe to use this GitHub Action from a random user to deploy to production?",
+      "expected_output": "The response checks the action's provenance, maintainers, release activity, code and requested permissions, secrets exposure in a deploy workflow, and recommends pinning by commit SHA after review, vendoring, or using an official alternative, explaining the risk of running third-party code with production credentials.",
+      "files": []
+    }
+  ]
+}

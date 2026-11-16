@@ -1,0 +1,17 @@
+{
+  "skill_name": "build-vs-buy",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Should we build our own feature flag system or use a SaaS?",
+      "expected_output": "The response defines requirements first, considers building, managed services, self-hosted open source, and extending existing tools, checks current pricing and docs at task time rather than memory, compares fit, total cost over 12-36 months including engineering time, operational burden, risk, lock-in and exit, recommends one with an exit plan and a validating trial, and leaves accounts and contracts to the user.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "We pay too much for our CI runners. Should we self-host?",
+      "expected_output": "The response compares hosted, third-party managed, and self-hosted runners on measured usage and total cost including maintenance and on-call time, security of self-hosted runners for untrusted code, lock-in and exit, and recommends with a trial rather than assuming self-hosting is cheaper.",
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "skill_name": "tech-debt-portfolio",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We have a quarter for tech debt. Here's the team's list of 25 things they hate. What should we do first?",
+      "expected_output": "The response gathers evidence beyond the list (incidents, git hotspots, CI slowness, toil, end-of-life dependencies), estimates interest and principal per item with measured/estimated labels, ranks by interest relative to principal with security and end-of-life exposure first, prefers incremental paths, turns the top items into scoped issues with done criteria only with authorization, and records accepted debt.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Leadership asks why we should spend time on refactoring the billing module. Help me justify it.",
+      "expected_output": "The response quantifies the billing module's interest with evidence (incidents, change frequency, cycle time, toil), estimates the principal and incremental path, presents expected benefit in terms leadership understands, and is honest if the evidence does not justify the work.",
+      "files": []
+    }
+  ]
+}
