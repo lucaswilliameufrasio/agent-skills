@@ -1,0 +1,17 @@
+{
+  "skill_name": "capacity-planning",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Black Friday is in six weeks and traffic usually triples. Will our API and Postgres handle it?",
+      "expected_output": "The response inventories constraints including database connections, pools, disk/IOPS and provider quotas, measures current peak usage with drivers, establishes a measured ceiling via a safe load test or labels it as an estimate, forecasts expected and high demand, checks non-linear scaling, computes which resource runs out first with lead times, proposes actions with monthly cost, and notes quota increases or paid upgrades are the user's decision.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Our database disk is at 70%. When do we need to upgrade?",
+      "expected_output": "The response measures the growth rate from history, projects the crossing date for a headroom threshold under expected and high growth, accounts for lead time and alternatives such as retention or cleanup, states which numbers are measured versus estimated, and gives the monthly cost of options.",
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "skill_name": "progressive-delivery",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We're rewriting the checkout pricing logic. Ship it to everyone on Friday.",
+      "expected_output": "The response proposes releasing behind a feature flag defaulting to the current behaviour, a staged rollout (internal, small percentages, wider) with sticky assignment, guardrail metrics and rollback thresholds defined beforehand, a tested one-action rollback, a flag owner and removal plan, and asks for authorization before the production rollout rather than shipping to everyone at once.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Add a feature flag for the new search page.",
+      "expected_output": "The response uses the platform's existing flag mechanism if any (asking before adding a flag service), defaults the flag off with the current behaviour tested, evaluates it at one boundary, assigns an owner and removal date, and plans removal of the dead path after full release.",
+      "files": []
+    }
+  ]
+}

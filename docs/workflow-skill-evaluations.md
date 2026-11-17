@@ -231,3 +231,28 @@ named no skill, inside a disposable Go repository, and read each transcript for
 `validate_repo.py` now rejects descriptions over 260 characters so the
 listing budget stays usable. One sample per request; the result depends on
 which other skills a user has installed.
+
+## SRE and principal-engineer skills (2026-11-16)
+
+Seven skills (`observability-instrumentation`, `progressive-delivery`,
+`capacity-planning`, `rfc-writing`, `tech-debt-portfolio`, `build-vs-buy`,
+`dependency-risk-review`), 14 scenarios, same paired and blinded method.
+
+| Skill | With skill | Without skill |
+| --- | --- | --- |
+| `capacity-planning` | 13/13 | 6/13 |
+| `build-vs-buy` | 12/12 | 6/12 |
+| `rfc-writing` | 12/12 | 8/12 |
+| `observability-instrumentation` | 14/14 | 10/14 |
+| `tech-debt-portfolio` | 11/11 | 8/11 |
+| `progressive-delivery` | 11/11 | 9/11 |
+| `dependency-risk-review` | 13/13 | 13/13 |
+| **Total criteria** | **86/86** | **60/86** |
+
+Baseline gaps: single-point capacity forecasts without a high case, lead times,
+or cost; build-vs-buy without exit plans, current pricing checks, or a trial;
+RFC alternatives not compared on shared criteria and no do-nothing option;
+debt scored on arbitrary scales instead of measured interest and effort; no
+tested rollback or flag owner. `dependency-risk-review` did not discriminate:
+the baseline already vets packages and actions well. The grader noted a few
+lenient and strict calls that could flip close criteria. Same limits as above.

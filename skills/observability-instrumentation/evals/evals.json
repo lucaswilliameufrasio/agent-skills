@@ -1,0 +1,17 @@
+{
+  "skill_name": "observability-instrumentation",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Add logging and metrics to our Go order service so we can debug production problems. Put the user_id and order_id on every metric so we can filter.",
+      "expected_output": "The response starts from the questions to answer (error rate, latency, dependency health), uses RED metrics with histograms, refuses user_id/order_id as metric labels because of unbounded cardinality and moves them to logs or span attributes, propagates trace context including into async workers, puts trace ids in structured logs, redacts secrets, reuses the existing telemetry stack, and verifies locally with a collector or console exporter.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "During last night's incident we couldn't tell whether the payment provider or our database was slow. Fix our observability.",
+      "expected_output": "The response derives instrumentation from that question: spans or metrics around each dependency call (payment provider, database) with duration and error status, connected traces across the request, and logs correlated by trace id; it checks what already exists before adding, keeps cardinality bounded, avoids logging card data or secrets, and verifies the question can now be answered.",
+      "files": []
+    }
+  ]
+}
