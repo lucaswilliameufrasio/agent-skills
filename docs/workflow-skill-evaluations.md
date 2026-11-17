@@ -222,7 +222,11 @@ named no skill, inside a disposable Go repository, and read each transcript for
   slow-endpoint request loaded the third-party `diagnose` instead of
   `performance-optimization` (overlapping scope), and "is this ready to
   commit?" loaded nothing (the agent ran lint and tests anyway). Both
-  descriptions were sharpened afterwards; not re-run.
+  descriptions were sharpened afterwards. On a re-run (with a
+  real uncommitted change for the commit case), the slow-endpoint request
+  loaded `performance-optimization`; the commit request still loaded no skill,
+  though the agent ran format, lint, and tests and flagged the missing test.
+  Final count: 13 of 14.
 
 `validate_repo.py` now rejects descriptions over 260 characters so the
 listing budget stays usable. One sample per request; the result depends on

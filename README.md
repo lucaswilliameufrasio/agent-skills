@@ -10,6 +10,14 @@ Install all maintained skills globally:
 npx skills add lucaswilliameufrasio/agent-skills --skill '*' --global
 ```
 
+`'*'` also installs the four deprecated aliases (see
+[deprecations](docs/deprecations.md)). Remove them afterwards so they do not
+compete with the canonical skills or use the shared description budget:
+
+```sh
+npx skills remove quality-gate test-strategy testing-quality-gate git-workflow --global -y
+```
+
 Each row also has the command to install just that skill globally.
 
 | Skill | Description | Install individually |
