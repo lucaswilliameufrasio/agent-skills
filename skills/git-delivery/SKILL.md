@@ -52,6 +52,18 @@ This does not grant permission for any delivery step.
      A fetch alone is not a substitute for updating the local base.
   The pull itself may fetch newer commits: verify against the post-pull upstream.
   Recheck freshness before subsequent rebases when the remote may have moved.
+- **One branch at a time.** Do not create a new branch while your current
+  working branch is undelivered. Delivered means its pull request was merged
+  into the base, or explicitly closed as abandoned; an open PR, a pushed branch
+  or a local branch is not delivered. Before creating a branch, check the
+  current branch and your other branches for open or missing PRs (for GitHub,
+  `gh pr list --author @me --state open` plus branches with no PR). If one is
+  undelivered, finish it (merge it when authorized) or ask the user to close it
+  as abandoned, and say which branch blocks the new one. Do not work around this
+  with extra worktrees, stashes or "temporary" branches. Release-promotion and
+  long-lived environment branches (`develop`, `staging`) are not working
+  branches. Delete a branch once delivered; prefer the repository setting that
+  deletes head branches automatically on merge.
 - Follow documented commit language and ticket-reference conventions. Do not
   invent issue identifiers or infer Git flow solely from a branch name.
 - Keep changes focused. Inspect the final diff and stage only intended files.
