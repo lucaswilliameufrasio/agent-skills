@@ -12,6 +12,12 @@
       "prompt": "Prepare a release from the changes on the current branch. Do not assume a develop branch or publish anything without asking.",
       "expected_output": "Inspects release documentation and version impact, uses SemVer guidance, avoids assuming branch model, and pauses before unauthorized tags/publication.",
       "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Start a new branch for the dashboard filters task. My current branch feat/report-export already has an open PR that is not merged yet.",
+      "expected_output": "Does not create the new branch. Names feat/report-export and its open PR as the blocker, explains that only a merged or explicitly closed PR counts as delivered, and offers to finish/merge it (if authorized) or have the user close it as abandoned. Does not work around it with a worktree, stash or temporary branch.",
+      "files": []
     }
   ]
 }
