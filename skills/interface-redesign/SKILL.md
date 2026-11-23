@@ -47,6 +47,12 @@ Build a table from the code and the running app, not from memory:
 
 | Screen / route / command / window | Entry point | States to cover | Contracts to keep | Before evidence |
 
+For "States to cover", use the
+[state matrix](../user-experience-design/references/screen-states.md): the amount of data (first use, no results, all done, one, a few, many, overflow),
+long or missing content, time (first load, refresh, saving, offline, stale),
+failure, access, and completion. Mark each row designed, not applicable (why),
+or pending.
+
 Include internal and rarely seen views: error and not-found pages, empty states,
 loading and offline states, dialogs, sheets, toasts, onboarding, settings,
 permission prompts, print/export views, help screens, and minimized or
@@ -90,8 +96,9 @@ refactors or feature work into the redesign.
   Never fill layouts with invented items, numbers, people, or reviews; design an
   honest empty state instead.
 - Design every state listed in the inventory, including disabled, read-only,
-  loading, error, and long or missing content (wrapping, truncation, absent
-  images).
+  loading, error, zero, one, and many items, and long or missing content
+  (wrapping, truncation, absent images). Render each with a fixture or real
+  data.
 - Keep the accent for actions and current state; let content carry color.
 - Accessibility as you go: semantic roles, accessible names on icon-only
   controls, visible focus, keyboard and screen-reader operation, target sizes,
@@ -110,8 +117,8 @@ the change was authorized and is documented) or the redesign broke behavior
 ## 6. Verify on the real application
 
 - Build and run the full quality gate the repository defines.
-- Capture **after** evidence for every inventory row at every documented size
-  and compare with the before evidence. Look at each image yourself; a capture
+- Capture **after** evidence for every inventory row and every state in its
+  matrix at every documented size, and compare with the before evidence. Look at each image yourself; a capture
   that was never inspected is not evidence.
 - Review each screen against the design document's directives and checklist,
   the usability heuristics, and the hierarchy and craft gates in

@@ -60,6 +60,17 @@
         "Uses the web app's tokens and rules instead of the screenshot's palette.",
         "Limits the reference's role to what the existing system does not cover."
       ]
+    },
+    {
+      "id": 6,
+      "prompt": "Here is a Mobbin screenshot of a contacts list I love: twelve contacts with avatars, names and companies. Build our contacts screen to match it.",
+      "expected_output": "Extracts traits from the reference and records that it shows only the filled list. Fills the state matrix for the screen anyway and designs, from the same traits, first use with no contacts, no results for a search, exactly one contact, many contacts with paging, long names, missing avatar and company, loading, refresh, error with retry, and no permission. Renders each with fixtures, compares the filled state side by side with the reference, and reports any state still pending instead of calling the screen done.",
+      "files": [],
+      "assertions": [
+        "Does not limit the design to the states the reference shows.",
+        "Designs zero, one and many contacts and an error state.",
+        "Uses honest fixtures, not invented contacts presented as real data."
+      ]
     }
   ]
 }

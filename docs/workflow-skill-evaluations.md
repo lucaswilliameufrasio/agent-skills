@@ -256,3 +256,32 @@ debt scored on arbitrary scales instead of measured interest and effort; no
 tested rollback or flag owner. `dependency-risk-review` did not discriminate:
 the baseline already vets packages and actions well. The grader noted a few
 lenient and strict calls that could flip close criteria. Same limits as above.
+
+## User experience and screen states (2026-11-22)
+
+`user-experience-design` (four scenarios) and the new state-matrix scenario in
+`reference-driven-design`, same paired and blinded method: Sonnet executors,
+one grouped baseline executor, A/B relabelling, one blinded grader.
+
+| Scenario | With skill | Without skill |
+| --- | --- | --- |
+| Catch-all `/admin` page | 10/10 | 7/10 |
+| List from a reference with only the filled state | 11/11 | 5/11 |
+| Prefetch on hover with side-effect links | 10/10 | 5/10 |
+| Delete next to save, optimistic | 8/8 | 8/8 |
+| `reference-driven-design`: contacts list, filled reference only | 10/10 | 6/10 |
+| **Total criteria** | **49/49** | **31/49** |
+
+Baseline gaps: a single "empty" state with no difference between first use and
+no results, no permission or read-only states, no evidence or pending marking
+per state, seeded sample data presented as content; the catch-all page split
+without naming the jobs, filters not kept in the URL, and extra unrequested
+screens; prefetch without checking that navigation reuses the data, without a
+shared cache key or freshness time, and without measuring first. The baseline
+did keep side-effect links out of prefetching and already handled the
+destructive-delete scenario well, so that scenario does not discriminate.
+With-skill answers were longer (about 520–835 words against 395–480); the
+grader was told not to reward length, but the gap may still help. Borderline
+calls: measuring first and reporting the slow call in the prefetch scenario,
+and the delete button's placement. One sample per scenario; explicit loading,
+so trigger behaviour is not measured.

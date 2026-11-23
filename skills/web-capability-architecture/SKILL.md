@@ -100,7 +100,8 @@ request facades, and feature-to-feature data dependencies that hide ownership.
   server-side validation or authorization.
 - Implement a thin, testable vertical slice from entry through a truthful
   completion or recovery state. Include loading, empty, validation, denied,
-  unavailable, and retry/recovery states where applicable. Do not link a real
+  unavailable, and retry/recovery states where applicable, and the amount
+  cases (none, one, many) from the state matrix in `user-experience-design`. Do not link a real
   result to a still-mocked next step as if the journey were complete.
 - Migrate prototypes incrementally. Preserve existing behavior unless a change
   is approved, and make incomplete capabilities visibly unavailable rather than

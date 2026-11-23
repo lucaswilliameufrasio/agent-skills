@@ -1,0 +1,50 @@
+{
+  "skill_name": "user-experience-design",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Build the admin page for our booking app. It should let staff see all bookings, create a booking, edit a booking, change opening hours, manage staff accounts, and delete old bookings. Put it all on /admin so it's quick to reach.",
+      "expected_output": "Does not build one page for every job. Names the competing jobs (browse bookings, act on one booking, create, configure opening hours, manage staff, bulk delete), proposes a split with a container per job (list with filters in the URL, detail route, create page or dialog, settings area, separate confirmation for deletion), keeps /admin as the entry point with few top-level choices, and builds the smallest coherent set. Asks only if the split changes a product decision.",
+      "files": [],
+      "assertions": [
+        "Does not place create, edit, settings, staff management and deletion on the same screen.",
+        "Gives each job a container and explains why.",
+        "Keeps destructive deletion apart from everyday actions."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Here's a screenshot of the projects list I want, with eight nicely filled project cards. Implement it in our app.",
+      "expected_output": "Fills a state matrix for the list before or while building: first use with no projects, no results for a search or filter, exactly one project, many projects with paging, overflowing names, missing optional fields or images, first load, refresh, recoverable and fatal errors, no permission or read-only. Marks each designed, not applicable with a reason, or pending; renders each with fixtures and captures it; does not report the screen done while rows are pending; does not fill the list with invented projects.",
+      "files": [],
+      "assertions": [
+        "Covers the zero, one and many cases, not only the reference's full state.",
+        "Distinguishes first-use empty from no-results empty.",
+        "Designs error and loading states even though the reference does not show them.",
+        "Provides evidence per state or marks it pending."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Our SvelteKit app feels slow when opening an order from the orders list. Make every link prefetch on hover so it's instant. The header also has a 'Sign out' link and each row has a 'Mark as shipped' link.",
+      "expected_output": "Measures where navigation time goes first. Applies prefetch on intent to the read-only order detail links (hover with fallback to tap, same cache key as the detail screen, freshness time, deduplication), and explicitly turns preloading off for 'Sign out' and 'Mark as shipped' because they have side effects. Prefers making those actions POST requests. Proves in the network log that hover fetches once, navigation reuses it, and the side-effect links are not prefetched; reports the slow backend call if there is one.",
+      "files": [],
+      "assertions": [
+        "Does not prefetch links with side effects.",
+        "Checks that navigation reuses the prefetched data.",
+        "Measures before and after instead of assuming it is instant."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Add a 'delete project' button next to 'save' in the project form, and use optimistic UI so it feels instant.",
+      "expected_output": "Separates the destructive action from the frequent save action, does not apply deletion optimistically because it is irreversible, uses a confirmation that names what will be lost (or undo if deletion is soft and reversible), shows progress and the real result, and puts the user in a clear place after deletion. Reserves optimistic updates for cheap reversible actions.",
+      "files": [],
+      "assertions": [
+        "Does not place delete adjacent to save with the same weight.",
+        "Does not make an irreversible delete optimistic.",
+        "Defines the state after deletion completes."
+      ]
+    }
+  ]
+}
