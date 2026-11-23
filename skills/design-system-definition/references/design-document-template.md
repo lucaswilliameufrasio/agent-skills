@@ -40,6 +40,12 @@ selected, disabled, loading, empty, error, read-only), accessibility notes.
 
 ## 8. Screen patterns
 Layouts for the main screen types and where each component appears.
+For each pattern, a state matrix (see user-experience-design
+references/screen-states.md): first use, no results, all done, one, a few,
+many, overflow, long/missing content, first load, refresh, saving, offline,
+stale, recoverable/fatal/validation errors, partial success, no permission,
+read-only, session expired, completion. Each row: designed, not applicable
+(why), or pending.
 
 ## 9. Engagement patterns and ethics
 Supported loops with their limits; prohibited patterns.
@@ -58,7 +64,7 @@ What was observed, why it is banned, what to do instead.
 ## 13. Pre-delivery checklist
 - [ ] Tokens only; no raw values in components
 - [ ] Contrast measured for new text/surface pairs
-- [ ] Every state designed, including empty and error
+- [ ] Every screen's state matrix filled: empty (first use, no results, all done), one, many, overflow, loading, error, no permission, completion; no row pending
 - [ ] Keyboard/focus and accessible names
 - [ ] Reduced motion respected
 - [ ] Real content only; honest empty states

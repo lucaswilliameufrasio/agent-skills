@@ -105,6 +105,14 @@ adjectives. "Clean and modern" is not an observation; "body 14px/20px, 1px
   elevation steps.
 - **Components:** anatomy and states visible in the reference (buttons, inputs,
   rows, navigation, empty/loading/error if shown).
+- **States the reference does not show:** a reference almost always shows one
+  comfortable, filled state. Record which states it shows, then design the
+  rest anyway from the same traits: fill the
+  [state matrix](../user-experience-design/references/screen-states.md)
+  for every screen you build (first use, no results, one item, many items, overflow, long or missing content, loading,
+  error, no permission, completion). Ask for a reference for a state only when
+  the traits do not settle it; never leave it undesigned because the reference
+  lacked it.
 - **Iconography and imagery:** stroke vs. fill, size, weight; photo,
   illustration, or none.
 - **Signature moves:** the 2–4 specific choices that make it look like itself
@@ -143,7 +151,7 @@ exists, propose `docs/design-system.md`) using the
 
 - a reference board: each reference with link or file, role, and date;
 - tokens with values and the reference (or identity) each came from;
-- component rules and states;
+- component rules and states, and each screen's state matrix;
 - the signature and identity moves as MUST rules, and the observed defaults to
   avoid as MUST NOT rules;
 - how the system maps to the other surfaces it may reach (web app, back office,
@@ -201,6 +209,10 @@ selected label that was dark on a bright fill is now dark on a dark fill), and
 mechanical replacements miss cases. Rerun the project's visual or accessibility
 checks and compare their findings with the run before the change; a new finding
 is a regression to fix, not noise.
+
+Capture the states the reference does not show (empty, one item, many,
+error, loading) with fixtures too, and review them against the same traits.
+A screen that matches the reference only when full is not done.
 
 Screens outside every reference's role (for example a login page when the
 references only cover dashboards) receive the tokens only. Record them as

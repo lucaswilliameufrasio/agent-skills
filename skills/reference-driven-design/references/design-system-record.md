@@ -39,6 +39,10 @@ Implemented in: <path to CSS variables / theme config>
 - Anatomy:
 - Variants and sizes:
 - States: default, hover, focus, pressed, disabled, loading, error, empty
+
+### <Screen> state matrix
+- Shown by the reference: <states>
+- Designed from the traits: first use, no results, one, many, overflow, long/missing content, loading, refresh, error, no permission, completion (each: designed / not applicable (why) / pending)
 - From: <ref>
 
 ## Rules

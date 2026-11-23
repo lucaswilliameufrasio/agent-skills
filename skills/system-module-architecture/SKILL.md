@@ -53,6 +53,9 @@ For each important user or system journey, identify:
 - long-running, retry, cancellation, and recovery behavior where relevant;
 - completion evidence, audit needs, and the next useful action.
 
+For screen-level structure, every screen state, feedback, and perceived
+speed, follow `user-experience-design` once the journeys are mapped.
+
 Then choose the interface and route structure appropriate to the system. Split
 journeys when intent, risk, permission, frequency, lifecycle, or completion
 state differs. Related steps may share an interface when that makes the task

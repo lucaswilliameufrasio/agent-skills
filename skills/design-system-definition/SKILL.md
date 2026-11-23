@@ -136,6 +136,11 @@ Make the decisions in this order, each with a one-line rationale.
    loading, empty, error, offline, read-only). Include navigation, primary and
    secondary actions, cards/rows, inputs, dialogs/sheets, toasts, media/player
    controls if relevant, and status badges.
+   Screens need the same care: define each screen pattern with its
+   [state matrix](../user-experience-design/references/screen-states.md) (first use, no results, one item, many items,
+   overflow, long or missing content, loading, refresh, offline, errors, no
+   permission, completion). A pattern drawn only with comfortable sample data
+   is incomplete.
 10. **Engagement patterns.** The retention loop the product will support (for
     example a fresh edition, saving favorites, personal collections) with its
     ethical limits, and the patterns that are prohibited.
@@ -154,7 +159,8 @@ contain:
 - the concept, principles, and the audit findings it answers;
 - every token with its value, role, and computed contrast where relevant;
 - typography, space, shape, motion, icon, imagery, and voice rules;
-- component anatomy and states, and page/screen patterns;
+- component anatomy and states, and page/screen patterns with their state
+  matrices;
 - **directives**: numbered MUST / MUST NOT rules that a reviewer can check;
 - anti-patterns observed in the audit and why they are banned;
 - a pre-delivery checklist;
@@ -177,7 +183,8 @@ user data, and is not indexed.
 
 - Recompute contrast for every documented pair; fix or flag failures.
 - Apply the definition to one representative screen (prototype, mockup, or a
-  real implementation slice in a branch) and capture it at the relevant sizes.
+  real implementation slice in a branch) and capture it at the relevant sizes,
+  including its empty, single-item, many-item, loading, and error states.
   A definition never shown on a real screen is unproven.
 - Review that screen against each directive, the checklist, and the
   [hierarchy and craft gates](references/psychology-and-heuristics.md). Naming a
